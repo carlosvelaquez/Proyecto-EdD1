@@ -1,4 +1,4 @@
-# Proyecto de Estructuras de Datos 1
+# Proyecto de Estructuras de Datos I
 ## Por Carlos V. y Carlos V.
 
 ### Introducción
