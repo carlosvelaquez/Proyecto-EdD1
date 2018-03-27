@@ -126,7 +126,7 @@ bool Expression::isSimple(){
       return false;
   }
 
-  for (int i = 0; i < expString.length(); i++) {
+  for (int i = 0; i < int(expString.length()); i++) {
     char current = expString[i];
     if (!isdigit(current)) {
       return false;
@@ -147,7 +147,7 @@ bool Expression::isValid(){
     }
   }
 
-  for (int i = 0; i < expString.length(); i++) {
+  for (int i = 0; i < int(expString.length()); i++) {
     char current = expString[i];
     if (current != '*' && current != '/' && current != '+' && current != '-' && !isdigit(current)) {
       return false;
