@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "expresioneswindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -15,7 +16,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    ui->label_2->setText("Hola mundo");
     DesempenoWindow* w = new DesempenoWindow();
+    w->show();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ExpresionesWindow* w = new ExpresionesWindow();
     w->show();
 }

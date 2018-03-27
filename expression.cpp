@@ -1,22 +1,74 @@
 #include "expression.h"
 
+Expression::Expression(){
+  expString = "0";
+  operation = 3;
+  delimiter = '-';
+}
+
 Expression::Expression(string nString, int nOper){
   expString = nString;
   operation = nOper;
-  string temp = nString;
 
   switch (operation) {
-    case MULTIPLICATION:{
-      
+    case 0:{
+      delimiter = '*';
+      break;
+    }
+    case 1:{
+      delimiter = '/';
+      break;
+    }
+    case 2:{
+      delimiter = '+';
+      break;
+    }
+    case 3:{
+      delimiter = '-';
+      break;
     }
   }
 
-  List<string> split;
+  if (!isSimple() && isValid()) {
+    tokenize();
+  }
+}
 
-  while ((pos = temp.find(delimiter)) != string::npos) {
-    token = temp.substr(0, pos);
-    split.insert(temp.substr(0, pos));
-    s.erase(0, pos + delimiter.length());
+Expression::Expression(string nString){
+  expString = nString;
+  operation = -1;
+
+  if (expString.find('*') != string::npos) {
+    operation = 0;
+    delimiter = '*';
+  }
+
+  if (expString.find('/') != string::npos) {
+    operation = 1;
+    delimiter = '/';
+  }
+
+  if (expString.find('+') != string::npos) {
+    operation = 2;
+    delimiter = '+';
+  }
+
+  if (expString.find('-') != string::npos) {
+    operation = 3;
+    delimiter = '-';
+  }
+
+  if (!isSimple() && isValid()) {
+    tokenize();
+  }
+}
+
+void Expression::tokenize(){
+  stringstream ss(expString);
+  string token;
+
+  while (getline(ss, token, delimiter)) {
+    tokens.insert(token);
   }
 }
 
@@ -25,32 +77,82 @@ string Expression::getString(){
 }
 
 double Expression::operate(){
-  double result = 0;
-  result = tokens.get(i);
+  if (!isValid()) {
+    return -34404;
+  }
+
+  if (isSimple()) {
+    return stod(expString);
+  }
+
+  double result = tokens.get(1).operate();
 
   switch (operation) {
-    case MULTIPLICATION:{
-      for (size_t i = 1; i < tokens.size(); i++) {
-        result *= tokens.get(i);
+    case 0:{
+      for (int i = 2; i <= tokens.size; i++) {
+        result *= tokens.get(i).operate();
       }
+      break;
     }
-    case DIVISION:{
-      for (size_t i = 1; i < tokens.size(); i++) {
-        result /= tokens.get(i);
+    case 1:{
+      for (int i = 2; i <= tokens.size; i++) {
+        result /= tokens.get(i).operate();
       }
+      break;
     }
-    case ADDITION:{
-      for (size_t i = 1; i < tokens.size(); i++) {
-        result += tokens.get(i);
+    case 2:{
+      for (int i = 2; i <= tokens.size; i++) {
+        result += tokens.get(i).operate();
       }
+      break;
     }
-    case SUBTRACTION:{
-      result = tokens.get(i);
-      for (size_t i = 1; i < tokens.size(); i++) {
-        result -= tokens.get(i);
+    case 3:{
+      for (int i = 2; i <= tokens.size; i++) {
+        result -= tokens.get(i).operate();
       }
+      break;
     }
   }
 
   return result;
+}
+
+bool Expression::isSimple(){
+  if (!isValid()) {
+    return false;
+  }
+
+  if (expString.length() <= 0){
+      return false;
+  }
+
+  for (int i = 0; i < expString.length(); i++) {
+    char current = expString[i];
+    if (!isdigit(current)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+bool Expression::isValid(){
+  if (expString == "") {
+    return false;
+  }
+  
+  for (int i = 0; i < tokens.size; i++) {
+    if (!tokens.get(i).isValid()) {
+      return false;
+    }
+  }
+
+  for (int i = 0; i < expString.length(); i++) {
+    char current = expString[i];
+    if (current != '*' && current != '/' && current != '+' && current != '-' && !isdigit(current)) {
+      return false;
+    }
+  }
+
+  return true;
 }

@@ -3,6 +3,8 @@
 
 #include "node.h"
 #include <string>
+#include <QStandardItem>
+#include <QStandardItemModel>
 
 using namespace std;
 
@@ -15,6 +17,13 @@ protected:
 public:
   int size;
   int capacity;
+
+  List<T>(){
+    head = 0;
+    tail = 0;
+    size = 0;
+    capacity = std::numeric_limits<int>::max();
+  }
 
   List<T>(int nCap){
     head = 0;
@@ -45,7 +54,7 @@ public:
 
   T get(int index){
     Node<T>* currentNode = head;
-    for (int i = 0; i < index; i++) {
+    for (int i = 1; i < index; i++) {
       currentNode = currentNode->getNext();
     }
 

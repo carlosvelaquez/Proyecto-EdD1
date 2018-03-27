@@ -27,7 +27,9 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     empleado.cpp \
-    desempenowindow.cpp
+    desempenowindow.cpp \
+    expresioneswindow.cpp \
+    expression.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -37,8 +39,13 @@ HEADERS += \
     arbol.h \
     empleado.h \
     treenode.h \
-    desempenowindow.h
+    desempenowindow.h \
+    expresioneswindow.h \
+    list.h \
+    node.h \
+    expression.h
 
 FORMS += \
         mainwindow.ui \
-    desempenowindow.ui
+    desempenowindow.ui \
+    expresioneswindow.ui
