@@ -1,79 +1,81 @@
 #ifndef TREENODE_H
 #define TREENODE_H
 
-#include <string>
-
-using namespace std;
+#include "list.h"
 
 template <class T>
 class TreeNode{
 
 protected:
-    T data;
-    TreeNode<T>* parent;
-    TreeNode<T>* leftChild;
-    TreeNode<T>* rightChild;
+  TreeNode<T>* parent;
+  List<TreeNode<T>*>* children;
+  T data;
+  int level;
 
 public:
-    TreeNode<T>(T nData, TreeNode<T>* nParent){
-        data = nData;
-        parent = nParent;
-        leftChild = 0;
-        rightChild = 0;
+  TreeNode<T>(T nData){
+    parent = 0;
+    data = nData;
+    children = new List<TreeNode<T>*>();
+    level = 0;
+  }
+
+  TreeNode<T>(TreeNode<T>* nParent, T nData){
+    parent = nParent;
+    data = nData;
+    children = new List<TreeNode<T>*>();
+
+    if (parent != 0) {
+      level = parent->getLevel() + 1;
     }
+  }
 
-    T getData(){
-        return data;
-    }
+  TreeNode<T>* getParent(){
+    return parent;
+  }
 
-    TreeNode<T>* getParent(){
-        return parent;
-    }
+  void setParent(TreeNode<T>* nParent){
+    parent = nParent;
+  }
 
-    TreeNode<T>* getLeftChild(){
-        return leftChild;
-    }
+  T getData(){
+    return data;
+  }
 
-    TreeNode<T>* getRightChild(){
-        return rightChild;
-    }
+  List<TreeNode<T>*>* getChildren(){
+    return children;
+  }
 
-    void setData(T nData){
-        data = nData;
-    }
+  int getLevel(){
+    return level;
+  }
 
-    void setParent(TreeNode<T>* nParent){
-        parent = nParent;
-    }
-
-    void setLeftChild(TreeNode<T>* nLeftChild){
-        leftChild = nLeftChild;
-    }
-
-    void setRightChild(TreeNode<T>* nRightChild){
-        rightChild = nRightChild;
-    }
-
-    void setLeftChild(T nLeftChild){
-        leftChild = new TreeNode(nLeftChild);
-    }
-
-    void setRightChild(T nRightChild){
-        rightChild = new TreeNode(nRightChild);
-    }
-
-    bool hasChildren(){
-      if (leftChild != 0 || rightChild != 0) {
-        return true;
-      }
-
+  bool hasChildren(){
+    if (children.size == 0) {
       return false;
     }
 
-    operator string() const{
-      string itemString(data);
-      return itemString;
+    return true;
+  }
+
+  void addChild(TreeNode<T>* nChild){
+    nChild.setParent(this);
+    children.insert(nChild);
+  }
+
+  void addChild(T nChild){
+    children.insert(new TreeNode<T>(this, nChild));
+  }
+
+  ~TreeNode<T>(){
+    if (children != 0) {
+      for (int i = 0; i < children->size; i++) {
+        delete currentNode->getChildren()->get(i);
+      }
+
+      delete children;
     }
+  }
 };
 
-#endif // TREENODE_H
+#endif /* end of include guard: TREENODE_H */

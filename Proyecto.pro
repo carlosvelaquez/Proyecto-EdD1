@@ -43,7 +43,9 @@ HEADERS += \
     expresioneswindow.h \
     list.h \
     node.h \
-    expression.h
+    expression.h \
+    treenode.h \
+    tree.h
 
 FORMS += \
         mainwindow.ui \

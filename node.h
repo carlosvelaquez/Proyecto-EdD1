@@ -43,6 +43,7 @@ public:
     if (previous != 0) {
       delete previous;
     }
+    
     if (next != 0) {
       delete next;
     }

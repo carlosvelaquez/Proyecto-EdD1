@@ -27,4 +27,12 @@ public:
   operator string() const{
     return nombre;
   }
+
+  bool operator==(const Empleado& comp){
+    if (comp.getNombre() == this.getNombre()) {
+      return true;
+    }else{
+      return false;
+    }
+  }
 };

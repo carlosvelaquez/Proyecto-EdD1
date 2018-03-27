@@ -15,7 +15,8 @@ protected:
     TreeNode<T>* cNode; //Nodo actual
     int passType = 0;
 
-    List<TreeNode<T>*> leafList = 0;
+    List<TreeNode<T>*> leafList;
+    List<TreeNode<T>*> visitedNodes;
 
 public:
   const int PREVIO = 0;
@@ -128,6 +129,86 @@ public:
 
     List<TreeNode<T>*> getLeafList(){
       return leafList;
+    }
+
+    TreeNode<T>* currentNode(){
+      return cNode;
+    }
+
+    void setPassType(int nPass){
+      passType = nPass;
+      visitedNodes.clear();
+
+      switch (passType) {
+        case 0:{
+          cNode = root;
+          break;
+        }
+        case 1:{ //Falta orden simétrico
+          cNode = root;
+          break;
+        }
+        case 2:{
+          cNode = root;
+
+          while (cNode.getLeftChild() != 0) {
+            cNode = cNode.getLeftChild();
+          }
+          break;
+        }
+      }
+    }
+
+    TreeNode<T>* next(){
+      switch (passType) {
+        case 0:{
+          if (!visitedNodes.contains(root)) {
+            visitedNodes.insert(root);
+            return root;
+          }else if (cNode.getLeftChild() != 0 && !visitedNodes.contains(cNode.getLeftChild())) {
+            cNode = cNode.getLeftChild();
+            visitedNodes.insert(cNode);
+            return cNode;
+          }else if (cNode.getRightChild() != 0 && !visitedNodes.contains(cNode.getRightChild())){
+            cNode = cNode.getRightChild();
+            visitedNodes.insert(cNode);
+            return cNode;
+          }else{
+            bool nodeFound = false;
+            while (!nodeFound) {
+              cNode = cNode.getParent();
+
+              if (cNode != 0) {
+                if (cNode.getLeftChild() != 0 && !visitedNodes.contains(cNode.getLeftChild())) {
+                  cNode = cNode.getLeftChild();
+                  visitedNodes.insert(cNode);
+                  return cNode;
+                }else if (cNode.getRightChild() != 0 && !visitedNodes.contains(cNode.getRightChild())){
+                  cNode = cNode.getRightChild();
+                  visitedNodes.insert(cNode);
+                  return cNode;
+                }
+              }else{
+                nodeFound = true;
+              }
+            }
+            return 0;
+          }
+          break;
+        }
+        case 1:{ //Falta orden simétrico
+          cNode = root;
+          break;
+        }
+        case 2:{
+          cNode = root;
+
+          while (cNode.getLeftChild() != 0) {
+            cNode = cNode.getLeftChild();
+          }
+          break;
+        }
+      }
     }
 
     /*void insert(T data){

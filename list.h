@@ -84,7 +84,33 @@ public:
       return true;
 
     }
-  }/* condition */
+  }
+
+  bool remove(T rData){
+    Node<T>* currentNode = head;
+
+    while(currentNode != 0 && rData != currentNode->getData()) {
+      currentNode = currentNode->getNext();
+    }
+
+    if (currentNode == 0) {
+      return false;
+    }else if (rData != currentNode->getData()) {
+      return false;
+    }else{
+      Node<T>* prev = currentNode->getPrevious();
+      Node<T>* next = currentNode->getNext();
+      prev->setNext(next);
+      next->setPrevious(prev);
+
+      currentNode->setPrevious(0);
+      currentNode->setNext(0);
+
+      delete currentNode;
+      size --;
+      return true;
+    }
+  }
 
   void clear(){/* condition */
     if (head != 0) {
@@ -112,6 +138,22 @@ public:
     }
 
     return model;
+  }
+
+  bool contains(T target){
+    for (int i = 0; i < size; i++) {
+      if (target == get(i)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  ~List<T>{
+    if (head != 0) {
+      delete head;
+    }
   }
 };
 
