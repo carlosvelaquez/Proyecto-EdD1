@@ -25,6 +25,13 @@ public:
     name = "Tree";
   }
 
+  Tree<T>(string nName){
+    root = 0;
+    nodeList = new List<TreeNode<T>*>();
+    itemModel = 0;
+    name = nName;
+  }
+
   Tree<T>(T data){
     root = new TreeNode<T>(data);
     nodeList = new List<TreeNode<T>*>();
@@ -50,20 +57,25 @@ public:
   }
 
   void refresh(){
-    QStandardItem* item = new QStandardItem(name);
-    nodeList.clear();
-
-    traverse(root, item);
-
+    QStandardItem* item = new QStandardItem("Vista de Árbol");
+    nodeList->clear();
     itemModel = new QStandardItemModel();
-    itemModel.append_row(item);
+
+    if (root != 0) {
+      traverse(root, item);
+    }else{
+      item->appendRow(new QStandardItem("No hay elementos"));
+    }
+
+    itemModel->setHorizontalHeaderItem(0, new QStandardItem(name.c_str()));
+    itemModel->appendRow(item);
   }
 
   void traverse(TreeNode<T>* currentNode, QStandardItem* item){
     nodeList->insert(currentNode);
 
-    QStandardItem* nItem = new QStandardItem(string(currentNode->getData()));
-    item->append_row(nItem);
+    QStandardItem* nItem = new QStandardItem(string(currentNode->getData()).c_str());
+    item->appendRow(nItem);
 
     for (int i = 0; i < currentNode->getChildren()->size; i++) {
       traverse(currentNode->getChildren()->get(i), nItem);
@@ -111,6 +123,11 @@ public:
     name = nName;
   }
 
+  List<TreeNode<T>*>* getNodeList(){
+    refresh();
+    return nodeList;
+  }
+
   List<TreeNode<T>*>* getLeafList(){
     refresh();
 
@@ -126,6 +143,11 @@ public:
     }
 
     return nList;
+  }
+
+  QStandardItemModel* toItemModel(){
+    refresh();
+    return itemModel;
   }
 
   ~Tree<T>(){

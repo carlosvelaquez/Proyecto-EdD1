@@ -130,15 +130,15 @@ public:
     return false;
   }
 
-  QStandardItemModel* toItemModel(){
+  /*QStandardItemModel* toItemModel(){
     QStandardItemModel* model = new QStandardItemModel();
 
     for (int i = 0; i < size; i++) {
-      model->appendRow(new QStandardItem(string(*get(i)).c_str()));
+      model->appendRow(new QStandardItem(string(get(i)).c_str()));
     }
 
     return model;
-  }
+  }*/
 
   bool contains(T target){
     for (int i = 0; i < size; i++) {
@@ -150,7 +150,7 @@ public:
     return false;
   }
 
-  ~List<T>{
+  ~List<T>(){
     if (head != 0) {
       delete head;
     }

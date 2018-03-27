@@ -28,8 +28,8 @@ public:
     return nombre;
   }
 
-  bool operator==(const Empleado& comp){
-    if (comp.getNombre() == this.getNombre()) {
+  bool operator==(Empleado& comp){
+    if (comp.getNombre() == nombre) {
       return true;
     }else{
       return false;

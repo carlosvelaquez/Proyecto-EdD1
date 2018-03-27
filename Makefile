@@ -266,7 +266,9 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		expresioneswindow.h \
 		list.h \
 		node.h \
-		expression.h main.cpp \
+		expression.h \
+		treenode.h \
+		tree.h main.cpp \
 		mainwindow.cpp \
 		empleado.cpp \
 		desempenowindow.cpp \
@@ -683,7 +685,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui $(DISTDIR)/
 
@@ -721,7 +723,7 @@ compiler_moc_header_make_all: moc_mainwindow.cpp moc_desempenowindow.cpp moc_exp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp
 moc_mainwindow.cpp: desempenowindow.h \
-		arbol.h \
+		tree.h \
 		treenode.h \
 		list.h \
 		node.h \
@@ -731,7 +733,7 @@ moc_mainwindow.cpp: desempenowindow.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
-moc_desempenowindow.cpp: arbol.h \
+moc_desempenowindow.cpp: tree.h \
 		treenode.h \
 		list.h \
 		node.h \
@@ -780,7 +782,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 main.o: main.cpp mainwindow.h \
 		desempenowindow.h \
-		arbol.h \
+		tree.h \
 		treenode.h \
 		list.h \
 		node.h \
@@ -789,7 +791,7 @@ main.o: main.cpp mainwindow.h \
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		desempenowindow.h \
-		arbol.h \
+		tree.h \
 		treenode.h \
 		list.h \
 		node.h \
@@ -803,7 +805,7 @@ empleado.o: empleado.cpp empleado.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o empleado.o empleado.cpp
 
 desempenowindow.o: desempenowindow.cpp desempenowindow.h \
-		arbol.h \
+		tree.h \
 		treenode.h \
 		list.h \
 		node.h \

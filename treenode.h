@@ -70,7 +70,7 @@ public:
   ~TreeNode<T>(){
     if (children != 0) {
       for (int i = 0; i < children->size; i++) {
-        delete currentNode->getChildren()->get(i);
+        delete this->getChildren()->get(i);
       }
 
       delete children;

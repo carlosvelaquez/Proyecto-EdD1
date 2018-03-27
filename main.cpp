@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "empleado.h"
-#include "arbol.h"
+#include "tree.h"
 #include <QApplication>
 #include <iostream>
 

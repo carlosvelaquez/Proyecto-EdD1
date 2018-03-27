@@ -6,7 +6,8 @@ DesempenoWindow::DesempenoWindow(QWidget *parent) :
     ui(new Ui::DesempenoWindow)
 {
     ui->setupUi(this);
-    empleados = new Arbol<Empleado>();
+    empleados = new Tree<Empleado>("Empleados");
+    refresh();
 }
 
 DesempenoWindow::~DesempenoWindow()
@@ -16,13 +17,7 @@ DesempenoWindow::~DesempenoWindow()
 
 void DesempenoWindow::on_pushButton_5_clicked()
 {
-  QStandardItemModel* model = empleados->genModel();
-
-  if (model != 0) {
-    ui->treeView->setModel(model);
-  }
-
-  ui->jefeComboBox->setModel(empleados->getLeafList().toItemModel());
+  refresh();
 }
 
 void DesempenoWindow::on_pushButton_2_clicked()
@@ -30,10 +25,31 @@ void DesempenoWindow::on_pushButton_2_clicked()
     ui->nombreField->setText("");
     ui->puestoField->setText("");
 
-    ui->jefeComboBox->setModel(empleados->getLeafList().toItemModel());
+    refresh();
+}
+
+void DesempenoWindow::refresh(){
+  QStandardItemModel* model = empleados->toItemModel();
+
+  if (model != 0) {
+    ui->treeView->setModel(model);
+  }
+
+  List<TreeNode<Empleado>*>* empleadosList = empleados->getNodeList();
+  QStandardItemModel* cbModel = new QStandardItemModel();
+
+  if (empleadosList != 0) {
+    for (int i = 0; i < empleadosList->size; i++) {
+      cbModel->appendRow(new QStandardItem(string(empleadosList->get(i)->getData()).c_str()));
+    }
+  }else{
+    cbModel->appendRow(new QStandardItem("No tiene superior"));
+  }
+
+  ui->jefeComboBox->setModel(cbModel);
 }
 
 void DesempenoWindow::on_pushButton_clicked()
 {
-empleados->insert(Empleado(ui->nombreField->text().toUtf8().constData(), ui->puestoField->text().toUtf8().constData()));
+//empleados->insert(Empleado(ui->nombreField->text().toUtf8().constData(), ui->puestoField->text().toUtf8().constData()));
 }

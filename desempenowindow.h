@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QStandardItemModel>
 #include <QStandardItem>
-#include "arbol.h"
+#include "tree.h"
 #include "empleado.h"
 #include "list.h"
 
@@ -18,6 +18,7 @@ class DesempenoWindow : public QWidget
 
 public:
     explicit DesempenoWindow(QWidget *parent = 0);
+    void refresh();
     ~DesempenoWindow();
 
 private slots:
@@ -29,7 +30,7 @@ private slots:
 
 private:
     Ui::DesempenoWindow *ui;
-    Arbol<Empleado>* empleados;
+    Tree<Empleado>* empleados;
 };
 
 #endif // DESEMPENOWINDOW_H
