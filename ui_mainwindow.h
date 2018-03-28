@@ -16,10 +16,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,8 +28,6 @@ public:
     QAction *actionAcerca_de;
     QWidget *centralWidget;
     QPushButton *pushButton;
-    QLabel *label;
-    QLabel *label_2;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
@@ -40,77 +35,100 @@ public:
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
-    QMenuBar *menuBar;
-    QMenu *menuMenpu;
-    QStatusBar *statusBar;
+    QLabel *label;
+    QLabel *label_2;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(540, 284);
+        MainWindow->resize(616, 396);
+        MainWindow->setStyleSheet(QLatin1String("QWidget{\n"
+"	background-color: white;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	font: 11pt \"Lato\";\n"
+"	color: white;\n"
+"	background-color: black;\n"
+"	text-align: center;\n"
+"	padding: 10px;\n"
+"	border-color: rgb(40, 67, 176);\n"
+"	border-radius: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(33, 56, 148);\n"
+"}"));
         actionCerrar = new QAction(MainWindow);
         actionCerrar->setObjectName(QStringLiteral("actionCerrar"));
         actionAcerca_de = new QAction(MainWindow);
         actionAcerca_de->setObjectName(QStringLiteral("actionAcerca_de"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setStyleSheet(QStringLiteral(""));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 80, 251, 31));
+        pushButton->setGeometry(QRect(20, 110, 271, 51));
+        pushButton->setStyleSheet(QStringLiteral(""));
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(320, 110, 271, 51));
+        pushButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: #4CAF50;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color: rgb(64, 148, 67);\n"
+"}"));
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(20, 180, 271, 51));
+        pushButton_3->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: #e53935;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color: rgb(198, 53, 43);\n"
+"}"));
+        pushButton_4 = new QPushButton(centralWidget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setGeometry(QRect(320, 180, 271, 51));
+        pushButton_5 = new QPushButton(centralWidget);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        pushButton_5->setGeometry(QRect(320, 320, 271, 51));
+        pushButton_6 = new QPushButton(centralWidget);
+        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+        pushButton_6->setGeometry(QRect(320, 250, 271, 51));
+        pushButton_7 = new QPushButton(centralWidget);
+        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
+        pushButton_7->setGeometry(QRect(20, 250, 271, 51));
+        pushButton_8 = new QPushButton(centralWidget);
+        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
+        pushButton_8->setGeometry(QRect(20, 320, 271, 51));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 381, 31));
+        label->setGeometry(QRect(20, 10, 571, 41));
         QFont font;
         font.setFamily(QStringLiteral("Montserrat"));
-        font.setPointSize(16);
+        font.setPointSize(24);
         font.setBold(true);
         font.setWeight(75);
         label->setFont(font);
+        label->setStyleSheet(QStringLiteral("color: #212121;"));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 40, 111, 21));
+        label_2->setGeometry(QRect(240, 60, 131, 21));
         QFont font1;
         font1.setFamily(QStringLiteral("Open Sans"));
-        font1.setPointSize(12);
+        font1.setPointSize(16);
         font1.setBold(false);
         font1.setWeight(50);
         label_2->setFont(font1);
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(10, 120, 251, 31));
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(10, 160, 251, 31));
-        pushButton_4 = new QPushButton(centralWidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(10, 200, 251, 31));
-        pushButton_5 = new QPushButton(centralWidget);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(280, 80, 251, 31));
-        pushButton_6 = new QPushButton(centralWidget);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        pushButton_6->setGeometry(QRect(280, 120, 251, 31));
-        pushButton_7 = new QPushButton(centralWidget);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        pushButton_7->setGeometry(QRect(280, 160, 251, 31));
-        pushButton_8 = new QPushButton(centralWidget);
-        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        pushButton_8->setGeometry(QRect(280, 200, 251, 31));
+        label_2->setStyleSheet(QLatin1String("color: #757575;\n"
+"text-align: center;"));
         MainWindow->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 540, 20));
-        menuMenpu = new QMenu(menuBar);
-        menuMenpu->setObjectName(QStringLiteral("menuMenpu"));
-        MainWindow->setMenuBar(menuBar);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        MainWindow->setStatusBar(statusBar);
-
-        menuBar->addAction(menuMenpu->menuAction());
-        menuMenpu->addAction(actionCerrar);
-        menuMenpu->addAction(actionAcerca_de);
 
         retranslateUi(MainWindow);
 
@@ -126,16 +144,15 @@ public:
 #endif // QT_NO_SHORTCUT
         actionAcerca_de->setText(QApplication::translate("MainWindow", "Acerca de...", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "Laberinto con Backtracking", nullptr));
-        label->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos I", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "By Carlos V.\302\262", nullptr));
         pushButton_2->setText(QApplication::translate("MainWindow", "Evaluaci\303\263n por Desempe\303\261o", nullptr));
-        pushButton_3->setText(QApplication::translate("MainWindow", "Resoluci\303\263n de Expresiones Matem\303\241ticas", nullptr));
+        pushButton_3->setText(QApplication::translate("MainWindow", "Res. de Expresiones Matem\303\241ticas", nullptr));
         pushButton_4->setText(QApplication::translate("MainWindow", "Compresi\303\263n de Archivos de Texto", nullptr));
         pushButton_5->setText(QApplication::translate("MainWindow", "Determinar Grafos Bi-coloreables", nullptr));
         pushButton_6->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Floyd", nullptr));
         pushButton_7->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Dijkstra", nullptr));
         pushButton_8->setText(QApplication::translate("MainWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", nullptr));
-        menuMenpu->setTitle(QApplication::translate("MainWindow", "Archivo", nullptr));
+        label->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos I", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "By Carlos V.\302\262", nullptr));
     } // retranslateUi
 
 };

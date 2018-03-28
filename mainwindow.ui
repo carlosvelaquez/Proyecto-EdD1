@@ -6,77 +6,71 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
-    <height>284</height>
+    <width>616</width>
+    <height>396</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Proyecto de EDD1</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	background-color: white;
+	border: none;
+}
+
+QPushButton{
+	font: 11pt &quot;Lato&quot;;
+	color: white;
+	background-color: black;
+	text-align: center;
+	padding: 10px;
+	border-color: rgb(40, 67, 176);
+	border-radius: 5px;
+}
+
+QPushButton:hover{
+	background-color: rgb(33, 56, 148);
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>251</width>
-      <height>31</height>
+      <x>20</x>
+      <y>110</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+</string>
     </property>
     <property name="text">
      <string>Laberinto con Backtracking</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>381</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>16</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Proyecto de Estructuras de Datos I</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Open Sans</family>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>By Carlos V.²</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>120</y>
-      <width>251</width>
-      <height>31</height>
+      <x>320</x>
+      <y>110</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: #4CAF50;
+}
+
+QPushButton:hover {
+background-color: rgb(64, 148, 67);
+}</string>
     </property>
     <property name="text">
      <string>Evaluación por Desempeño</string>
@@ -85,23 +79,32 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>160</y>
-      <width>251</width>
-      <height>31</height>
+      <x>20</x>
+      <y>180</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: #e53935;
+}
+
+QPushButton:hover {
+background-color: rgb(198, 53, 43);
+}</string>
+    </property>
     <property name="text">
-     <string>Resolución de Expresiones Matemáticas</string>
+     <string>Res. de Expresiones Matemáticas</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>200</y>
-      <width>251</width>
-      <height>31</height>
+      <x>320</x>
+      <y>180</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -111,10 +114,10 @@
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>80</y>
-      <width>251</width>
-      <height>31</height>
+      <x>320</x>
+      <y>320</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -124,10 +127,10 @@
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>120</y>
-      <width>251</width>
-      <height>31</height>
+      <x>320</x>
+      <y>250</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -137,10 +140,10 @@
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>160</y>
-      <width>251</width>
-      <height>31</height>
+      <x>20</x>
+      <y>250</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -150,36 +153,66 @@
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>200</y>
-      <width>251</width>
-      <height>31</height>
+      <x>20</x>
+      <y>320</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>Árboles de Expansión Mínima</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>540</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuMenpu">
-    <property name="title">
-     <string>Archivo</string>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>571</width>
+      <height>41</height>
+     </rect>
     </property>
-    <addaction name="actionCerrar"/>
-    <addaction name="actionAcerca_de"/>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #212121;</string>
+    </property>
+    <property name="text">
+     <string>Proyecto de Estructuras de Datos I</string>
+    </property>
    </widget>
-   <addaction name="menuMenpu"/>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>60</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #757575;
+text-align: center;</string>
+    </property>
+    <property name="text">
+     <string>By Carlos V.²</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionCerrar">
    <property name="text">
     <string>Cerrar</string>

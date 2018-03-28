@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -25,41 +26,98 @@ QT_BEGIN_NAMESPACE
 class Ui_ExpresionesWindow
 {
 public:
-    QLabel *label;
-    QPushButton *botonLimpiar;
-    QPushButton *botonResolver;
     QTextEdit *textEditHist;
+    QFrame *frame;
     QLineEdit *lineEditExp;
+    QPushButton *botonResolver;
+    QPushButton *botonLimpiar;
+    QFrame *frame_2;
+    QLabel *label;
 
     void setupUi(QWidget *ExpresionesWindow)
     {
         if (ExpresionesWindow->objectName().isEmpty())
             ExpresionesWindow->setObjectName(QStringLiteral("ExpresionesWindow"));
-        ExpresionesWindow->resize(514, 321);
-        label = new QLabel(ExpresionesWindow);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 501, 31));
-        QFont font;
-        font.setFamily(QStringLiteral("Montserrat"));
-        font.setPointSize(18);
-        font.setBold(true);
-        font.setWeight(75);
-        label->setFont(font);
-        botonLimpiar = new QPushButton(ExpresionesWindow);
-        botonLimpiar->setObjectName(QStringLiteral("botonLimpiar"));
-        botonLimpiar->setGeometry(QRect(10, 290, 101, 23));
-        botonResolver = new QPushButton(ExpresionesWindow);
-        botonResolver->setObjectName(QStringLiteral("botonResolver"));
-        botonResolver->setGeometry(QRect(420, 290, 80, 23));
+        ExpresionesWindow->resize(651, 410);
+        ExpresionesWindow->setStyleSheet(QLatin1String("QWidget{\n"
+"background-color: white;\n"
+"}"));
         textEditHist = new QTextEdit(ExpresionesWindow);
         textEditHist->setObjectName(QStringLiteral("textEditHist"));
         textEditHist->setEnabled(true);
-        textEditHist->setGeometry(QRect(10, 50, 491, 201));
+        textEditHist->setGeometry(QRect(10, 80, 621, 231));
         textEditHist->setFocusPolicy(Qt::NoFocus);
         textEditHist->setReadOnly(true);
-        lineEditExp = new QLineEdit(ExpresionesWindow);
+        frame = new QFrame(ExpresionesWindow);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setGeometry(QRect(0, 330, 651, 81));
+        frame->setStyleSheet(QLatin1String("QFrame{\n"
+"background-color: #e53935;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: rgb(204, 55, 44);\n"
+"color: white;\n"
+"border: none;\n"
+"font: 11pt \"Lato\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(181, 48, 38);\n"
+"}"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        lineEditExp = new QLineEdit(frame);
         lineEditExp->setObjectName(QStringLiteral("lineEditExp"));
-        lineEditExp->setGeometry(QRect(10, 260, 491, 23));
+        lineEditExp->setGeometry(QRect(20, 20, 491, 41));
+        QFont font;
+        font.setFamily(QStringLiteral("Consolas"));
+        font.setPointSize(11);
+        font.setBold(true);
+        font.setWeight(75);
+        lineEditExp->setFont(font);
+        botonResolver = new QPushButton(frame);
+        botonResolver->setObjectName(QStringLiteral("botonResolver"));
+        botonResolver->setGeometry(QRect(530, 0, 121, 51));
+        botonLimpiar = new QPushButton(frame);
+        botonLimpiar->setObjectName(QStringLiteral("botonLimpiar"));
+        botonLimpiar->setGeometry(QRect(530, 50, 121, 31));
+        frame_2 = new QFrame(ExpresionesWindow);
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setGeometry(QRect(0, 0, 651, 61));
+        frame_2->setStyleSheet(QLatin1String("QFrame{\n"
+"background-color: #e53935;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: rgb(204, 55, 44);\n"
+"color: white;\n"
+"border: none;\n"
+"font: 11pt \"Lato\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(181, 48, 38);\n"
+"}"));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        label = new QLabel(frame_2);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 10, 501, 31));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Montserrat"));
+        font1.setPointSize(18);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label->setFont(font1);
 
         retranslateUi(ExpresionesWindow);
 
@@ -69,9 +127,6 @@ public:
     void retranslateUi(QWidget *ExpresionesWindow)
     {
         ExpresionesWindow->setWindowTitle(QApplication::translate("ExpresionesWindow", "Resoluci\303\263n de Expresiones Matem\303\241ticas | Proyecto EdD I", nullptr));
-        label->setText(QApplication::translate("ExpresionesWindow", "Mafway Problem Solver", nullptr));
-        botonLimpiar->setText(QApplication::translate("ExpresionesWindow", "Limpiar Todo", nullptr));
-        botonResolver->setText(QApplication::translate("ExpresionesWindow", "Resolver", nullptr));
         textEditHist->setHtml(QApplication::translate("ExpresionesWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -89,7 +144,11 @@ public:
                         "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">242+543-324/44+23</p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">Se sigue el orden est\303\241ndar de operaciones</span></p></body></html>", nullptr));
         textEditHist->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Historial de Operaciones", nullptr));
+        lineEditExp->setText(QString());
         lineEditExp->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Ingrese una Expresi\303\263n Matem\303\241tica para Resolver", nullptr));
+        botonResolver->setText(QApplication::translate("ExpresionesWindow", "Resolver", nullptr));
+        botonLimpiar->setText(QApplication::translate("ExpresionesWindow", "Limpiar Todo", nullptr));
+        label->setText(QApplication::translate("ExpresionesWindow", "Mafway Problem Solver", nullptr));
     } // retranslateUi
 
 };

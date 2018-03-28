@@ -28,113 +28,180 @@ QT_BEGIN_NAMESPACE
 class Ui_DesempenoWindow
 {
 public:
-    QLabel *label;
     QFrame *frame;
-    QLineEdit *nombreField;
-    QLineEdit *puestoField;
-    QPushButton *botonCrear;
-    QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
-    QPushButton *botonBorrar;
-    QComboBox *jefeComboBox;
+    QComboBox *calComboBox;
+    QPushButton *botonEnviar;
+    QDoubleSpinBox *calSpinner;
+    QPushButton *botonReporte;
+    QLabel *label_7;
     QLabel *label_5;
+    QLabel *label_8;
     QTreeView *treeView;
     QFrame *frame_2;
     QLabel *label_6;
-    QComboBox *calComboBox;
-    QDoubleSpinBox *calSpinner;
-    QPushButton *botonEnviar;
-    QPushButton *botonReporte;
-    QFrame *line;
+    QPushButton *botonBorrar;
+    QPushButton *botonCrear;
+    QLineEdit *nombreField;
+    QLineEdit *puestoField;
+    QComboBox *jefeComboBox;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
+    QFrame *frame_3;
+    QLabel *label;
     QPushButton *botonRefrescar;
 
     void setupUi(QWidget *DesempenoWindow)
     {
         if (DesempenoWindow->objectName().isEmpty())
             DesempenoWindow->setObjectName(QStringLiteral("DesempenoWindow"));
-        DesempenoWindow->resize(574, 390);
-        label = new QLabel(DesempenoWindow);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 371, 31));
-        QFont font;
-        font.setFamily(QStringLiteral("Montserrat"));
-        font.setPointSize(20);
-        font.setBold(true);
-        font.setWeight(75);
-        label->setFont(font);
+        DesempenoWindow->resize(750, 441);
+        DesempenoWindow->setStyleSheet(QLatin1String("QWidget{\n"
+"	background-color:white;\n"
+"}\n"
+""));
         frame = new QFrame(DesempenoWindow);
         frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(10, 260, 551, 111));
+        frame->setGeometry(QRect(0, 350, 751, 91));
+        frame->setStyleSheet(QLatin1String("QFrame{\n"
+"background-color: #4CAF50;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: rgb(72, 166, 75);\n"
+"color: white;\n"
+"border: none;\n"
+"font: 11pt \"Lato\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(61, 141, 62);\n"
+"}"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Plain);
-        nombreField = new QLineEdit(frame);
-        nombreField->setObjectName(QStringLiteral("nombreField"));
-        nombreField->setGeometry(QRect(10, 70, 111, 23));
-        puestoField = new QLineEdit(frame);
-        puestoField->setObjectName(QStringLiteral("puestoField"));
-        puestoField->setGeometry(QRect(140, 70, 121, 23));
-        botonCrear = new QPushButton(frame);
-        botonCrear->setObjectName(QStringLiteral("botonCrear"));
-        botonCrear->setGeometry(QRect(420, 50, 111, 41));
-        label_2 = new QLabel(frame);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 10, 181, 31));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Montserrat"));
-        font1.setPointSize(14);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label_2->setFont(font1);
-        label_3 = new QLabel(frame);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(10, 50, 59, 15));
-        label_4 = new QLabel(frame);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(140, 50, 59, 15));
-        botonBorrar = new QPushButton(frame);
-        botonBorrar->setObjectName(QStringLiteral("botonBorrar"));
-        botonBorrar->setGeometry(QRect(420, 20, 111, 21));
-        jefeComboBox = new QComboBox(frame);
-        jefeComboBox->setObjectName(QStringLiteral("jefeComboBox"));
-        jefeComboBox->setGeometry(QRect(280, 70, 121, 23));
+        calComboBox = new QComboBox(frame);
+        calComboBox->setObjectName(QStringLiteral("calComboBox"));
+        calComboBox->setGeometry(QRect(90, 50, 221, 23));
+        calComboBox->setStyleSheet(QLatin1String("background-color:white;\n"
+"color:black;"));
+        botonEnviar = new QPushButton(frame);
+        botonEnviar->setObjectName(QStringLiteral("botonEnviar"));
+        botonEnviar->setGeometry(QRect(560, 0, 191, 61));
+        calSpinner = new QDoubleSpinBox(frame);
+        calSpinner->setObjectName(QStringLiteral("calSpinner"));
+        calSpinner->setGeometry(QRect(450, 50, 81, 24));
+        calSpinner->setMaximum(100);
+        botonReporte = new QPushButton(frame);
+        botonReporte->setObjectName(QStringLiteral("botonReporte"));
+        botonReporte->setGeometry(QRect(560, 60, 191, 31));
+        label_7 = new QLabel(frame);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(20, 10, 211, 21));
+        QFont font;
+        font.setFamily(QStringLiteral("Montserrat"));
+        font.setPointSize(14);
+        font.setBold(true);
+        font.setWeight(75);
+        label_7->setFont(font);
         label_5 = new QLabel(frame);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(280, 50, 81, 16));
+        label_5->setGeometry(QRect(20, 50, 71, 21));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Lato"));
+        font1.setPointSize(10);
+        font1.setBold(false);
+        font1.setWeight(50);
+        label_5->setFont(font1);
+        label_8 = new QLabel(frame);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setGeometry(QRect(370, 50, 71, 21));
+        QFont font2;
+        font2.setFamily(QStringLiteral("Lato"));
+        font2.setPointSize(10);
+        label_8->setFont(font2);
         treeView = new QTreeView(DesempenoWindow);
         treeView->setObjectName(QStringLiteral("treeView"));
-        treeView->setGeometry(QRect(15, 51, 321, 191));
+        treeView->setGeometry(QRect(10, 80, 441, 251));
         treeView->setAnimated(true);
         frame_2 = new QFrame(DesempenoWindow);
         frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(349, 49, 211, 191));
+        frame_2->setGeometry(QRect(460, 80, 281, 251));
+        frame_2->setStyleSheet(QStringLiteral(""));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         label_6 = new QLabel(frame_2);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(10, 10, 201, 31));
-        label_6->setFont(font1);
-        calComboBox = new QComboBox(frame_2);
-        calComboBox->setObjectName(QStringLiteral("calComboBox"));
-        calComboBox->setGeometry(QRect(10, 50, 121, 23));
-        calSpinner = new QDoubleSpinBox(frame_2);
-        calSpinner->setObjectName(QStringLiteral("calSpinner"));
-        calSpinner->setGeometry(QRect(150, 50, 51, 24));
-        calSpinner->setMaximum(100);
-        botonEnviar = new QPushButton(frame_2);
-        botonEnviar->setObjectName(QStringLiteral("botonEnviar"));
-        botonEnviar->setGeometry(QRect(10, 90, 191, 31));
-        botonReporte = new QPushButton(frame_2);
-        botonReporte->setObjectName(QStringLiteral("botonReporte"));
-        botonReporte->setGeometry(QRect(10, 152, 191, 31));
-        line = new QFrame(frame_2);
-        line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(10, 130, 191, 20));
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
-        botonRefrescar = new QPushButton(DesempenoWindow);
+        label_6->setGeometry(QRect(50, 10, 181, 21));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Montserrat"));
+        font3.setPointSize(14);
+        font3.setBold(true);
+        font3.setItalic(false);
+        font3.setWeight(75);
+        label_6->setFont(font3);
+        botonBorrar = new QPushButton(frame_2);
+        botonBorrar->setObjectName(QStringLiteral("botonBorrar"));
+        botonBorrar->setGeometry(QRect(0, 210, 121, 41));
+        botonCrear = new QPushButton(frame_2);
+        botonCrear->setObjectName(QStringLiteral("botonCrear"));
+        botonCrear->setGeometry(QRect(120, 210, 161, 41));
+        nombreField = new QLineEdit(frame_2);
+        nombreField->setObjectName(QStringLiteral("nombreField"));
+        nombreField->setGeometry(QRect(20, 70, 241, 23));
+        puestoField = new QLineEdit(frame_2);
+        puestoField->setObjectName(QStringLiteral("puestoField"));
+        puestoField->setGeometry(QRect(20, 130, 241, 23));
+        jefeComboBox = new QComboBox(frame_2);
+        jefeComboBox->setObjectName(QStringLiteral("jefeComboBox"));
+        jefeComboBox->setGeometry(QRect(100, 170, 161, 23));
+        label_2 = new QLabel(frame_2);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(20, 50, 141, 16));
+        label_3 = new QLabel(frame_2);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(20, 110, 141, 16));
+        label_4 = new QLabel(frame_2);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(20, 170, 71, 21));
+        frame_3 = new QFrame(DesempenoWindow);
+        frame_3->setObjectName(QStringLiteral("frame_3"));
+        frame_3->setGeometry(QRect(-10, -10, 761, 71));
+        frame_3->setStyleSheet(QLatin1String("QFrame{\n"
+"background-color: #4CAF50;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: rgb(72, 166, 75);\n"
+"color: white;\n"
+"border: none;\n"
+"font: 11pt \"Lato\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(61, 141, 62);\n"
+"}"));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        label = new QLabel(frame_3);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(20, 20, 381, 31));
+        QFont font4;
+        font4.setFamily(QStringLiteral("Montserrat"));
+        font4.setPointSize(20);
+        font4.setBold(true);
+        font4.setWeight(75);
+        label->setFont(font4);
+        botonRefrescar = new QPushButton(frame_3);
         botonRefrescar->setObjectName(QStringLiteral("botonRefrescar"));
-        botonRefrescar->setGeometry(QRect(459, 10, 101, 23));
+        botonRefrescar->setGeometry(QRect(640, 10, 121, 61));
 
         retranslateUi(DesempenoWindow);
 
@@ -143,17 +210,19 @@ public:
 
     void retranslateUi(QWidget *DesempenoWindow)
     {
-        DesempenoWindow->setWindowTitle(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n de Desempe\303\261o", nullptr));
-        label->setText(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n de Desempe\303\261o", nullptr));
-        botonCrear->setText(QApplication::translate("DesempenoWindow", "Crear Empleado", nullptr));
-        label_2->setText(QApplication::translate("DesempenoWindow", "A\303\261adir Empleado", nullptr));
-        label_3->setText(QApplication::translate("DesempenoWindow", "Nombre", nullptr));
-        label_4->setText(QApplication::translate("DesempenoWindow", "Puesto", nullptr));
-        botonBorrar->setText(QApplication::translate("DesempenoWindow", "Borrar Campos", nullptr));
-        label_5->setText(QApplication::translate("DesempenoWindow", "Jefe", nullptr));
-        label_6->setText(QApplication::translate("DesempenoWindow", "Calificar Empleados", nullptr));
+        DesempenoWindow->setWindowTitle(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n por Desempe\303\261o", nullptr));
         botonEnviar->setText(QApplication::translate("DesempenoWindow", "Enviar Calificaci\303\263n", nullptr));
         botonReporte->setText(QApplication::translate("DesempenoWindow", "Generar Reporte", nullptr));
+        label_7->setText(QApplication::translate("DesempenoWindow", "Calificar Empleados", nullptr));
+        label_5->setText(QApplication::translate("DesempenoWindow", "Empleado", nullptr));
+        label_8->setText(QApplication::translate("DesempenoWindow", "Calificaci\303\263n", nullptr));
+        label_6->setText(QApplication::translate("DesempenoWindow", "A\303\261adir Empleados", nullptr));
+        botonBorrar->setText(QApplication::translate("DesempenoWindow", "Borrar Campos", nullptr));
+        botonCrear->setText(QApplication::translate("DesempenoWindow", "Crear Empleado", nullptr));
+        label_2->setText(QApplication::translate("DesempenoWindow", "Nombre del Empleado", nullptr));
+        label_3->setText(QApplication::translate("DesempenoWindow", "Puesto del Empleado", nullptr));
+        label_4->setText(QApplication::translate("DesempenoWindow", "Supervisor", nullptr));
+        label->setText(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n por Desempe\303\261o", nullptr));
         botonRefrescar->setText(QApplication::translate("DesempenoWindow", "Limpiar \303\201rbol", nullptr));
     } // retranslateUi
 

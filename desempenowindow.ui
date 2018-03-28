@@ -6,42 +6,47 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>574</width>
-    <height>390</height>
+    <width>750</width>
+    <height>441</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Evaluación de Desempeño</string>
+   <string>Evaluación por Desempeño</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>371</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat</family>
-     <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Evaluación de Desempeño</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	background-color:white;
+}
+</string>
+  </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>260</y>
-     <width>551</width>
-     <height>111</height>
+     <x>0</x>
+     <y>350</y>
+     <width>751</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame{
+background-color: #4CAF50;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color: rgb(72, 166, 75);
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(61, 141, 62);
+}</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -49,158 +54,66 @@
    <property name="frameShadow">
     <enum>QFrame::Plain</enum>
    </property>
-   <widget class="QLineEdit" name="nombreField">
+   <widget class="QComboBox" name="calComboBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>111</width>
+      <x>90</x>
+      <y>50</y>
+      <width>221</width>
       <height>23</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QLineEdit" name="puestoField">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>70</y>
-      <width>121</width>
-      <height>23</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+color:black;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="botonCrear">
+   <widget class="QPushButton" name="botonEnviar">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>50</y>
-      <width>111</width>
-      <height>41</height>
+      <x>560</x>
+      <y>0</y>
+      <width>191</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>Crear Empleado</string>
+     <string>Enviar Calificación</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QDoubleSpinBox" name="calSpinner">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>181</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>14</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Añadir Empleado</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>59</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nombre</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>50</y>
-      <width>59</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Puesto</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="botonBorrar">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>20</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Borrar Campos</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="jefeComboBox">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>70</y>
-      <width>121</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
+      <x>450</x>
       <y>50</y>
       <width>81</width>
-      <height>16</height>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <double>100.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonReporte">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>60</y>
+      <width>191</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Jefe</string>
+     <string>Generar Reporte</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QTreeView" name="treeView">
-   <property name="geometry">
-    <rect>
-     <x>15</x>
-     <y>51</y>
-     <width>321</width>
-     <height>191</height>
-    </rect>
-   </property>
-   <property name="animated">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>349</x>
-     <y>49</y>
-     <width>211</width>
-     <height>191</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>10</y>
-      <width>201</width>
-      <height>31</height>
+      <width>211</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -215,81 +128,265 @@
      <string>Calificar Empleados</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="calComboBox">
+   <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>50</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Lato</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Empleado</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>50</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Lato</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calificación</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QTreeView" name="treeView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>441</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="animated">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>80</y>
+     <width>281</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>10</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Añadir Empleados</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonBorrar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>210</y>
       <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Borrar Campos</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonCrear">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>210</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Crear Empleado</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="nombreField">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>241</width>
       <height>23</height>
      </rect>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="calSpinner">
+   <widget class="QLineEdit" name="puestoField">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>50</y>
-      <width>51</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <double>100.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="botonEnviar">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>191</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Enviar Calificación</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="botonReporte">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>152</y>
-      <width>191</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Generar Reporte</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
+      <x>20</x>
       <y>130</y>
-      <width>191</width>
-      <height>20</height>
+      <width>241</width>
+      <height>23</height>
      </rect>
     </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+   </widget>
+   <widget class="QComboBox" name="jefeComboBox">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>170</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nombre del Empleado</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Puesto del Empleado</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Supervisor</string>
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="botonRefrescar">
+  <widget class="QFrame" name="frame_3">
    <property name="geometry">
     <rect>
-     <x>459</x>
-     <y>10</y>
-     <width>101</width>
-     <height>23</height>
+     <x>-10</x>
+     <y>-10</y>
+     <width>761</width>
+     <height>71</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Limpiar Árbol</string>
+   <property name="styleSheet">
+    <string notr="true">QFrame{
+background-color: #4CAF50;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color: rgb(72, 166, 75);
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(61, 141, 62);
+}</string>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>381</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Evaluación por Desempeño</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonRefrescar">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>10</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Limpiar Árbol</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

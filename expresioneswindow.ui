@@ -6,60 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>514</width>
-    <height>321</height>
+    <width>651</width>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Resolución de Expresiones Matemáticas | Proyecto EdD I</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>501</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat</family>
-     <pointsize>18</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Mafway Problem Solver</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="botonLimpiar">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>290</y>
-     <width>101</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Limpiar Todo</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="botonResolver">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>290</y>
-     <width>80</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Resolver</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background-color: white;
+}</string>
+  </property>
   <widget class="QTextEdit" name="textEditHist">
    <property name="enabled">
     <bool>true</bool>
@@ -67,9 +25,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
-     <width>491</width>
-     <height>201</height>
+     <y>80</y>
+     <width>621</width>
+     <height>231</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -98,18 +56,148 @@ p, li { white-space: pre-wrap; }
     <string>Historial de Operaciones</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditExp">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>260</y>
-     <width>491</width>
-     <height>23</height>
+     <x>0</x>
+     <y>330</y>
+     <width>651</width>
+     <height>81</height>
     </rect>
    </property>
-   <property name="placeholderText">
-    <string>Ingrese una Expresión Matemática para Resolver</string>
+   <property name="styleSheet">
+    <string notr="true">QFrame{
+background-color: #e53935;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color: rgb(204, 55, 44);
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(181, 48, 38);
+}</string>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLineEdit" name="lineEditExp">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>491</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Ingrese una Expresión Matemática para Resolver</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonResolver">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>0</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Resolver</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonLimpiar">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>50</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Limpiar Todo</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>651</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame{
+background-color: #e53935;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color: rgb(204, 55, 44);
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(181, 48, 38);
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>501</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Mafway Problem Solver</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
