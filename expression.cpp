@@ -78,7 +78,7 @@ string Expression::getString(){
 
 double Expression::operate(){
   if (!isValid()) {
-    return -34404;
+    return 0;
   }
 
   if (isSimple()) {
@@ -137,7 +137,7 @@ bool Expression::isSimple(){
 }
 
 bool Expression::isValid(){
-  if (expString == "") {
+  if (expString == "" || expString.find('\0') != string::npos) {
     return false;
   }
   

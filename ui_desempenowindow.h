@@ -32,22 +32,22 @@ public:
     QFrame *frame;
     QLineEdit *nombreField;
     QLineEdit *puestoField;
-    QPushButton *pushButton;
+    QPushButton *botonCrear;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
-    QPushButton *pushButton_2;
+    QPushButton *botonBorrar;
     QComboBox *jefeComboBox;
     QLabel *label_5;
     QTreeView *treeView;
     QFrame *frame_2;
     QLabel *label_6;
-    QComboBox *comboBox_2;
-    QDoubleSpinBox *doubleSpinBox;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QComboBox *calComboBox;
+    QDoubleSpinBox *calSpinner;
+    QPushButton *botonEnviar;
+    QPushButton *botonReporte;
     QFrame *line;
-    QPushButton *pushButton_5;
+    QPushButton *botonRefrescar;
 
     void setupUi(QWidget *DesempenoWindow)
     {
@@ -74,9 +74,9 @@ public:
         puestoField = new QLineEdit(frame);
         puestoField->setObjectName(QStringLiteral("puestoField"));
         puestoField->setGeometry(QRect(140, 70, 121, 23));
-        pushButton = new QPushButton(frame);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(420, 50, 111, 41));
+        botonCrear = new QPushButton(frame);
+        botonCrear->setObjectName(QStringLiteral("botonCrear"));
+        botonCrear->setGeometry(QRect(420, 50, 111, 41));
         label_2 = new QLabel(frame);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(10, 10, 181, 31));
@@ -92,9 +92,9 @@ public:
         label_4 = new QLabel(frame);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(140, 50, 59, 15));
-        pushButton_2 = new QPushButton(frame);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(420, 20, 111, 21));
+        botonBorrar = new QPushButton(frame);
+        botonBorrar->setObjectName(QStringLiteral("botonBorrar"));
+        botonBorrar->setGeometry(QRect(420, 20, 111, 21));
         jefeComboBox = new QComboBox(frame);
         jefeComboBox->setObjectName(QStringLiteral("jefeComboBox"));
         jefeComboBox->setGeometry(QRect(280, 70, 121, 23));
@@ -104,6 +104,7 @@ public:
         treeView = new QTreeView(DesempenoWindow);
         treeView->setObjectName(QStringLiteral("treeView"));
         treeView->setGeometry(QRect(15, 51, 321, 191));
+        treeView->setAnimated(true);
         frame_2 = new QFrame(DesempenoWindow);
         frame_2->setObjectName(QStringLiteral("frame_2"));
         frame_2->setGeometry(QRect(349, 49, 211, 191));
@@ -113,26 +114,27 @@ public:
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(10, 10, 201, 31));
         label_6->setFont(font1);
-        comboBox_2 = new QComboBox(frame_2);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setGeometry(QRect(10, 70, 121, 23));
-        doubleSpinBox = new QDoubleSpinBox(frame_2);
-        doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
-        doubleSpinBox->setGeometry(QRect(150, 70, 51, 24));
-        pushButton_3 = new QPushButton(frame_2);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(10, 110, 191, 23));
-        pushButton_4 = new QPushButton(frame_2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(10, 160, 191, 23));
+        calComboBox = new QComboBox(frame_2);
+        calComboBox->setObjectName(QStringLiteral("calComboBox"));
+        calComboBox->setGeometry(QRect(10, 50, 121, 23));
+        calSpinner = new QDoubleSpinBox(frame_2);
+        calSpinner->setObjectName(QStringLiteral("calSpinner"));
+        calSpinner->setGeometry(QRect(150, 50, 51, 24));
+        calSpinner->setMaximum(100);
+        botonEnviar = new QPushButton(frame_2);
+        botonEnviar->setObjectName(QStringLiteral("botonEnviar"));
+        botonEnviar->setGeometry(QRect(10, 90, 191, 31));
+        botonReporte = new QPushButton(frame_2);
+        botonReporte->setObjectName(QStringLiteral("botonReporte"));
+        botonReporte->setGeometry(QRect(10, 152, 191, 31));
         line = new QFrame(frame_2);
         line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(10, 140, 191, 20));
+        line->setGeometry(QRect(10, 130, 191, 20));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
-        pushButton_5 = new QPushButton(DesempenoWindow);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(480, 10, 80, 23));
+        botonRefrescar = new QPushButton(DesempenoWindow);
+        botonRefrescar->setObjectName(QStringLiteral("botonRefrescar"));
+        botonRefrescar->setGeometry(QRect(459, 10, 101, 23));
 
         retranslateUi(DesempenoWindow);
 
@@ -143,16 +145,16 @@ public:
     {
         DesempenoWindow->setWindowTitle(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n de Desempe\303\261o", nullptr));
         label->setText(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n de Desempe\303\261o", nullptr));
-        pushButton->setText(QApplication::translate("DesempenoWindow", "Crear Empleado", nullptr));
+        botonCrear->setText(QApplication::translate("DesempenoWindow", "Crear Empleado", nullptr));
         label_2->setText(QApplication::translate("DesempenoWindow", "A\303\261adir Empleado", nullptr));
         label_3->setText(QApplication::translate("DesempenoWindow", "Nombre", nullptr));
         label_4->setText(QApplication::translate("DesempenoWindow", "Puesto", nullptr));
-        pushButton_2->setText(QApplication::translate("DesempenoWindow", "Borrar Campos", nullptr));
+        botonBorrar->setText(QApplication::translate("DesempenoWindow", "Borrar Campos", nullptr));
         label_5->setText(QApplication::translate("DesempenoWindow", "Jefe", nullptr));
         label_6->setText(QApplication::translate("DesempenoWindow", "Calificar Empleados", nullptr));
-        pushButton_3->setText(QApplication::translate("DesempenoWindow", "Enviar Calificaci\303\263n", nullptr));
-        pushButton_4->setText(QApplication::translate("DesempenoWindow", "Generar Reporte", nullptr));
-        pushButton_5->setText(QApplication::translate("DesempenoWindow", "Refrescar", nullptr));
+        botonEnviar->setText(QApplication::translate("DesempenoWindow", "Enviar Calificaci\303\263n", nullptr));
+        botonReporte->setText(QApplication::translate("DesempenoWindow", "Generar Reporte", nullptr));
+        botonRefrescar->setText(QApplication::translate("DesempenoWindow", "Limpiar \303\201rbol", nullptr));
     } // retranslateUi
 
 };

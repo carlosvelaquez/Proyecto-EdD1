@@ -152,7 +152,7 @@ public:
 
   ~List<T>(){
     if (head != 0) {
-      delete head;
+      //delete head;
     }
   }
 };

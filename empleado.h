@@ -7,6 +7,7 @@ using namespace std;
 class Empleado{
 protected:
   float calificacion;
+  int subordinados;
   string nombre;
   string puesto;
 
@@ -24,11 +25,17 @@ public:
   void setNombre(string);
   void setPuesto(string);
 
+  void sumarCalificacion(int);
+
   operator string() const{
-    return nombre;
+    string calString = to_string(calificacion);
+    int decPos = calString.find(".");
+
+    calString = calString.substr(0, decPos+3);
+    return string(nombre + " - " + puesto + " | " + calString + "/100");
   }
 
-  bool operator==(Empleado& comp){
+  bool operator==(Empleado comp){
     if (comp.getNombre() == nombre) {
       return true;
     }else{

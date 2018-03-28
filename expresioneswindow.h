@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTextEdit>
 #include <QScrollBar>
+#include <math.h>
 #include "expression.h"
 
 namespace Ui {
@@ -25,6 +26,7 @@ private slots:
 
 private:
     Ui::ExpresionesWindow *ui;
+    bool first = true;
 };
 
 #endif // EXPRESIONESWINDOW_H

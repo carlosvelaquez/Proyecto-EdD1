@@ -42,6 +42,10 @@ public:
     return data;
   }
 
+  void setData(T nData){
+    data = nData;
+  }
+
   List<TreeNode<T>*>* getChildren(){
     return children;
   }
@@ -51,7 +55,7 @@ public:
   }
 
   bool hasChildren(){
-    if (children.size == 0) {
+    if (children->size == 0) {
       return false;
     }
 
@@ -60,11 +64,11 @@ public:
 
   void addChild(TreeNode<T>* nChild){
     nChild.setParent(this);
-    children.insert(nChild);
+    children->insert(nChild);
   }
 
   void addChild(T nChild){
-    children.insert(new TreeNode<T>(this, nChild));
+    children->insert(new TreeNode<T>(this, nChild));
   }
 
   ~TreeNode<T>(){

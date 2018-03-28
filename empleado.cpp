@@ -35,3 +35,9 @@ void Empleado::setNombre(string nStr){
 void Empleado::setPuesto(string nStr){
   puesto = nStr;
 }
+
+void Empleado::sumarCalificacion(int nCal){
+  int oldCal = calificacion;
+  calificacion = ((oldCal*subordinados) + nCal)/(subordinados + 1);
+  subordinados ++;
+}
