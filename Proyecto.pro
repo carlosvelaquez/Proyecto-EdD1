@@ -29,7 +29,8 @@ SOURCES += \
     empleado.cpp \
     desempenowindow.cpp \
     expresioneswindow.cpp \
-    expression.cpp
+    expression.cpp \
+    bicoloreableswindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -45,9 +46,13 @@ HEADERS += \
     node.h \
     expression.h \
     treenode.h \
-    tree.h
+    tree.h \
+    queue.h \
+    bicoloreableswindow.h \
+    dragbutton.h
 
 FORMS += \
         mainwindow.ui \
     desempenowindow.ui \
-    expresioneswindow.ui
+    expresioneswindow.ui \
+    bicoloreableswindow.ui

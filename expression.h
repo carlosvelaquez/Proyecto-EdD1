@@ -1,7 +1,7 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
-#include "list.h"
+#include "queue.h"
 #include <string>
 #include <sstream>
 using namespace std;
@@ -10,8 +10,9 @@ class Expression{
 protected:
   string expString;
   int operation;
-  List<Expression> tokens;
+  Queue<Expression> tokens;
   char delimiter;
+  string log;
 
 public:
   /*const int MULTIPLICATION = 0;
@@ -28,6 +29,10 @@ public:
   double operate();
   bool isSimple();
   bool isValid();
+
+  string retrieveLog();
+  string toStrForm(double);
+  void appendLog(string);
 };
 
 #endif /* end of include guard: EXPRESSION_H */

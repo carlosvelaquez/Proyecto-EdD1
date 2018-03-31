@@ -67,19 +67,25 @@ public:
     }else{
       Node<T>* currentNode = head;
 
-      for (int i = 1; i <= index; i++) {
+      for (int i = 2; i <= index; i++) {
         currentNode = currentNode->getNext();
       }
 
       Node<T>* prev = currentNode->getPrevious();
       Node<T>* next = currentNode->getNext();
-      prev->setNext(next);
-      next->setPrevious(prev);
+
+      if (prev != 0) {
+        prev->setNext(next);
+      }
+
+      if (next != 0) {
+        next->setPrevious(prev);
+      }
 
       currentNode->setPrevious(0);
       currentNode->setNext(0);
 
-      delete currentNode; //Se manda a la pija
+      delete currentNode;
       size --;
       return true;
 
@@ -100,8 +106,14 @@ public:
     }else{
       Node<T>* prev = currentNode->getPrevious();
       Node<T>* next = currentNode->getNext();
-      prev->setNext(next);
-      next->setPrevious(prev);
+
+      if (prev != 0) {
+        prev->setNext(next);
+      }
+
+      if (next != 0) {
+        next->setPrevious(prev);
+      }
 
       currentNode->setPrevious(0);
       currentNode->setNext(0);

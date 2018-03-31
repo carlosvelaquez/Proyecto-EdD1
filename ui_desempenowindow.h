@@ -126,6 +126,8 @@ public:
         treeView = new QTreeView(DesempenoWindow);
         treeView->setObjectName(QStringLiteral("treeView"));
         treeView->setGeometry(QRect(10, 80, 441, 251));
+        treeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        treeView->setUniformRowHeights(true);
         treeView->setAnimated(true);
         frame_2 = new QFrame(DesempenoWindow);
         frame_2->setObjectName(QStringLiteral("frame_2"));

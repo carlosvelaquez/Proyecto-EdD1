@@ -46,6 +46,9 @@ public:
         textEditHist->setObjectName(QStringLiteral("textEditHist"));
         textEditHist->setEnabled(true);
         textEditHist->setGeometry(QRect(10, 80, 621, 231));
+        QFont font;
+        font.setPointSize(11);
+        textEditHist->setFont(font);
         textEditHist->setFocusPolicy(Qt::NoFocus);
         textEditHist->setReadOnly(true);
         frame = new QFrame(ExpresionesWindow);
@@ -74,12 +77,12 @@ public:
         lineEditExp = new QLineEdit(frame);
         lineEditExp->setObjectName(QStringLiteral("lineEditExp"));
         lineEditExp->setGeometry(QRect(20, 20, 491, 41));
-        QFont font;
-        font.setFamily(QStringLiteral("Consolas"));
-        font.setPointSize(11);
-        font.setBold(true);
-        font.setWeight(75);
-        lineEditExp->setFont(font);
+        QFont font1;
+        font1.setFamily(QStringLiteral("Consolas"));
+        font1.setPointSize(11);
+        font1.setBold(true);
+        font1.setWeight(75);
+        lineEditExp->setFont(font1);
         botonResolver = new QPushButton(frame);
         botonResolver->setObjectName(QStringLiteral("botonResolver"));
         botonResolver->setGeometry(QRect(530, 0, 121, 51));
@@ -112,12 +115,12 @@ public:
         label = new QLabel(frame_2);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(10, 10, 501, 31));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Montserrat"));
-        font1.setPointSize(18);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label->setFont(font1);
+        QFont font2;
+        font2.setFamily(QStringLiteral("Montserrat"));
+        font2.setPointSize(18);
+        font2.setBold(true);
+        font2.setWeight(75);
+        label->setFont(font2);
 
         retranslateUi(ExpresionesWindow);
 
@@ -130,19 +133,19 @@ public:
         textEditHist->setHtml(QApplication::translate("ExpresionesWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600;\">Bienvenido a Mafway</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Ingrese un problema abajo para comenzar.</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin"
-                        "-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-ty"
+                        "pe:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Operaciones Admitidas:</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Multiplicaci\303\263n (*) | Divisi\303\263n (/) | Suma (+) | Resta (-)</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Ejemplo:</span></p>\n"
-"<p align=\"center\" style=\" margin-"
-                        "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">242+543-324/44+23</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">Se sigue el orden est\303\241ndar de operaciones</span></p></body></html>", nullptr));
+"<p align=\"center\" "
+                        "style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">242+543-324/44+23</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-style:italic;\">Se sigue el orden est\303\241ndar de operaciones</span></p></body></html>", nullptr));
         textEditHist->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Historial de Operaciones", nullptr));
         lineEditExp->setText(QString());
         lineEditExp->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Ingrese una Expresi\303\263n Matem\303\241tica para Resolver", nullptr));

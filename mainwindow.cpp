@@ -25,3 +25,9 @@ void MainWindow::on_pushButton_3_clicked()
     ExpresionesWindow* w = new ExpresionesWindow();
     w->show();
 }
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    BicoloreablesWindow* w = new BicoloreablesWindow();
+    w->show();
+}

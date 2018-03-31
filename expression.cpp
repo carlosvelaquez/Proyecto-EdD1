@@ -4,11 +4,13 @@ Expression::Expression(){
   expString = "0";
   operation = 3;
   delimiter = '-';
+  log = "";
 }
 
 Expression::Expression(string nString, int nOper){
   expString = nString;
   operation = nOper;
+  log = "";
 
   switch (operation) {
     case 0:{
@@ -37,6 +39,7 @@ Expression::Expression(string nString, int nOper){
 Expression::Expression(string nString){
   expString = nString;
   operation = -1;
+  log = "";
 
   if (expString.find('*') != string::npos) {
     operation = 0;
@@ -68,7 +71,7 @@ void Expression::tokenize(){
   string token;
 
   while (getline(ss, token, delimiter)) {
-    tokens.insert(token);
+    tokens.queue(token);
   }
 }
 
@@ -85,35 +88,45 @@ double Expression::operate(){
     return stod(expString);
   }
 
-  double result = tokens.get(1).operate();
+  Expression exp = tokens.dequeue();
 
-  switch (operation) {
-    case 0:{
-      for (int i = 2; i <= tokens.size; i++) {
-        result *= tokens.get(i).operate();
+  double result = exp.operate();
+  log += exp.retrieveLog();
+  log += toStrForm(result);
+  string oldLog = "";
+  Expression ex;
+
+  while (tokens.hasNext()) {
+    ex = tokens.dequeue();
+
+    double oper = ex.operate();
+    log += " ";
+    log += delimiter;
+    log += " " + toStrForm(oper);
+
+    appendLog(ex.retrieveLog());
+
+    switch (operation) {
+      case 0:{
+        result *= oper;
+        break;
       }
-      break;
-    }
-    case 1:{
-      for (int i = 2; i <= tokens.size; i++) {
-        result /= tokens.get(i).operate();
+      case 1:{
+        result /= oper;
+        break;
       }
-      break;
-    }
-    case 2:{
-      for (int i = 2; i <= tokens.size; i++) {
-        result += tokens.get(i).operate();
+      case 2:{
+        result += oper;
+        break;
       }
-      break;
-    }
-    case 3:{
-      for (int i = 2; i <= tokens.size; i++) {
-        result -= tokens.get(i).operate();
+      case 3:{
+        result -= oper;
+        break;
       }
-      break;
     }
   }
 
+  log += " = " +  toStrForm(result) + '\n';
   return result;
 }
 
@@ -140,9 +153,10 @@ bool Expression::isValid(){
   if (expString == "" || expString.find('\0') != string::npos) {
     return false;
   }
-  
-  for (int i = 0; i < tokens.size; i++) {
-    if (!tokens.get(i).isValid()) {
+
+  List<Expression> tokensList = tokens.toList();
+  for (int i = 1; i <= tokensList.size; i++) {
+    if (!tokensList.get(i).isValid()) {
       return false;
     }
   }
@@ -155,4 +169,29 @@ bool Expression::isValid(){
   }
 
   return true;
+}
+
+string Expression::retrieveLog(){
+  return log;
+}
+
+string Expression::toStrForm(double resDouble){
+  string res = to_string(resDouble);
+  int i = res.length() - 1;
+
+  while (res[i] == '0') {
+    res = res.substr(0, i);
+    i = res.length() - 1;
+  }
+
+  if (res[i] == '.') {
+    res = res.substr(0, i);
+  }
+
+  return res;
+}
+
+void Expression::appendLog(string nLog){
+  string logRet = nLog + log;
+  log = logRet;
 }
