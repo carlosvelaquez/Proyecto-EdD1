@@ -1,14 +1,14 @@
-#ifndef BIGRAPH_H
-#define BIGRAPH_H
+#ifndef DIGRAPH_H
+#define DIGRAPH_H
 
 template <class T>
-class Bigraph : Graph{
+class Digraph : Graph{
 
 public:
-  Bigraph(){
+  Digraph(){
     vertices = new List<Vertex<T>*>;
   }
-  
+
   bool addEdge(Vertex<T>* vertex1, Vertex<T>* vertex2){
     if (vertex1->addEdge(vertex2)) {
       return true;
@@ -18,4 +18,4 @@ public:
   }
 };
 
-#endif /* end of include guard: BIGRAPH_H */
+#endif /* end of include guard: DIGRAPH_H */
