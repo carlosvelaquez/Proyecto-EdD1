@@ -3,6 +3,12 @@
 
 template <class T>
 class Bigraph : Graph{
+
+public:
+  Bigraph(){
+    vertices = new List<Vertex<T>*>;
+  }
+  
   bool addEdge(Vertex<T>* vertex1, Vertex<T>* vertex2){
     if (vertex1->addEdge(vertex2)) {
       return true;
