@@ -37,12 +37,13 @@ public:
     QPushButton *pushButton_8;
     QLabel *label;
     QLabel *label_2;
+    QPushButton *pushButton_9;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(616, 396);
+        MainWindow->resize(616, 437);
         MainWindow->setStyleSheet(QLatin1String("QWidget{\n"
 "	background-color: white;\n"
 "	border: none;\n"
@@ -128,6 +129,9 @@ public:
         label_2->setFont(font1);
         label_2->setStyleSheet(QLatin1String("color: #757575;\n"
 "text-align: center;"));
+        pushButton_9 = new QPushButton(centralWidget);
+        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
+        pushButton_9->setGeometry(QRect(210, 390, 201, 31));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -153,6 +157,7 @@ public:
         pushButton_8->setText(QApplication::translate("MainWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", nullptr));
         label->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos I", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "By Carlos V.\302\262", nullptr));
+        pushButton_9->setText(QApplication::translate("MainWindow", "Manual del Usuario", nullptr));
     } // retranslateUi
 
 };

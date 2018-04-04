@@ -28,6 +28,10 @@ public:
     return false;
   }
 
+  List<Vertex<T>*>* getVertices(){
+    return vertices;
+  }
+
 
 };
 

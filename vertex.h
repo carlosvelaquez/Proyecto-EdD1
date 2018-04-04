@@ -2,6 +2,7 @@
 #define VERTEX_H
 
 #include <string>
+#include "list.h"
 using namespace std;
 
 template <class T>
@@ -18,13 +19,13 @@ public:
 
   Vertex(T nData){
     data = nData;
-    edges = List<Vertex<T>*>();
+    edges = new List<Vertex<T>*>();
     displayName = "Vertex";
   }
 
   Vertex(T nData, string nDisplay){
     data = nData;
-    edges = List<Vertex<T>*>();
+    edges = new List<Vertex<T>*>();
     displayName = nDisplay;
   }
 

@@ -159,6 +159,13 @@ background-color: rgb(60, 14, 68);
      <height>351</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border: 2px solid black;
+	background-color: white;
+	border-radius: 25px;
+}</string>
+   </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
    </property>
@@ -178,35 +185,6 @@ background-color: rgb(60, 14, 68);
      <string>Puede arrastrar los vértices para reordenarlos.</string>
     </property>
    </widget>
-   <widget class="DragButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>100</y>
-      <width>111</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: none;
-background-color: white;</string>
-    </property>
-    <property name="text">
-     <string>Vértice 1</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../Pictures/profile.jpg</normaloff>../Pictures/profile.jpg</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>50</width>
-      <height>50</height>
-     </size>
-    </property>
-   </widget>
-   <zorder>pushButton</zorder>
-   <zorder>label_6</zorder>
   </widget>
   <widget class="QFrame" name="frame_4">
    <property name="geometry">
@@ -393,13 +371,6 @@ background-color: white;</string>
    </widget>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>DragButton</class>
-   <extends>QPushButton</extends>
-   <header>dragbutton.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

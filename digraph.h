@@ -2,7 +2,7 @@
 #define DIGRAPH_H
 
 template <class T>
-class Digraph : Graph{
+class Digraph : public Graph{
 
 public:
   Digraph(){

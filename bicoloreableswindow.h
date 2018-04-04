@@ -2,8 +2,8 @@
 #define BICOLOREABLESWINDOW_H
 
 #include <QWidget>
-#include <chrono>
-#include <thread>
+#include <QVBoxLayout>
+#include <string>
 
 using namespace std;
 
@@ -17,18 +17,18 @@ class BicoloreablesWindow : public QWidget
 
 public:
     explicit BicoloreablesWindow(QWidget *parent = 0);
+    void addDragButton(string);
     ~BicoloreablesWindow();
 
 private slots:
-    void on_pushButton_pressed();
-
-    void on_pushButton_released();
-
-    void on_pushButton_clicked();
+  void on_botonCrearVertice_clicked();
 
 private:
     Ui::BicoloreablesWindow *ui;
     bool moving;
+    QVBoxLayout* layout = new QVBoxLayout();
+    Graph<string>* graph = new Graph<string>();
+
 };
 
 #endif // BICOLOREABLESWINDOW_H

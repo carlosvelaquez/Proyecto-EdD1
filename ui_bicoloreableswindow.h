@@ -20,7 +20,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
-#include "dragbutton.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -35,7 +34,6 @@ public:
     QPushButton *botonCargar;
     QFrame *grafoFrame;
     QLabel *label_6;
-    DragButton *pushButton;
     QFrame *frame_4;
     QPushButton *botonGuardarGrafo;
     QFrame *line;
@@ -126,22 +124,16 @@ public:
         grafoFrame = new QFrame(BicoloreablesWindow);
         grafoFrame->setObjectName(QStringLiteral("grafoFrame"));
         grafoFrame->setGeometry(QRect(10, 70, 501, 351));
+        grafoFrame->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border: 2px solid black;\n"
+"	background-color: white;\n"
+"	border-radius: 25px;\n"
+"}"));
         grafoFrame->setFrameShape(QFrame::StyledPanel);
         grafoFrame->setFrameShadow(QFrame::Raised);
         label_6 = new QLabel(grafoFrame);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(10, 330, 291, 16));
-        pushButton = new DragButton(grafoFrame);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(190, 100, 111, 50));
-        pushButton->setStyleSheet(QLatin1String("border: none;\n"
-"background-color: white;"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("../Pictures/profile.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
-        pushButton->setIconSize(QSize(50, 50));
-        pushButton->raise();
-        label_6->raise();
         frame_4 = new QFrame(BicoloreablesWindow);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setGeometry(QRect(530, 70, 201, 351));
@@ -212,7 +204,6 @@ public:
         botonCorrer->setText(QApplication::translate("BicoloreablesWindow", "Correr con Grafo Actual", nullptr));
         botonCargar->setText(QApplication::translate("BicoloreablesWindow", "Cargar Grafo Guardado", nullptr));
         label_6->setText(QApplication::translate("BicoloreablesWindow", "Puede arrastrar los v\303\251rtices para reordenarlos.", nullptr));
-        pushButton->setText(QApplication::translate("BicoloreablesWindow", "V\303\251rtice 1", nullptr));
         botonGuardarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Guardar Grafo", nullptr));
         label_2->setText(QApplication::translate("BicoloreablesWindow", "Crear V\303\251rtice", nullptr));
         label_3->setText(QApplication::translate("BicoloreablesWindow", "Nombre del V\303\251rtice", nullptr));
