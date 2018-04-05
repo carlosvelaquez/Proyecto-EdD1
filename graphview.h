@@ -27,7 +27,10 @@ protected:
   void paintEvent(QPaintEvent* e){
     QFrame::paintEvent(e);
     QPainter painter(this);
-    painter.setPen(QPen(QColor("#212121"), 2, Qt::SolidLine, Qt::RoundCap));
+
+    QPen pen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap);
+    pen.setColor(QColor("#AFBEFF"));
+    painter.setPen(pen);
 
 
     List<Vertex<string>*>* vertices = graph->getVertices();
