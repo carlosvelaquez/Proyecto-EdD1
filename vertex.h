@@ -2,7 +2,11 @@
 #define VERTEX_H
 
 #include <string>
+#include <QPoint>
+#include <QColor>
+
 #include "list.h"
+
 using namespace std;
 
 template <class T>
@@ -11,22 +15,27 @@ class Vertex{
 protected:
   T data;
   List<Vertex<T>*>* edges;
+  List<double>* costs;
   string displayName;
 
 public:
-  int xPos = 0;
-  int yPos = 0;
+  QPoint pos;
+  string color;
 
   Vertex(T nData){
     data = nData;
     edges = new List<Vertex<T>*>();
+    costs = new List<double>();
     displayName = "Vertex";
+    color = "#7512EA";
   }
 
   Vertex(T nData, string nDisplay){
     data = nData;
     edges = new List<Vertex<T>*>();
+    costs = new List<double>();
     displayName = nDisplay;
+    color = "#7512EA";
   }
 
   List<Vertex<T>*>* neighbors(){
@@ -34,7 +43,7 @@ public:
   }
 
   bool adjacent(Vertex<T>* nVertex){
-    if (edges->contains(nVertex())) {
+    if (neighbors()->contains(nVertex)) {
       return true;
     }
 
@@ -44,6 +53,20 @@ public:
   bool addEdge(Vertex<T>* nVertex){
     if (!adjacent(nVertex)) {
       if (edges->insert(nVertex)) {
+        costs->insert(0);
+        return true;
+      }
+
+      return false;
+    }
+
+    return false;
+  }
+
+  bool addEdge(Vertex<T>* nVertex, double cost){
+    if (!adjacent(nVertex)) {
+      if (edges->insert(nVertex)) {
+        costs->insert(cost);
         return true;
       }
 
@@ -55,8 +78,13 @@ public:
 
   bool removeEdge(Vertex<T>* nVertex){
     if (adjacent(nVertex)) {
-      edges->remove(nVertex);
-      return true;
+      for (int i = 1; i <= edges->size; i++) {
+        if (edges->get(i) == nVertex) {
+          edges->remove(i);
+          costs->remove(i);
+          return true;
+        };
+      }
     }
 
     return false;
@@ -76,6 +104,10 @@ public:
 
   void setDisplayName(string nDisplay){
     displayName = nDisplay;
+  }
+
+  List<double>* getCosts(){
+    return costs;
   }
 
 };

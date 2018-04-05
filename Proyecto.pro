@@ -49,7 +49,8 @@ HEADERS += \
     tree.h \
     queue.h \
     bicoloreableswindow.h \
-    dragbutton.h
+    dragbutton.h \
+    graphview.h
 
 FORMS += \
         mainwindow.ui \

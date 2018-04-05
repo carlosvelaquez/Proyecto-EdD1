@@ -32,8 +32,7 @@ public:
     QFrame *frame_2;
     QPushButton *botonCorrer;
     QPushButton *botonCargar;
-    QFrame *grafoFrame;
-    QLabel *label_6;
+    QLabel *label_7;
     QFrame *frame_4;
     QPushButton *botonGuardarGrafo;
     QFrame *line;
@@ -121,22 +120,15 @@ public:
         botonCargar = new QPushButton(frame_2);
         botonCargar->setObjectName(QStringLiteral("botonCargar"));
         botonCargar->setGeometry(QRect(390, 0, 181, 41));
-        grafoFrame = new QFrame(BicoloreablesWindow);
-        grafoFrame->setObjectName(QStringLiteral("grafoFrame"));
-        grafoFrame->setGeometry(QRect(10, 70, 501, 351));
-        grafoFrame->setStyleSheet(QLatin1String("QPushButton{\n"
-"	border: 2px solid black;\n"
-"	background-color: white;\n"
-"	border-radius: 25px;\n"
-"}"));
-        grafoFrame->setFrameShape(QFrame::StyledPanel);
-        grafoFrame->setFrameShadow(QFrame::Raised);
-        label_6 = new QLabel(grafoFrame);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(10, 330, 291, 16));
+        label_7 = new QLabel(frame_2);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(10, 20, 311, 16));
         frame_4 = new QFrame(BicoloreablesWindow);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setGeometry(QRect(530, 70, 201, 351));
+        frame_4->setStyleSheet(QLatin1String("QComboBox{\n"
+"color: black\n"
+"}"));
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
         botonGuardarGrafo = new QPushButton(frame_4);
@@ -198,12 +190,12 @@ public:
 
     void retranslateUi(QWidget *BicoloreablesWindow)
     {
-        BicoloreablesWindow->setWindowTitle(QApplication::translate("BicoloreablesWindow", "Form", nullptr));
+        BicoloreablesWindow->setWindowTitle(QApplication::translate("BicoloreablesWindow", "Grafos Bicoloreables | Proyecto EdD I", nullptr));
         label->setText(QApplication::translate("BicoloreablesWindow", "Grafos Bi-coloreables", nullptr));
         botonNuevoGrafo->setText(QApplication::translate("BicoloreablesWindow", "Nuevo Grafo", nullptr));
         botonCorrer->setText(QApplication::translate("BicoloreablesWindow", "Correr con Grafo Actual", nullptr));
         botonCargar->setText(QApplication::translate("BicoloreablesWindow", "Cargar Grafo Guardado", nullptr));
-        label_6->setText(QApplication::translate("BicoloreablesWindow", "Puede arrastrar los v\303\251rtices para reordenarlos.", nullptr));
+        label_7->setText(QApplication::translate("BicoloreablesWindow", "TIP: Puede arrastrar los v\303\251rtices para reordenarlos.", nullptr));
         botonGuardarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Guardar Grafo", nullptr));
         label_2->setText(QApplication::translate("BicoloreablesWindow", "Crear V\303\251rtice", nullptr));
         label_3->setText(QApplication::translate("BicoloreablesWindow", "Nombre del V\303\251rtice", nullptr));

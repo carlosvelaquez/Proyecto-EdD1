@@ -60,7 +60,8 @@ SOURCES       = main.cpp \
 		moc_desempenowindow.cpp \
 		moc_expresioneswindow.cpp \
 		moc_bicoloreableswindow.cpp \
-		moc_dragbutton.cpp
+		moc_dragbutton.cpp \
+		moc_graphview.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		empleado.o \
@@ -72,7 +73,8 @@ OBJECTS       = main.o \
 		moc_desempenowindow.o \
 		moc_expresioneswindow.o \
 		moc_bicoloreableswindow.o \
-		moc_dragbutton.o
+		moc_dragbutton.o \
+		moc_graphview.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -277,7 +279,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		tree.h \
 		queue.h \
 		bicoloreableswindow.h \
-		dragbutton.h main.cpp \
+		dragbutton.h \
+		graphview.h main.cpp \
 		mainwindow.cpp \
 		empleado.cpp \
 		desempenowindow.cpp \
@@ -695,7 +698,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp bicoloreableswindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui bicoloreableswindow.ui $(DISTDIR)/
 
@@ -729,9 +732,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_graphview.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_graphview.cpp
 moc_mainwindow.cpp: desempenowindow.h \
 		tree.h \
 		treenode.h \
@@ -739,6 +742,10 @@ moc_mainwindow.cpp: desempenowindow.h \
 		node.h \
 		empleado.h \
 		bicoloreableswindow.h \
+		graphview.h \
+		graph.h \
+		vertex.h \
+		dragbutton.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -763,15 +770,34 @@ moc_expresioneswindow.cpp: expression.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include expresioneswindow.h -o moc_expresioneswindow.cpp
 
-moc_bicoloreableswindow.cpp: bicoloreableswindow.h \
+moc_bicoloreableswindow.cpp: graphview.h \
+		graph.h \
+		vertex.h \
+		list.h \
+		node.h \
+		dragbutton.h \
+		bicoloreableswindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include bicoloreableswindow.h -o moc_bicoloreableswindow.cpp
 
-moc_dragbutton.cpp: dragbutton.h \
+moc_dragbutton.cpp: vertex.h \
+		list.h \
+		node.h \
+		dragbutton.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include dragbutton.h -o moc_dragbutton.cpp
+
+moc_graphview.cpp: graph.h \
+		vertex.h \
+		list.h \
+		node.h \
+		dragbutton.h \
+		graphview.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include graphview.h -o moc_graphview.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -793,8 +819,7 @@ ui_expresioneswindow.h: expresioneswindow.ui \
 	/usr/bin/uic expresioneswindow.ui -o ui_expresioneswindow.h
 
 ui_bicoloreableswindow.h: bicoloreableswindow.ui \
-		/usr/bin/uic \
-		dragbutton.h
+		/usr/bin/uic
 	/usr/bin/uic bicoloreableswindow.ui -o ui_bicoloreableswindow.h
 
 compiler_yacc_decl_make_all:
@@ -814,7 +839,11 @@ main.o: main.cpp mainwindow.h \
 		list.h \
 		node.h \
 		empleado.h \
-		bicoloreableswindow.h
+		bicoloreableswindow.h \
+		graphview.h \
+		graph.h \
+		vertex.h \
+		dragbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
@@ -825,6 +854,10 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		node.h \
 		empleado.h \
 		bicoloreableswindow.h \
+		graphview.h \
+		graph.h \
+		vertex.h \
+		dragbutton.h \
 		expresioneswindow.h \
 		expression.h \
 		queue.h \
@@ -858,8 +891,13 @@ expression.o: expression.cpp expression.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o expression.o expression.cpp
 
 bicoloreableswindow.o: bicoloreableswindow.cpp bicoloreableswindow.h \
-		ui_bicoloreableswindow.h \
-		dragbutton.h
+		graphview.h \
+		graph.h \
+		vertex.h \
+		list.h \
+		node.h \
+		dragbutton.h \
+		ui_bicoloreableswindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bicoloreableswindow.o bicoloreableswindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
@@ -876,6 +914,9 @@ moc_bicoloreableswindow.o: moc_bicoloreableswindow.cpp
 
 moc_dragbutton.o: moc_dragbutton.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dragbutton.o moc_dragbutton.cpp
+
+moc_graphview.o: moc_graphview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_graphview.o moc_graphview.cpp
 
 ####### Install
 
