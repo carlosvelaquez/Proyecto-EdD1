@@ -32,7 +32,8 @@ SOURCES += \
     expression.cpp \
     bicoloreableswindow.cpp \
     laberintowindow.cpp \
-    huffmanwindow.cpp
+    huffmanwindow.cpp \
+    treedata.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -56,7 +57,9 @@ HEADERS += \
     laberintowindow.h \
     huffmanwindow.h \
     linkedstack.h \
-    stack.h
+    stack.h \
+    bitreenode.h \
+    treedata.h
 
 FORMS += \
         mainwindow.ui \

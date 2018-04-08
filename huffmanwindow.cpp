@@ -1,5 +1,6 @@
 #include "huffmanwindow.h"
 #include "ui_huffmanwindow.h"
+#include "bitreenode.h"
 
 huffmanwindow::huffmanwindow(QWidget *parent) :
     QWidget(parent),
@@ -14,11 +15,16 @@ huffmanwindow::~huffmanwindow()
 }
 
 void huffmanwindow::compress(QString* word){
+    if(*word == "")
+        return;
+
+    ui->lineEdit->setText("");
 
 }
 
-// --------------- Slots
 
+
+// --------------- Slots
 void huffmanwindow::loadFile(){
 
 }

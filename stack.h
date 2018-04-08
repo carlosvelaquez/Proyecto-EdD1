@@ -3,13 +3,11 @@
 
 #include <vector>
 
+using namespace std;
+
 template <class T>
+
 class stack{
-
-private:
-    vector<T>* Stack;
-
-public:
 
 };
 

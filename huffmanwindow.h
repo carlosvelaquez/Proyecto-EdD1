@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QWidget>
+#include "stack.h"
 
 namespace Ui {
 class huffmanwindow;
