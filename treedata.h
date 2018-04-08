@@ -13,6 +13,8 @@ private:
 
 public:
     treedata();
+    treedata(int);
+    treedata(QChar,int);
     treedata(QChar,int,int);
     int getFrecuency();
     int getType();

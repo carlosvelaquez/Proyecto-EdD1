@@ -5,10 +5,20 @@ treedata::treedata()
 
 }
 
+treedata::treedata(int nFrecuency)
+{
+    frecuency = nFrecuency;
+}
+
 treedata::treedata(QChar nChar, int nFrecuency, int nType){
     Char = nChar;
     frecuency = nFrecuency;
     type = nType;
+}
+
+treedata::treedata(QChar nChar, int nFrecuency){
+    Char = nChar;
+    frecuency = nFrecuency;
 }
 
 int treedata::getFrecuency(){

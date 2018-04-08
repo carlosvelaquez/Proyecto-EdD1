@@ -34,6 +34,12 @@ void MainWindow::on_pushButton_5_clicked()
     w->show();
 }
 
+void MainWindow::on_pushButton_8_clicked()
+{
+    MSTWindow* w = new MSTWindow();
+    w->show();
+}
+
 void MainWindow::on_pushButton_clicked()
 {
     laberintowindow* lb = new laberintowindow();

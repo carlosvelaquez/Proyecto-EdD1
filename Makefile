@@ -56,12 +56,18 @@ SOURCES       = main.cpp \
 		desempenowindow.cpp \
 		expresioneswindow.cpp \
 		expression.cpp \
-		bicoloreableswindow.cpp moc_mainwindow.cpp \
+		bicoloreableswindow.cpp \
+		mstwindow.cpp \
+		laberintowindow.cpp \
+		huffmanwindow.cpp moc_mainwindow.cpp \
 		moc_desempenowindow.cpp \
 		moc_expresioneswindow.cpp \
 		moc_bicoloreableswindow.cpp \
 		moc_dragbutton.cpp \
-		moc_graphview.cpp
+		moc_mstwindow.cpp \
+		moc_graphframe.cpp \
+		moc_laberintowindow.cpp \
+		moc_huffmanwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		empleado.o \
@@ -69,12 +75,18 @@ OBJECTS       = main.o \
 		expresioneswindow.o \
 		expression.o \
 		bicoloreableswindow.o \
+		mstwindow.o \
+		laberintowindow.o \
+		huffmanwindow.o \
 		moc_mainwindow.o \
 		moc_desempenowindow.o \
 		moc_expresioneswindow.o \
 		moc_bicoloreableswindow.o \
 		moc_dragbutton.o \
-		moc_graphview.o
+		moc_mstwindow.o \
+		moc_graphframe.o \
+		moc_laberintowindow.o \
+		moc_huffmanwindow.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -280,13 +292,22 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		queue.h \
 		bicoloreableswindow.h \
 		dragbutton.h \
-		graphview.h main.cpp \
+		graphview.h \
+		mstwindow.h \
+		graphframe.h \
+		graph.h \
+		vertex.h \
+		laberintowindow.h \
+		huffmanwindow.h main.cpp \
 		mainwindow.cpp \
 		empleado.cpp \
 		desempenowindow.cpp \
 		expresioneswindow.cpp \
 		expression.cpp \
-		bicoloreableswindow.cpp
+		bicoloreableswindow.cpp \
+		mstwindow.cpp \
+		laberintowindow.cpp \
+		huffmanwindow.cpp
 QMAKE_TARGET  = Proyecto
 DESTDIR       = 
 TARGET        = Proyecto
@@ -295,7 +316,7 @@ TARGET        = Proyecto
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: Proyecto.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -698,9 +719,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp bicoloreableswindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui bicoloreableswindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h mstwindow.h graphframe.h graph.h vertex.h laberintowindow.h huffmanwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp bicoloreableswindow.cpp mstwindow.cpp laberintowindow.cpp huffmanwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui bicoloreableswindow.ui mstwindow.ui laberintowindow.ui huffmanwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -732,9 +753,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_graphview.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_mstwindow.cpp moc_graphframe.cpp moc_laberintowindow.cpp moc_huffmanwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_graphview.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_mstwindow.cpp moc_graphframe.cpp moc_laberintowindow.cpp moc_huffmanwindow.cpp
 moc_mainwindow.cpp: desempenowindow.h \
 		tree.h \
 		treenode.h \
@@ -743,9 +764,11 @@ moc_mainwindow.cpp: desempenowindow.h \
 		empleado.h \
 		bicoloreableswindow.h \
 		graphview.h \
+		graphframe.h \
 		graph.h \
 		vertex.h \
 		dragbutton.h \
+		mstwindow.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -771,6 +794,7 @@ moc_expresioneswindow.cpp: expression.h \
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include expresioneswindow.h -o moc_expresioneswindow.cpp
 
 moc_bicoloreableswindow.cpp: graphview.h \
+		graphframe.h \
 		graph.h \
 		vertex.h \
 		list.h \
@@ -789,23 +813,45 @@ moc_dragbutton.cpp: vertex.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include dragbutton.h -o moc_dragbutton.cpp
 
-moc_graphview.cpp: graph.h \
+moc_mstwindow.cpp: graphview.h \
+		graphframe.h \
+		graph.h \
 		vertex.h \
 		list.h \
 		node.h \
 		dragbutton.h \
-		graphview.h \
+		mstwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include graphview.h -o moc_graphview.cpp
+	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include mstwindow.h -o moc_mstwindow.cpp
+
+moc_graphframe.cpp: graph.h \
+		vertex.h \
+		list.h \
+		node.h \
+		dragbutton.h \
+		graphframe.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include graphframe.h -o moc_graphframe.cpp
+
+moc_laberintowindow.cpp: laberintowindow.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include laberintowindow.h -o moc_laberintowindow.cpp
+
+moc_huffmanwindow.cpp: huffmanwindow.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include huffmanwindow.h -o moc_huffmanwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h
 ui_mainwindow.h: mainwindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic mainwindow.ui -o ui_mainwindow.h
@@ -821,6 +867,18 @@ ui_expresioneswindow.h: expresioneswindow.ui \
 ui_bicoloreableswindow.h: bicoloreableswindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic bicoloreableswindow.ui -o ui_bicoloreableswindow.h
+
+ui_mstwindow.h: mstwindow.ui \
+		/usr/bin/uic
+	/usr/bin/uic mstwindow.ui -o ui_mstwindow.h
+
+ui_laberintowindow.h: laberintowindow.ui \
+		/usr/bin/uic
+	/usr/bin/uic laberintowindow.ui -o ui_laberintowindow.h
+
+ui_huffmanwindow.h: huffmanwindow.ui \
+		/usr/bin/uic
+	/usr/bin/uic huffmanwindow.ui -o ui_huffmanwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -841,9 +899,11 @@ main.o: main.cpp mainwindow.h \
 		empleado.h \
 		bicoloreableswindow.h \
 		graphview.h \
+		graphframe.h \
 		graph.h \
 		vertex.h \
-		dragbutton.h
+		dragbutton.h \
+		mstwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
@@ -855,13 +915,17 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		empleado.h \
 		bicoloreableswindow.h \
 		graphview.h \
+		graphframe.h \
 		graph.h \
 		vertex.h \
 		dragbutton.h \
+		mstwindow.h \
 		expresioneswindow.h \
 		expression.h \
 		queue.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		laberintowindow.h \
+		huffmanwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 empleado.o: empleado.cpp empleado.h
@@ -892,6 +956,7 @@ expression.o: expression.cpp expression.h \
 
 bicoloreableswindow.o: bicoloreableswindow.cpp bicoloreableswindow.h \
 		graphview.h \
+		graphframe.h \
 		graph.h \
 		vertex.h \
 		list.h \
@@ -899,6 +964,25 @@ bicoloreableswindow.o: bicoloreableswindow.cpp bicoloreableswindow.h \
 		dragbutton.h \
 		ui_bicoloreableswindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bicoloreableswindow.o bicoloreableswindow.cpp
+
+mstwindow.o: mstwindow.cpp mstwindow.h \
+		graphview.h \
+		graphframe.h \
+		graph.h \
+		vertex.h \
+		list.h \
+		node.h \
+		dragbutton.h \
+		ui_mstwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mstwindow.o mstwindow.cpp
+
+laberintowindow.o: laberintowindow.cpp laberintowindow.h \
+		ui_laberintowindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o laberintowindow.o laberintowindow.cpp
+
+huffmanwindow.o: huffmanwindow.cpp huffmanwindow.h \
+		ui_huffmanwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o huffmanwindow.o huffmanwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -915,8 +999,17 @@ moc_bicoloreableswindow.o: moc_bicoloreableswindow.cpp
 moc_dragbutton.o: moc_dragbutton.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dragbutton.o moc_dragbutton.cpp
 
-moc_graphview.o: moc_graphview.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_graphview.o moc_graphview.cpp
+moc_mstwindow.o: moc_mstwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mstwindow.o moc_mstwindow.cpp
+
+moc_graphframe.o: moc_graphframe.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_graphframe.o moc_graphframe.cpp
+
+moc_laberintowindow.o: moc_laberintowindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_laberintowindow.o moc_laberintowindow.cpp
+
+moc_huffmanwindow.o: moc_huffmanwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_huffmanwindow.o moc_huffmanwindow.cpp
 
 ####### Install
 

@@ -53,12 +53,13 @@ public:
   }
 
   T get(int index){
-    Node<T>* currentNode = head;
-    for (int i = 1; i < index; i++) {
-      currentNode = currentNode->getNext();
-    }
+      Node<T>* currentNode = head;
 
-    return currentNode->getData();
+      for (int i = 2; i <= index; i++) {
+        currentNode = currentNode->getNext();
+      }
+
+      return currentNode->getData();
   }
 
   bool remove(int index){
@@ -142,24 +143,90 @@ public:
     return false;
   }
 
-  /*QStandardItemModel* toItemModel(){
-    QStandardItemModel* model = new QStandardItemModel();
-
-    for (int i = 0; i < size; i++) {
-      model->appendRow(new QStandardItem(string(get(i)).c_str()));
-    }
-
-    return model;
-  }*/
-
   bool contains(T target){
-    for (int i = 0; i < size; i++) {
+    for (int i = 1; i <= size; i++) {
       if (target == get(i)) {
         return true;
       }
     }
 
     return false;
+  }
+
+  bool contains(T target, T exclude){
+    for (int i = 1; i <= size; i++) {
+      if (target == get(i)) {
+        if (exclude == get(i)) {
+          return false;
+        }
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  int indexOf(T dat){
+    Node<T>* currentNode = head;
+    int count = 0;
+
+    while (currentNode != 0) {
+      count ++;
+
+      if (currentNode->getData() == dat) {
+        return count;
+      }else{
+        currentNode = currentNode->getNext();
+      }
+    }
+
+    return 0;
+  }
+
+  Node<T>* getNode(int index){
+    if (index <= 1) {
+      return head;
+    }else{
+      Node<T>* currentNode = head;
+
+      for (int i = 2; i <= index; i++) {
+        currentNode = currentNode->getNext();
+      }
+
+      return currentNode;
+    }
+  }
+
+  Node<T>* findNode(T dat){
+    Node<T>* currentNode = head;
+
+    while (currentNode != 0) {
+      if (currentNode->getData() == dat) {
+        return currentNode;
+      }else{
+        currentNode = currentNode->getNext();
+      }
+    }
+
+    return 0;
+  }
+
+
+  void swap(int i1, int i2){
+    if (i1 <= size && i2 <= size && i1 > 0 && i2 > 0) {
+      Node<T>* n1 = getNode(i1);
+      Node<T>* n2 = getNode(i2);
+
+      T tmp = n1->getData();
+
+      /*n2->setPrevious(n1->getPrevious());
+      n1->setNext(n2->getNext());
+      n2->setNext(n1);
+      n1->setPrevious(n2);*/
+
+      n1->setData(n2->getData());
+      n2->setData(tmp);
+    }
   }
 
   ~List<T>(){

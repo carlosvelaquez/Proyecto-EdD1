@@ -119,6 +119,15 @@ background-color: rgb(198, 53, 43);
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: #7B1FA2;
+}
+
+QPushButton:hover {
+background-color: #4A148C;
+}</string>
+    </property>
     <property name="text">
      <string>Determinar Grafos Bi-coloreables</string>
     </property>
@@ -157,6 +166,15 @@ background-color: rgb(198, 53, 43);
       <width>271</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: #303F9F;
+}
+
+QPushButton:hover {
+background-color: #1A237E;
+}</string>
     </property>
     <property name="text">
      <string>Árboles de Expansión Mínima</string>

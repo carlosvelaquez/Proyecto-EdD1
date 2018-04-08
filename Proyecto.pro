@@ -31,6 +31,7 @@ SOURCES += \
     expresioneswindow.cpp \
     expression.cpp \
     bicoloreableswindow.cpp \
+    mstwindow.cpp \
     laberintowindow.cpp \
     huffmanwindow.cpp \
     treedata.cpp
@@ -54,6 +55,10 @@ HEADERS += \
     bicoloreableswindow.h \
     dragbutton.h \
     graphview.h \
+    mstwindow.h \
+    graphframe.h \
+    graph.h \
+    vertex.h \
     laberintowindow.h \
     huffmanwindow.h \
     linkedstack.h \
@@ -66,5 +71,6 @@ FORMS += \
     desempenowindow.ui \
     expresioneswindow.ui \
     bicoloreableswindow.ui \
+    mstwindow.ui \
     laberintowindow.ui \
     huffmanwindow.ui
