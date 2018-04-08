@@ -54,7 +54,9 @@ HEADERS += \
     dragbutton.h \
     graphview.h \
     laberintowindow.h \
-    huffmanwindow.h
+    huffmanwindow.h \
+    linkedstack.h \
+    stack.h
 
 FORMS += \
         mainwindow.ui \
