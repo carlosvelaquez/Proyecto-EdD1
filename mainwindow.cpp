@@ -50,3 +50,4 @@ void MainWindow::on_pushButton_4_clicked()
 {
     huffmanwindow* hw = new huffmanwindow();
     hw->show();
+}
