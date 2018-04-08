@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "expresioneswindow.h"
 #include "ui_mainwindow.h"
+#include "laberintowindow.h"
+#include "huffmanwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,4 +32,16 @@ void MainWindow::on_pushButton_5_clicked()
 {
     BicoloreablesWindow* w = new BicoloreablesWindow();
     w->show();
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    laberintowindow* lb = new laberintowindow();
+    lb->show();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    huffmanwindow* hw = new huffmanwindow();
+    hw->show();
 }
