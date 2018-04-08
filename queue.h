@@ -126,6 +126,14 @@ public:
 
     return false;
   }
+
+  void sort(){
+      for(int i=1; i<size; i++){
+          for(int j=0; j<size-1; j++){
+
+          }
+      }
+  }
 };
 
 #endif /* end of include guard: QUEUE_H */

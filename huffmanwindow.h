@@ -3,6 +3,9 @@
 
 #include <QString>
 #include <QWidget>
+#include "queue.h"
+#include "bitreenode.h"
+#include "treedata.h"
 
 namespace Ui {
 class huffmanwindow;
@@ -17,6 +20,8 @@ public:
     ~huffmanwindow();
     void createTreeWidget();
     void compress(QString*);
+    Queue<bitreenode<treedata>*>* fillList(QString*);
+    bitreenode<treedata>* createTree(Queue<bitreenode<treedata>*>*);
 
 private slots:
 
