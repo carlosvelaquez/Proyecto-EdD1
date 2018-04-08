@@ -47,7 +47,13 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QPushButton{
+background-color: #FFA000;
+}
+
+QPushButton:hover {
+background-color:#FF6F00;
+}</string>
     </property>
     <property name="text">
      <string>Laberinto con Backtracking</string>
@@ -105,6 +111,15 @@ background-color: rgb(198, 53, 43);
       <width>271</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: #0288D1;
+}
+
+QPushButton:hover {
+background-color:#01579B;
+}</string>
     </property>
     <property name="text">
      <string>Compresión de Archivos de Texto</string>

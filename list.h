@@ -81,6 +81,10 @@ public:
 
       if (next != 0) {
         next->setPrevious(prev);
+
+        if (prev == 0) {
+          head = next;
+        }
       }
 
       currentNode->setPrevious(0);
@@ -94,34 +98,10 @@ public:
   }
 
   bool remove(T rData){
-    Node<T>* currentNode = head;
-
-    while(currentNode != 0 && rData != currentNode->getData()) {
-      currentNode = currentNode->getNext();
-    }
-
-    if (currentNode == 0) {
-      return false;
-    }else if (rData != currentNode->getData()) {
-      return false;
+    if (contains(rData)) {
+      return remove(indexOf(rData));
     }else{
-      Node<T>* prev = currentNode->getPrevious();
-      Node<T>* next = currentNode->getNext();
-
-      if (prev != 0) {
-        prev->setNext(next);
-      }
-
-      if (next != 0) {
-        next->setPrevious(prev);
-      }
-
-      currentNode->setPrevious(0);
-      currentNode->setNext(0);
-
-      delete currentNode;
-      size --;
-      return true;
+      return false;
     }
   }
 
@@ -226,6 +206,16 @@ public:
       n1->setData(n2->getData());
       n2->setData(tmp);
     }
+  }
+
+  List<T> clone(){
+    List<T> nList;
+
+    for (int i = 1; i <= size; i++) {
+      nList.insert(get(i));
+    }
+
+    return nList;
   }
 
   ~List<T>(){

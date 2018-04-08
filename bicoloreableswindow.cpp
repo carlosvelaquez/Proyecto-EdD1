@@ -61,3 +61,9 @@ void BicoloreablesWindow::on_botonConectarVertices_clicked()
   graph->addEdge(vertex1, vertex2);
   graphView->refresh();
 }
+
+void BicoloreablesWindow::on_botonCorrer_clicked()
+{
+    graph->bicolor();
+    graphView->refresh();
+}
