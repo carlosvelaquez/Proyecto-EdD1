@@ -33,8 +33,6 @@ public:
     QPushButton *botonLimpiar;
     QFrame *frame_2;
     QLabel *label;
-    QFrame *frame_3;
-    QLabel *label_2;
 
     void setupUi(QWidget *ExpresionesWindow)
     {
@@ -123,33 +121,6 @@ public:
         font2.setBold(true);
         font2.setWeight(75);
         label->setFont(font2);
-        frame_3 = new QFrame(frame_2);
-        frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(10, 10, 651, 61));
-        frame_3->setStyleSheet(QLatin1String("QFrame{\n"
-"background-color: #e53935;\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"color: white;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"background-color: rgb(204, 55, 44);\n"
-"color: white;\n"
-"border: none;\n"
-"font: 11pt \"Lato\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgb(181, 48, 38);\n"
-"}"));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        label_2 = new QLabel(frame_3);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 10, 501, 31));
-        label_2->setFont(font2);
 
         retranslateUi(ExpresionesWindow);
 
@@ -181,7 +152,6 @@ public:
         botonResolver->setText(QApplication::translate("ExpresionesWindow", "Resolver", nullptr));
         botonLimpiar->setText(QApplication::translate("ExpresionesWindow", "Limpiar Todo", nullptr));
         label->setText(QApplication::translate("ExpresionesWindow", "Mafway Problem Solver", nullptr));
-        label_2->setText(QApplication::translate("ExpresionesWindow", "Mafway Problem Solver", nullptr));
     } // retranslateUi
 
 };

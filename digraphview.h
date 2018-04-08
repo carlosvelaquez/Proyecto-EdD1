@@ -18,6 +18,8 @@ protected:
     pen.setColor(QColor("#AFBEFF"));
     pen2.setColor(QColor("#212121"));
 
+    painter.setPen(pen);
+
     List<Vertex<string>*>* vertices = graph->getVertices();
 
     for (int i = 1; i <= vertices->size; i++) {
@@ -30,25 +32,27 @@ protected:
         int x2 = neighbors->get(j)->pos.x() + 25;
         int y2 = neighbors->get(j)->pos.y() + 25;
 
-        int x3 = (x1+x2)/2 + 15;
-        int y3 = ((y1+y2)/2) + 15;
+        if (graph->isWeighted()) {
+          int x3 = (x1+x2)/2 + 15;
+          int y3 = ((y1+y2)/2) + 15;
 
-        string res = to_string(costs->get(j));
-        int z = res.length() - 1;
+          string res = to_string(costs->get(j));
+          int z = res.length() - 1;
 
-        while (res[z] == '0') {
-          res = res.substr(0, z);
-          z = res.length() - 1;
+          while (res[z] == '0') {
+            res = res.substr(0, z);
+            z = res.length() - 1;
+          }
+
+          if (res[z] == '.') {
+            res = res.substr(0, z);
+          }
+
+          painter.setPen(pen2);
+          painter.drawText(x3, y3, res.c_str());
+          painter.setPen(pen);
         }
-
-        if (res[z] == '.') {
-          res = res.substr(0, z);
-        }
-
-        painter.setPen(pen);
-        painter.drawLine(x1, y1, x2, y2);
-
-        painter.setPen(pen2);
+        
         painter.drawText(x3, y3, res.c_str());
       }
     }

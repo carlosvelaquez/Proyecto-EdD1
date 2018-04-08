@@ -31,6 +31,8 @@ private slots:
 
   void on_botonConectarVertices_clicked();
 
+  void on_botonCorrer_clicked();
+
 private:
     Ui::BicoloreablesWindow *ui;
     Graph<string>* graph;

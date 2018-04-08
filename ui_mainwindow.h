@@ -72,7 +72,13 @@ public:
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(20, 110, 271, 51));
-        pushButton->setStyleSheet(QStringLiteral(""));
+        pushButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: #FFA000;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color:#FF6F00;\n"
+"}"));
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(320, 110, 271, 51));
@@ -96,6 +102,13 @@ public:
         pushButton_4 = new QPushButton(centralWidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(320, 180, 271, 51));
+        pushButton_4->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: #0288D1;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color:#01579B;\n"
+"}"));
         pushButton_5 = new QPushButton(centralWidget);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(320, 320, 271, 51));
