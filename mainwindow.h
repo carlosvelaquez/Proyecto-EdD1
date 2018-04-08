@@ -5,6 +5,7 @@
 #include <iostream>
 #include "desempenowindow.h"
 #include "bicoloreableswindow.h"
+#include "mstwindow.h"
 
 using namespace std;
 
@@ -26,6 +27,8 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_5_clicked();
+
+    void on_pushButton_8_clicked();
 
 private:
     Ui::MainWindow *ui;

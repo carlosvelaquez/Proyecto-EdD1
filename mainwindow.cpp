@@ -31,3 +31,9 @@ void MainWindow::on_pushButton_5_clicked()
     BicoloreablesWindow* w = new BicoloreablesWindow();
     w->show();
 }
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    MSTWindow* w = new MSTWindow();
+    w->show();
+}

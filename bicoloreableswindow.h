@@ -2,7 +2,6 @@
 #define BICOLOREABLESWINDOW_H
 
 #include <QWidget>
-#include <QVBoxLayout>
 #include <QVariant>
 #include <string>
 #include "graphview.h"
@@ -10,7 +9,6 @@
 #include "dragbutton.h"
 
 using namespace std;
-Q_DECLARE_METATYPE(Vertex<string>*)
 
 namespace Ui {
 class BicoloreablesWindow;
@@ -35,10 +33,8 @@ private slots:
 
 private:
     Ui::BicoloreablesWindow *ui;
-    bool moving;
-    QVBoxLayout* layout = new QVBoxLayout();
-    Graph<string>* graph = new Graph<string>();
-    GraphView<string>* graphView = new GraphView<string>();
+    Graph<string>* graph;
+    GraphView<string>* graphView;
 };
 
 #endif // BICOLOREABLESWINDOW_H

@@ -203,6 +203,63 @@ background-color: rgb(181, 48, 38);
      <string>Mafway Problem Solver</string>
     </property>
    </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>651</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+background-color: #e53935;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color: rgb(204, 55, 44);
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(181, 48, 38);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>501</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>18</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Mafway Problem Solver</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

@@ -6,6 +6,7 @@ BicoloreablesWindow::BicoloreablesWindow(QWidget *parent) :
     ui(new Ui::BicoloreablesWindow)
 {
     ui->setupUi(this);
+    graph = new Graph<string>();
     graphView = new GraphView<string>(graph, this);
     graphView->setGeometry(10, 70, 501, 351);
 }

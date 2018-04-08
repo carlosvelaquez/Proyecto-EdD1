@@ -39,56 +39,10 @@ void ExpresionesWindow::on_botonResolver_clicked()
   try{
     if (expr.isValid()) {
       double result = expr.operate();
-      if (isinf(result)) {
+      if (isinf(result) || isnan(result)) {
         output += "ERROR | Error matemático, por favor revise la expresión ingresada.";
       }else{
         string log = expr.retrieveLog();
-        /*
-        string log;
-        stringstream ss(expr.retrieveLog());
-        string token;
-        List<string> tokens;
-
-        while (getline(ss, token, '\n')) {
-          tokens.insert(token);
-        }
-
-        bool insert = true;
-
-        while (insert) {
-          insert = false;
-          int j = tokens.size;
-          for (int i = 1; i <= j; i++) {
-            j = tokens.size;
-            if (tokens.get(i).find('*') != string::npos) {
-              log += tokens.get(i) + "\n";
-              tokens.remove(i);
-              insert = true;
-              continue;
-            }else if (tokens.get(i).find('/') != string::npos) {
-              log += tokens.get(i) + "\n";
-              tokens.remove(i);
-              insert = true;
-              continue;
-            }else if (tokens.get(i).find('+') != string::npos) {
-              log += tokens.get(i) + "\n";
-              tokens.remove(i);
-              insert = true;
-              continue;
-            }else if (tokens.get(i).find('-') != string::npos) {
-              log += tokens.get(i) + "\n";
-              tokens.remove(i);
-              insert = true;
-              continue;
-            }
-          }
-        }
-
-        if (tokens.size > 0) {
-          for (int i = 1; i <= tokens.size; i++) {
-            log += tokens.get(i) + "\n";
-          }
-        }*/
 
         output += "\nProcedimiento:\n" + log;
         output += "\nResultado: ";

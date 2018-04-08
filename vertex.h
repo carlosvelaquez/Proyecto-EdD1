@@ -22,6 +22,15 @@ public:
   QPoint pos;
   string color;
 
+  Vertex(Vertex<T>* v){
+    pos = v->pos;
+    data = v->getData();
+    edges = new List<Vertex<T>*>();
+    costs = new List<double>();
+    displayName = v->getDisplayName();
+    color = v->color;
+  }
+
   Vertex(T nData){
     data = nData;
     edges = new List<Vertex<T>*>();
@@ -110,6 +119,9 @@ public:
     return costs;
   }
 
+  List<Vertex<T>*>* getEdges(){
+    return edges;
+  }
 };
 
 #endif /* end of include guard: VERTEX_H */

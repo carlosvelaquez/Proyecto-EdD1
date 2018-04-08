@@ -30,7 +30,8 @@ SOURCES += \
     desempenowindow.cpp \
     expresioneswindow.cpp \
     expression.cpp \
-    bicoloreableswindow.cpp
+    bicoloreableswindow.cpp \
+    mstwindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,10 +51,15 @@ HEADERS += \
     queue.h \
     bicoloreableswindow.h \
     dragbutton.h \
-    graphview.h
+    graphview.h \
+    mstwindow.h \
+    graphframe.h \
+    graph.h \
+    vertex.h
 
 FORMS += \
         mainwindow.ui \
     desempenowindow.ui \
     expresioneswindow.ui \
-    bicoloreableswindow.ui
+    bicoloreableswindow.ui \
+    mstwindow.ui

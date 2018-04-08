@@ -1,22 +1,9 @@
 #ifndef GRAPHVIEW_H
 #define GRAPHVIEW_H
 
-#include <QtGui>
-#include <QFrame>
-#include "graph.h"
-#include "dragbutton.h"
+#include "graphframe.h"
 
-class GraphFrame : public QFrame{
-
-  Q_OBJECT
-
-public:
-  GraphFrame(QWidget *parent = Q_NULLPTR) : QFrame(parent){
-    this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
-  }
-
-  virtual ~GraphFrame() {};
-};
+Q_DECLARE_METATYPE(Vertex<string>*)
 
 template <class T>
 class GraphView : public GraphFrame{
@@ -29,19 +16,43 @@ protected:
     QPainter painter(this);
 
     QPen pen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap);
+    QPen pen2(Qt::black, 4, Qt::SolidLine, Qt::RoundCap);
     pen.setColor(QColor("#AFBEFF"));
-    painter.setPen(pen);
-
+    pen2.setColor(QColor("#212121"));
 
     List<Vertex<string>*>* vertices = graph->getVertices();
 
     for (int i = 1; i <= vertices->size; i++) {
       Vertex<string>* vertex = vertices->get(i);
       List<Vertex<string>*>* neighbors = vertex->neighbors();
+      List<double>* costs = vertex->getCosts();
 
+      for (int j = 1; j <= neighbors->size; j++) {
+        int x1 = vertex->pos.x() + 25;
+        int y1 = vertex->pos.y() + 25;
+        int x2 = neighbors->get(j)->pos.x() + 25;
+        int y2 = neighbors->get(j)->pos.y() + 25;
 
-      for (int i = 1; i <= neighbors->size; i++) {
-        painter.drawLine((vertex->pos.x() + 25), (vertex->pos.y() + 25), (neighbors->get(i)->pos.x() + 25), (neighbors->get(i)->pos.y() + 25));
+        int x3 = (x1+x2)/2 + 15;
+        int y3 = ((y1+y2)/2) + 15;
+
+        string res = to_string(costs->get(j));
+        int z = res.length() - 1;
+
+        while (res[z] == '0') {
+          res = res.substr(0, z);
+          z = res.length() - 1;
+        }
+
+        if (res[z] == '.') {
+          res = res.substr(0, z);
+        }
+
+        painter.setPen(pen);
+        painter.drawLine(x1, y1, x2, y2);
+
+        painter.setPen(pen2);
+        painter.drawText(x3, y3, res.c_str());
       }
     }
   }
@@ -81,5 +92,6 @@ public:
   }
 
 };
+
 
 #endif /* end of include guard: GRAPHVIEW_H */
