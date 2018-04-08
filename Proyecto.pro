@@ -31,7 +31,9 @@ SOURCES += \
     expresioneswindow.cpp \
     expression.cpp \
     bicoloreableswindow.cpp \
-    mstwindow.cpp
+    mstwindow.cpp \
+    laberintowindow.cpp \
+    huffmanwindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,11 +57,15 @@ HEADERS += \
     mstwindow.h \
     graphframe.h \
     graph.h \
-    vertex.h
+    vertex.h \
+    laberintowindow.h \
+    huffmanwindow.h
 
 FORMS += \
         mainwindow.ui \
     desempenowindow.ui \
     expresioneswindow.ui \
     bicoloreableswindow.ui \
-    mstwindow.ui
+    mstwindow.ui \
+    laberintowindow.ui \
+    huffmanwindow.ui

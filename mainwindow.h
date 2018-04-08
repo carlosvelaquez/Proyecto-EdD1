@@ -29,6 +29,10 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_pushButton_8_clicked();
+    
+    void on_pushButton_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;
