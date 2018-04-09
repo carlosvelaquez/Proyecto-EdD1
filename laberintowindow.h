@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "linkedstack.h"
 #include "laberintodata.h"
+#include "node.h"
 
 namespace Ui {
 class laberintowindow;
@@ -18,7 +19,7 @@ public:
     ~laberintowindow();
     char** createMatrix(int,int);
     void clearMatrix(char**,int);
-    void simulation(char**);
+    void simulation(char**,int,int);
     bool checkPosition(int,int,char**);
 
 private slots:
