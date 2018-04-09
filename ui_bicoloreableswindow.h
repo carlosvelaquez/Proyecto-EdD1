@@ -31,11 +31,9 @@ public:
     QPushButton *botonNuevoGrafo;
     QFrame *frame_2;
     QPushButton *botonCorrer;
-    QPushButton *botonCargar;
     QLabel *label_7;
+    QLabel *resultadoLabel;
     QFrame *frame_4;
-    QPushButton *botonGuardarGrafo;
-    QFrame *line;
     QLabel *label_2;
     QLabel *label_3;
     QLineEdit *leNombreVertice;
@@ -47,6 +45,7 @@ public:
     QComboBox *cbVertice2;
     QFrame *line_2;
     QFrame *line_3;
+    QLabel *label_6;
 
     void setupUi(QWidget *BicoloreablesWindow)
     {
@@ -117,12 +116,24 @@ public:
         botonCorrer = new QPushButton(frame_2);
         botonCorrer->setObjectName(QStringLiteral("botonCorrer"));
         botonCorrer->setGeometry(QRect(570, 0, 181, 41));
-        botonCargar = new QPushButton(frame_2);
-        botonCargar->setObjectName(QStringLiteral("botonCargar"));
-        botonCargar->setGeometry(QRect(390, 0, 181, 41));
         label_7 = new QLabel(frame_2);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(10, 20, 311, 16));
+        label_7->setGeometry(QRect(10, 5, 71, 31));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Lato"));
+        font1.setPointSize(11);
+        font1.setBold(false);
+        font1.setWeight(50);
+        label_7->setFont(font1);
+        resultadoLabel = new QLabel(frame_2);
+        resultadoLabel->setObjectName(QStringLiteral("resultadoLabel"));
+        resultadoLabel->setGeometry(QRect(90, 4, 211, 31));
+        QFont font2;
+        font2.setFamily(QStringLiteral("Montserrat"));
+        font2.setPointSize(12);
+        font2.setBold(true);
+        font2.setWeight(75);
+        resultadoLabel->setFont(font2);
         frame_4 = new QFrame(BicoloreablesWindow);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setGeometry(QRect(530, 70, 201, 351));
@@ -131,23 +142,11 @@ public:
 "}"));
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
-        botonGuardarGrafo = new QPushButton(frame_4);
-        botonGuardarGrafo->setObjectName(QStringLiteral("botonGuardarGrafo"));
-        botonGuardarGrafo->setGeometry(QRect(10, 322, 181, 21));
-        line = new QFrame(frame_4);
-        line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(10, 300, 181, 20));
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
         label_2 = new QLabel(frame_4);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(50, 10, 111, 16));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Montserrat"));
-        font1.setPointSize(12);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label_2->setFont(font1);
+        label_2->setGeometry(QRect(10, 10, 181, 16));
+        label_2->setFont(font2);
+        label_2->setAlignment(Qt::AlignCenter);
         label_3 = new QLabel(frame_4);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(10, 40, 121, 16));
@@ -159,22 +158,22 @@ public:
         botonCrearVertice->setGeometry(QRect(10, 90, 181, 23));
         botonConectarVertices = new QPushButton(frame_4);
         botonConectarVertices->setObjectName(QStringLiteral("botonConectarVertices"));
-        botonConectarVertices->setGeometry(QRect(10, 270, 181, 23));
+        botonConectarVertices->setGeometry(QRect(10, 310, 181, 23));
         label_4 = new QLabel(frame_4);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(10, 150, 61, 16));
+        label_4->setGeometry(QRect(10, 180, 61, 16));
         cbVertice1 = new QComboBox(frame_4);
         cbVertice1->setObjectName(QStringLiteral("cbVertice1"));
-        cbVertice1->setGeometry(QRect(10, 170, 181, 23));
+        cbVertice1->setGeometry(QRect(10, 200, 181, 23));
         label_5 = new QLabel(frame_4);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(10, 220, 61, 16));
+        label_5->setGeometry(QRect(10, 250, 61, 16));
         cbVertice2 = new QComboBox(frame_4);
         cbVertice2->setObjectName(QStringLiteral("cbVertice2"));
-        cbVertice2->setGeometry(QRect(10, 240, 181, 23));
+        cbVertice2->setGeometry(QRect(10, 270, 181, 23));
         line_2 = new QFrame(frame_4);
         line_2->setObjectName(QStringLiteral("line_2"));
-        line_2->setGeometry(QRect(90, 200, 20, 21));
+        line_2->setGeometry(QRect(90, 230, 20, 21));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
         line_3 = new QFrame(frame_4);
@@ -182,6 +181,12 @@ public:
         line_3->setGeometry(QRect(17, 120, 171, 31));
         line_3->setFrameShape(QFrame::HLine);
         line_3->setFrameShadow(QFrame::Sunken);
+        label_6 = new QLabel(frame_4);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(10, 150, 181, 16));
+        label_6->setFont(font2);
+        label_6->setStyleSheet(QStringLiteral(""));
+        label_6->setAlignment(Qt::AlignCenter);
 
         retranslateUi(BicoloreablesWindow);
 
@@ -194,15 +199,15 @@ public:
         label->setText(QApplication::translate("BicoloreablesWindow", "Grafos Bi-coloreables", nullptr));
         botonNuevoGrafo->setText(QApplication::translate("BicoloreablesWindow", "Nuevo Grafo", nullptr));
         botonCorrer->setText(QApplication::translate("BicoloreablesWindow", "Correr con Grafo Actual", nullptr));
-        botonCargar->setText(QApplication::translate("BicoloreablesWindow", "Cargar Grafo Guardado", nullptr));
-        label_7->setText(QApplication::translate("BicoloreablesWindow", "TIP: Puede arrastrar los v\303\251rtices para reordenarlos.", nullptr));
-        botonGuardarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Guardar Grafo", nullptr));
+        label_7->setText(QApplication::translate("BicoloreablesWindow", "Resultado:", nullptr));
+        resultadoLabel->setText(QApplication::translate("BicoloreablesWindow", "-", nullptr));
         label_2->setText(QApplication::translate("BicoloreablesWindow", "Crear V\303\251rtice", nullptr));
         label_3->setText(QApplication::translate("BicoloreablesWindow", "Nombre del V\303\251rtice", nullptr));
         botonCrearVertice->setText(QApplication::translate("BicoloreablesWindow", "Crear Nuevo V\303\251rtice", nullptr));
-        botonConectarVertices->setText(QApplication::translate("BicoloreablesWindow", "Conectar V\303\251rtices", nullptr));
+        botonConectarVertices->setText(QApplication::translate("BicoloreablesWindow", "Crear Nueva Arista", nullptr));
         label_4->setText(QApplication::translate("BicoloreablesWindow", "V\303\251rtice 1", nullptr));
         label_5->setText(QApplication::translate("BicoloreablesWindow", "V\303\251rtice 2", nullptr));
+        label_6->setText(QApplication::translate("BicoloreablesWindow", "Crear Arista", nullptr));
     } // retranslateUi
 
 };

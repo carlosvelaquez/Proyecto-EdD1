@@ -3,16 +3,19 @@
 
 #include "vertex.h"
 
+
 template <class T>
 class Graph{
 
 private:
   List<Vertex<T>*>* vertices;
   bool weighted;
+  bool bicolored = false;
 
 public:
   const string color1 = "#f44336";
   const string color2 = "#3F51B5";
+  string defaultColor = "black";
 
   Graph(){
     vertices = new List<Vertex<T>*>;
@@ -24,12 +27,20 @@ public:
     weighted = nWeighted;
   }
 
+  void copy(Graph<T> cGraph){
+    vertices = cGraph.getVertices();
+    weighted = cGraph.isWeighted();
+    bicolored = cGraph.isBicolored();
+    defaultColor = cGraph.defaultColor;
+  }
+
   bool addVertex(T nData){
     return vertices->insert(new Vertex<T>(nData));
   }
 
   bool addVertex(Vertex<T>* nVertex){
     if (!vertices->contains(nVertex)) {
+      nVertex->color = defaultColor;
       return vertices->insert(nVertex);
     }
 
@@ -162,7 +173,8 @@ public:
       }
     }
 
-    Graph<T>* mst = new Graph<T>();
+    Graph<T>* mst = new Graph<T>(true);
+    mst->defaultColor = "#3949AB";
     List<Vertex<T>*>* vert = new List<Vertex<T>*>();
 
     for (int i = 1; i <= vertices->size; i++) {
@@ -196,6 +208,8 @@ public:
   }
 
   bool bicolor(){
+    bicolored = true;
+
     if (vertices != 0) {
       if (vertices->size > 0) {
         if (vertices->size == 1) {
@@ -240,6 +254,43 @@ public:
         }
       }
     }
+  }
+
+  bool isBicolorable(){
+    bicolor();
+    string color = "";
+    string neighborColor = "";
+
+    for (int i = 1; i <= vertices->size; i++) {
+      List<Vertex<T>*>* neighbors = vertices->get(i)->neighbors();
+      color = vertices->get(i)->color;
+
+      for (int j = 1; j <= neighbors->size; j++) {
+        neighborColor = neighbors->get(j)->color;
+
+        if (neighborColor == color && neighborColor != defaultColor) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  bool isBicolored(){
+    return bicolored;
+  }
+
+  void color(){
+    for (int i = 1; i <= vertices->size; i++) {
+      vertices->get(i)->color = defaultColor;
+    }
+
+    bicolored = false;
+  }
+
+  int size(){
+    return vertices->size;
   }
 };
 

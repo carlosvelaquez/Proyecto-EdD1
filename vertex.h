@@ -32,6 +32,7 @@ public:
   }
 
   Vertex(T nData){
+    pos = QPoint(25,25);
     data = nData;
     edges = new List<Vertex<T>*>();
     costs = new List<double>();
@@ -40,6 +41,7 @@ public:
   }
 
   Vertex(T nData, string nDisplay){
+    pos = QPoint(25,25);
     data = nData;
     edges = new List<Vertex<T>*>();
     costs = new List<double>();

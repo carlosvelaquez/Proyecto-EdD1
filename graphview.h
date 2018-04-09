@@ -22,42 +22,54 @@ protected:
 
     painter.setPen(pen);
 
-    List<Vertex<string>*>* vertices = graph->getVertices();
+    if (graph != 0) {
+      if (graph->size() > 0) {
+        List<Vertex<string>*>* vertices = graph->getVertices();
 
-    for (int i = 1; i <= vertices->size; i++) {
-      Vertex<string>* vertex = vertices->get(i);
-      List<Vertex<string>*>* neighbors = vertex->neighbors();
-      List<double>* costs = vertex->getCosts();
+        for (int i = 1; i <= vertices->size; i++) {
+          Vertex<string>* vertex = vertices->get(i);
+          List<Vertex<string>*>* neighbors = vertex->neighbors();
+          List<double>* costs = vertex->getCosts();
 
-      for (int j = 1; j <= neighbors->size; j++) {
-        int x1 = vertex->pos.x() + 25;
-        int y1 = vertex->pos.y() + 25;
-        int x2 = neighbors->get(j)->pos.x() + 25;
-        int y2 = neighbors->get(j)->pos.y() + 25;
+          for (int j = 1; j <= neighbors->size; j++) {
+            int x1 = vertex->pos.x() + 25;
+            int y1 = vertex->pos.y() + 25;
+            int x2 = neighbors->get(j)->pos.x() + 25;
+            int y2 = neighbors->get(j)->pos.y() + 25;
 
-        if (graph->isWeighted()) {
-          int x3 = (x1+x2)/2 + 15;
-          int y3 = ((y1+y2)/2) + 15;
+            painter.drawLine(x1, y1, x2, y2);
 
-          string res = to_string(costs->get(j));
-          int z = res.length() - 1;
+            if (graph->isWeighted()) {
+              int x3 = (x1+x2)/2 + 15;
+              int y3 = ((y1+y2)/2) + 15;
 
-          while (res[z] == '0') {
-            res = res.substr(0, z);
-            z = res.length() - 1;
+              string res = to_string(costs->get(j));
+              int z = res.length() - 1;
+
+              while (res[z] == '0') {
+                res = res.substr(0, z);
+                z = res.length() - 1;
+              }
+
+              if (res[z] == '.') {
+                res = res.substr(0, z);
+              }
+
+              painter.setPen(pen2);
+              painter.drawText(x3, y3, res.c_str());
+              painter.setPen(pen);
+            }
           }
-
-          if (res[z] == '.') {
-            res = res.substr(0, z);
-          }
-
-          painter.setPen(pen2);
-          painter.drawText(x3, y3, res.c_str());
-          painter.setPen(pen);
         }
-
-        painter.drawLine(x1, y1, x2, y2);
+      }else{
+        pen2.setColor(QColor("#9E9E9E"));
+        painter.setPen(pen2);
+        painter.drawText((width()/2) - 45, (height()/2), "Nada que mostrar");
       }
+    }else{
+      pen2.setColor(QColor("#9E9E9E"));
+      painter.setPen(pen2);
+      painter.drawText((width()/2) - 45, (height()/2), "Nada que mostrar");
     }
   }
 
@@ -83,16 +95,18 @@ public:
       delete w;
     }
 
-    List<Vertex<string>*>* vertices = graph->getVertices();
+    if (graph != 0) {
+      List<Vertex<string>*>* vertices = graph->getVertices();
 
-    for (int i = 1; i <= vertices->size; i++) {
-      Vertex<string>* current = vertices->get(i);
-      DragButton* db = new DragButton(current, this);
-      db->moveToPosition();
-      db->show();
+      for (int i = 1; i <= vertices->size; i++) {
+        Vertex<string>* current = vertices->get(i);
+        DragButton* db = new DragButton(current, this);
+        db->moveToPosition();
+        db->show();
+      }
+
+      update();
     }
-
-    update();
   }
 
 };

@@ -9,7 +9,6 @@
 #include "dragbutton.h"
 
 using namespace std;
-
 namespace Ui {
 class BicoloreablesWindow;
 }
@@ -22,6 +21,8 @@ public:
     explicit BicoloreablesWindow(QWidget *parent = 0);
     void addDragButton(string);
     void refreshLayout();
+    void loadFromFile();
+    void saveToFile();
     ~BicoloreablesWindow();
 
 private slots:

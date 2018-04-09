@@ -7,6 +7,7 @@ MSTWindow::MSTWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     graph = new Graph<string>(true);
+    graph->defaultColor = "#42A5F5";
     graphView = new GraphView<string>(graph, this);
     graphView->setGeometry(10, 70, 501, 351);
 }
@@ -31,6 +32,7 @@ void MSTWindow::refreshLayout(){
 void MSTWindow::on_botonNuevoGrafo_clicked()
 {
     graph = new Graph<string>();
+    graph->defaultColor = "#42A5F5";
     graphView->setGraph(graph);
     refreshLayout();
 }
@@ -64,11 +66,34 @@ MSTWindow::~MSTWindow()
 
 void MSTWindow::on_pbEncontrarMST_clicked()
 {
+  bool error = false;
+
   if (graph != 0) {
-    mst = graph->genMST();
-    graphView->setGraph(mst);
-    graphView->refresh();
-    ui->lbVista->setText("MST");
+    try{
+      mst = graph->genMST();
+    }catch(...){
+      error = true;
+    }
+
+    if (graph->size() < 1) {
+      error = true;
+    }
+
+    if (mst == 0) {
+      error = true;
+    }else{
+      if (mst->size() != graph->size()) {
+        error = true;
+      }
+    }
+
+    if (error) {
+      ui->lbVista->setText("No se pudo encontrar un MST");
+    }else{
+      graphView->setGraph(mst);
+      graphView->refresh();
+      ui->lbVista->setText("MST");
+    }
   }
 }
 
