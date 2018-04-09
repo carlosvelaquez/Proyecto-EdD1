@@ -2,7 +2,10 @@
 #define GRAPH_H
 
 #include "vertex.h"
+#include <fstream>
+#include <sstream>
 
+using namespace std;
 
 template <class T>
 class Graph{
@@ -25,6 +28,55 @@ public:
   Graph(bool nWeighted){
     vertices = new List<Vertex<T>*>;
     weighted = nWeighted;
+  }
+
+  Graph(ifstream& file){
+    char delim = ',';
+    vertices = new List<Vertex<T>*>;
+
+    string line;
+    getline(file, line);
+    weighted = false;
+
+    if (line == "1") {
+      weighted = true;
+    }
+
+    getline(file, line);
+    defaultColor = line;
+    getline(file, line);
+
+    int size = stoi(line);
+
+    for (int i = 1; i <= size; i++) {
+      getline(file, line);
+      stringstream ss(line);
+      string displayName, posX, posY;
+
+      getline(ss, displayName, delim);
+      getline(ss, posX, delim);
+      getline(ss, posY, delim);
+
+      T data;
+      Vertex<T>* nVertex = new Vertex<T>(data, displayName);
+      nVertex->pos = QPoint(stoi(posX), stoi(posY));
+
+      vertices->insert(nVertex);
+    }
+
+    for (int i = 1; i <= size; i++) {
+      getline(file, line);
+      stringstream ss(line);
+
+      string connected;
+
+      for (int j = 1; j <= size; j++) {
+        getline(ss, connected, delim);
+        if (connected != "N") {
+          addEdge(vertices->get(i), vertices->get(j), stod(connected));
+        }
+      }
+    }
   }
 
   void copy(Graph<T> cGraph){
@@ -292,6 +344,48 @@ public:
   int size(){
     return vertices->size;
   }
+
+  string toTextFile(){
+    string output = "";
+    if (weighted) {
+      output += "1";
+    }else{
+      output += "0";
+    }
+
+    output += "\n";
+    output += defaultColor;
+    output += "\n";
+    output += to_string(vertices->size);
+    output += "\n";
+
+    for (int i = 1; i <= vertices->size; i++) {
+      output += vertices->get(i)->getDisplayName();
+      output += ",";
+      output += to_string(vertices->get(i)->pos.x());
+      output += ",";
+      output += to_string(vertices->get(i)->pos.y());
+      output += "\n";
+    }
+
+    for (int i = 1; i <= vertices->size; i++) {
+      for (int j = 1; j <= vertices->size; j++) {
+        if (vertices->get(i)->adjacent(vertices->get(j))) {
+          output += to_string(vertices->get(i)->getCosts()->get(vertices->get(i)->getEdges()->indexOf(vertices->get(j))));
+        }else{
+          output += "N";
+        }
+
+        if (j != vertices->size) {
+          output += ",";
+        }
+      }
+      output += "\n";
+    }
+
+    return output;
+  }
+
 };
 
 #endif /* end of include guard: GRAPH_H */

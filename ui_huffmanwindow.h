@@ -14,8 +14,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTreeWidget>
@@ -26,59 +26,93 @@ QT_BEGIN_NAMESPACE
 class Ui_huffmanwindow
 {
 public:
-    QFrame *frame;
+    QTreeWidget *treeWidget;
+    QFrame *frame_3;
+    QLabel *label_2;
     QPushButton *pushbutton_load;
-    QFrame *frame_2;
-    QHBoxLayout *horizontalLayout;
+    QFrame *frame;
     QLineEdit *lineEdit;
     QPushButton *pushButton_compress;
-    QFrame *frame_3;
-    QTreeWidget *treeWidget;
 
     void setupUi(QWidget *huffmanwindow)
     {
         if (huffmanwindow->objectName().isEmpty())
             huffmanwindow->setObjectName(QStringLiteral("huffmanwindow"));
-        huffmanwindow->resize(640, 402);
-        frame = new QFrame(huffmanwindow);
-        frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(0, 0, 641, 401));
-        frame->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        pushbutton_load = new QPushButton(frame);
-        pushbutton_load->setObjectName(QStringLiteral("pushbutton_load"));
-        pushbutton_load->setGeometry(QRect(20, 30, 81, 31));
-        pushbutton_load->setStyleSheet(QLatin1String("background-color: rgb(32, 74, 135);\n"
-"font: 75 9pt \"Waree\";"));
-        frame_2 = new QFrame(frame);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(110, 30, 511, 45));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        horizontalLayout = new QHBoxLayout(frame_2);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        lineEdit = new QLineEdit(frame_2);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        horizontalLayout->addWidget(lineEdit);
-
-        pushButton_compress = new QPushButton(frame_2);
-        pushButton_compress->setObjectName(QStringLiteral("pushButton_compress"));
-
-        horizontalLayout->addWidget(pushButton_compress);
-
-        frame_3 = new QFrame(frame);
-        frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(20, 90, 601, 291));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        treeWidget = new QTreeWidget(frame_3);
+        huffmanwindow->resize(748, 451);
+        huffmanwindow->setStyleSheet(QLatin1String("QWidget{\n"
+"	background-color:white;\n"
+"}"));
+        treeWidget = new QTreeWidget(huffmanwindow);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
-        __qtreewidgetitem->setText(0, QStringLiteral("1"));
+        __qtreewidgetitem->setText(0, QStringLiteral("Frecuencias de Simbolos"));
         treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName(QStringLiteral("treeWidget"));
-        treeWidget->setGeometry(QRect(10, 10, 581, 271));
+        treeWidget->setGeometry(QRect(10, 70, 721, 311));
+        frame_3 = new QFrame(huffmanwindow);
+        frame_3->setObjectName(QStringLiteral("frame_3"));
+        frame_3->setGeometry(QRect(0, 0, 751, 61));
+        frame_3->setStyleSheet(QLatin1String("QFrame{\n"
+"background-color:#795548;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: #5D4037;\n"
+"color: white;\n"
+"border: none;\n"
+"font: 11pt \"Lato\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color:#3E2723;\n"
+"}"));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        label_2 = new QLabel(frame_3);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(10, 10, 431, 31));
+        QFont font;
+        font.setFamily(QStringLiteral("Montserrat"));
+        font.setPointSize(18);
+        font.setBold(true);
+        font.setWeight(75);
+        label_2->setFont(font);
+        pushbutton_load = new QPushButton(frame_3);
+        pushbutton_load->setObjectName(QStringLiteral("pushbutton_load"));
+        pushbutton_load->setGeometry(QRect(630, 0, 121, 61));
+        pushbutton_load->setStyleSheet(QStringLiteral(""));
+        frame = new QFrame(huffmanwindow);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setGeometry(QRect(0, 390, 751, 61));
+        frame->setStyleSheet(QLatin1String("QFrame{\n"
+"background-color:#795548;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: #5D4037;\n"
+"color: white;\n"
+"border: none;\n"
+"font: 11pt \"Lato\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color:#3E2723;\n"
+"}"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        lineEdit = new QLineEdit(frame);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(20, 20, 571, 23));
+        pushButton_compress = new QPushButton(frame);
+        pushButton_compress->setObjectName(QStringLiteral("pushButton_compress"));
+        pushButton_compress->setGeometry(QRect(610, 2, 141, 61));
 
         retranslateUi(huffmanwindow);
 
@@ -88,8 +122,10 @@ public:
     void retranslateUi(QWidget *huffmanwindow)
     {
         huffmanwindow->setWindowTitle(QApplication::translate("huffmanwindow", "Form", nullptr));
-        pushbutton_load->setText(QApplication::translate("huffmanwindow", "Cargar", nullptr));
-        pushButton_compress->setText(QApplication::translate("huffmanwindow", "comprimir", nullptr));
+        label_2->setText(QApplication::translate("huffmanwindow", "Compresi\303\263n de Archivos de Texto", nullptr));
+        pushbutton_load->setText(QApplication::translate("huffmanwindow", "Cargar Archivo", nullptr));
+        lineEdit->setPlaceholderText(QApplication::translate("huffmanwindow", "Ingrese texto para comprimir.", nullptr));
+        pushButton_compress->setText(QApplication::translate("huffmanwindow", "Comprimir Texto", nullptr));
     } // retranslateUi
 
 };

@@ -6,24 +6,61 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>402</height>
+    <width>748</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QFrame" name="frame">
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	background-color:white;
+}</string>
+  </property>
+  <widget class="QTreeWidget" name="treeWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>721</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string notr="true">Frecuencias de Simbolos</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QFrame" name="frame_3">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>641</width>
-     <height>401</height>
+     <width>751</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">QFrame{
+background-color:#795548;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color: #5D4037;
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color:#3E2723;
+}</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -31,81 +68,104 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="pushbutton_load">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>81</width>
+      <x>10</x>
+      <y>10</y>
+      <width>431</width>
       <height>31</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(32, 74, 135);
-font: 75 9pt &quot;Waree&quot;;</string>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
-     <string>Cargar</string>
+     <string>Compresión de Archivos de Texto</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QPushButton" name="pushbutton_load">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>30</y>
-      <width>511</width>
-      <height>45</height>
+      <x>630</x>
+      <y>0</y>
+      <width>121</width>
+      <height>61</height>
      </rect>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+    <property name="text">
+     <string>Cargar Archivo</string>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_compress">
-       <property name="text">
-        <string>comprimir</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
-   <widget class="QFrame" name="frame_3">
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>390</y>
+     <width>751</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame{
+background-color:#795548;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color: #5D4037;
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color:#3E2723;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>90</y>
-      <width>601</width>
-      <height>291</height>
+      <y>20</y>
+      <width>571</width>
+      <height>23</height>
      </rect>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+    <property name="placeholderText">
+     <string>Ingrese texto para comprimir.</string>
     </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+   </widget>
+   <widget class="QPushButton" name="pushButton_compress">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>2</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
     </property>
-    <widget class="QTreeWidget" name="treeWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>581</width>
-       <height>271</height>
-      </rect>
-     </property>
-     <column>
-      <property name="text">
-       <string notr="true">1</string>
-      </property>
-     </column>
-    </widget>
+    <property name="text">
+     <string>Comprimir Texto</string>
+    </property>
    </widget>
   </widget>
  </widget>

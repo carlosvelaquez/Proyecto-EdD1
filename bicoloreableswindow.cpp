@@ -27,20 +27,23 @@ void BicoloreablesWindow::on_botonCrearVertice_clicked(){
 }
 
 void BicoloreablesWindow::refreshLayout(){
-  List<Vertex<string>*>* vertices = graphView->getGraph()->getVertices();
-
-  graphView->refresh();
   ui->cbVertice1->clear();
   ui->cbVertice2->clear();
 
-  for (int i = 1; i <= vertices->size; i++) {
-    QVariant cbData;
-    Vertex<string>* current = vertices->get(i);
+  if (graphView->getGraph() != 0) {
+    List<Vertex<string>*>* vertices = graphView->getGraph()->getVertices();
 
-    cbData.setValue(current);
-    ui->cbVertice1->addItem(current->getDisplayName().c_str(), cbData);
-    ui->cbVertice2->addItem(current->getDisplayName().c_str(), cbData);
+    for (int i = 1; i <= vertices->size; i++) {
+      QVariant cbData;
+      Vertex<string>* current = vertices->get(i);
+
+      cbData.setValue(current);
+      ui->cbVertice1->addItem(current->getDisplayName().c_str(), cbData);
+      ui->cbVertice2->addItem(current->getDisplayName().c_str(), cbData);
+    }
   }
+
+  graphView->refresh();
 }
 
 
@@ -85,70 +88,46 @@ void BicoloreablesWindow::on_botonCorrer_clicked()
     graphView->refresh();
 }
 
-/* COMIENZA GUARDAR/LEER
 
-void BicoloreablesWindow::saveToFile(){
-  QString fileName = QFileDialog::getSaveFileName(this, tr("Guardar Archivo de Grafo"), "", tr("Archivos de Grafo (*.graph)"));
-
-  if (fileName.isEmpty()) {
-    return;
-  }else{
-    QFile file(fileName);
-    if (!file.open(QIODevice::WriteOnly)) {
-      QMessageBox::information(this, tr("Error guardando grafo"), tr("No se pudo guardar el archivo."));
-      QMessageBox::information(this, tr("Error cargando grafo"), tr("No se pudo abrir el archivo."));
-      return;
-    }else{
-      QDataStream out(&file);
-      QVariant data;
-
-      graph->color();
-
-      for (int i = 1; i <= graph->getVertices()->size; i++) {
-        vertices.insert(*graph->getVertices()->get(i));
-      }
-
-      data.setValue(vertices);
-      out << data;
-    }
-  }
-}
-
-void BicoloreablesWindow::loadFromFile(){
-  QString fileName = QFileDialog::getOpenFileName(this, tr("Cargar Archivo de Grafo"), "", tr("Archivos de Grafo (*.graph)"));
-
-  if (fileName.isEmpty()) {
-    return;
-  }else{
-    QFile file(fileName);
-    if (!file.open(QIODevice::ReadOnly)) {
-      QMessageBox::information(this, tr("Error cargando grafo"), tr("No se pudo abrir el archivo."));
-      return;
-    }else{
-      QDataStream in(&file);
-      QVariant data;
-
-      in >> data;
-
-      Graph<string> loaded = data.value<Graph<string>>();
-      graph = new Graph<string>();
-      graph->copy(loaded);
-      graphView->setGraph(graph);
-    }
-  }
-
-  refreshLayout();
-}
-
-
-void BicoloreablesWindow::on_botonCargar_clicked()
+void BicoloreablesWindow::on_botonCargarGrafo_clicked()
 {
-    loadFromFile();
+  QString fileName = QFileDialog::getOpenFileName(this, tr("Cargar Archivo de Grafo"), "", tr("Archivos de Grafo (*.sota)"));
+
+  if (fileName.isEmpty()) {
+    return;
+  }else{
+    ifstream file;
+    file.open(fileName.toUtf8().constData());
+
+    if (!file) {
+      QMessageBox::information(this, tr("Error cargando grafo"), tr("No se pudo cargar el archivo."));
+      return;
+    }else{
+      graph = new Graph<string>(file);
+      graph->color();
+      graphView->setGraph(graph);
+      refreshLayout();
+      file.close();
+    }
+  }
 }
 
 void BicoloreablesWindow::on_botonGuardarGrafo_clicked()
 {
-    saveToFile();
-}
+  QString fileName = QFileDialog::getSaveFileName(this, tr("Guardar Archivo de Grafo"), "", tr("Archivos de Grafo (*.sota)"));
 
-*/
+  if (fileName.isEmpty()) {
+    return;
+  }else{
+    ofstream file;
+    file.open(fileName.toUtf8().constData());
+
+    if (!file) {
+      QMessageBox::information(this, tr("Error guardando grafo"), tr("No se pudo guardar el archivo."));
+      return;
+    }else{
+      file << graph->toTextFile().c_str();
+      file.close();
+    }
+  }
+}

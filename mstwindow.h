@@ -1,7 +1,11 @@
 #ifndef MSTWINDOW_H
 #define MSTWINDOW_H
 
+#include <iostream>
+#include <fstream>
 #include <QWidget>
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QVariant>
 #include <string>
 #include "graphview.h"
@@ -34,6 +38,10 @@ public:
       void on_pbEncontrarMST_clicked();
 
       void on_pbRevertir_clicked();
+
+      void on_botonCargarGrafo_clicked();
+
+      void on_botonGuardarGrafo_clicked();
 
 private:
     Ui::MSTWindow *ui;

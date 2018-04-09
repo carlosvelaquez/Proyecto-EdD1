@@ -103,11 +103,11 @@ public:
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(320, 180, 271, 51));
         pushButton_4->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: #0288D1;\n"
+"background-color: #5D4037;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"background-color:#01579B;\n"
+"background-color:#3E2723;\n"
 "}"));
         pushButton_5 = new QPushButton(centralWidget);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));

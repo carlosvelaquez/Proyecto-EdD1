@@ -35,6 +35,8 @@ public:
     QPushButton *pbRevertir;
     QLabel *label;
     QLabel *lbVista;
+    QPushButton *botonCargarGrafo;
+    QPushButton *botonGuardarGrafo;
     QFrame *frame_4;
     QLabel *label_4;
     QLabel *label_5;
@@ -50,6 +52,7 @@ public:
     QLabel *label_8;
     QDoubleSpinBox *sbCosto;
     QLabel *label_9;
+    QLabel *lbError;
 
     void setupUi(QWidget *MSTWindow)
     {
@@ -84,7 +87,7 @@ public:
         frame_2->setFrameShadow(QFrame::Raised);
         label_2 = new QLabel(frame_2);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 10, 501, 31));
+        label_2->setGeometry(QRect(10, 10, 371, 31));
         QFont font;
         font.setFamily(QStringLiteral("Montserrat"));
         font.setPointSize(18);
@@ -134,13 +137,19 @@ public:
         label->setFont(font1);
         lbVista = new QLabel(frame_3);
         lbVista->setObjectName(QStringLiteral("lbVista"));
-        lbVista->setGeometry(QRect(90, 10, 221, 21));
+        lbVista->setGeometry(QRect(90, 10, 171, 21));
         QFont font2;
         font2.setFamily(QStringLiteral("Montserrat"));
         font2.setPointSize(12);
         font2.setBold(true);
         font2.setWeight(75);
         lbVista->setFont(font2);
+        botonCargarGrafo = new QPushButton(frame_3);
+        botonCargarGrafo->setObjectName(QStringLiteral("botonCargarGrafo"));
+        botonCargarGrafo->setGeometry(QRect(390, 0, 111, 41));
+        botonGuardarGrafo = new QPushButton(frame_3);
+        botonGuardarGrafo->setObjectName(QStringLiteral("botonGuardarGrafo"));
+        botonGuardarGrafo->setGeometry(QRect(280, 0, 111, 41));
         frame_4 = new QFrame(MSTWindow);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setGeometry(QRect(530, 70, 201, 351));
@@ -215,6 +224,11 @@ public:
         label_8->raise();
         sbCosto->raise();
         label_9->raise();
+        lbError = new QLabel(MSTWindow);
+        lbError->setObjectName(QStringLiteral("lbError"));
+        lbError->setGeometry(QRect(20, 80, 481, 331));
+        lbError->setFont(font2);
+        lbError->setAlignment(Qt::AlignCenter);
 
         retranslateUi(MSTWindow);
 
@@ -226,10 +240,12 @@ public:
         MSTWindow->setWindowTitle(QApplication::translate("MSTWindow", "\303\201rboles de Expansi\303\263n M\303\255nima | Proyecto EdD I", nullptr));
         label_2->setText(QApplication::translate("MSTWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", nullptr));
         botonNuevoGrafo->setText(QApplication::translate("MSTWindow", "Nuevo Grafo", nullptr));
-        pbEncontrarMST->setText(QApplication::translate("MSTWindow", "Vista MST", nullptr));
+        pbEncontrarMST->setText(QApplication::translate("MSTWindow", "Vista AEM", nullptr));
         pbRevertir->setText(QApplication::translate("MSTWindow", "Vista Original", nullptr));
         label->setText(QApplication::translate("MSTWindow", "Vista Actual:", nullptr));
         lbVista->setText(QApplication::translate("MSTWindow", "Grafo Original", nullptr));
+        botonCargarGrafo->setText(QApplication::translate("MSTWindow", "Cargar Grafo", nullptr));
+        botonGuardarGrafo->setText(QApplication::translate("MSTWindow", "Guardar Grafo", nullptr));
         label_4->setText(QApplication::translate("MSTWindow", "Crear V\303\251rtice", nullptr));
         label_5->setText(QApplication::translate("MSTWindow", "Nombre del V\303\251rtice", nullptr));
         botonCrearVertice->setText(QApplication::translate("MSTWindow", "Crear Nuevo V\303\251rtice", nullptr));
@@ -238,6 +254,7 @@ public:
         label_7->setText(QApplication::translate("MSTWindow", "V\303\251rtice 2", nullptr));
         label_8->setText(QApplication::translate("MSTWindow", "Costo", nullptr));
         label_9->setText(QApplication::translate("MSTWindow", "Crear Arista", nullptr));
+        lbError->setText(QApplication::translate("MSTWindow", "No se pudo encontrar un AEM", nullptr));
     } // retranslateUi
 
 };

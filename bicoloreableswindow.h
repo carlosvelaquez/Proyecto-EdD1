@@ -1,7 +1,11 @@
 #ifndef BICOLOREABLESWINDOW_H
 #define BICOLOREABLESWINDOW_H
 
+#include <iostream>
+#include <fstream>
 #include <QWidget>
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QVariant>
 #include <string>
 #include "graphview.h"
@@ -33,6 +37,10 @@ private slots:
   void on_botonConectarVertices_clicked();
 
   void on_botonCorrer_clicked();
+
+  void on_botonCargarGrafo_clicked();
+
+  void on_botonGuardarGrafo_clicked();
 
 private:
     Ui::BicoloreablesWindow *ui;

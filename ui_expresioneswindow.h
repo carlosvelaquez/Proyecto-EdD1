@@ -45,7 +45,7 @@ public:
         textEditHist = new QTextEdit(ExpresionesWindow);
         textEditHist->setObjectName(QStringLiteral("textEditHist"));
         textEditHist->setEnabled(true);
-        textEditHist->setGeometry(QRect(10, 80, 621, 231));
+        textEditHist->setGeometry(QRect(10, 70, 621, 251));
         QFont font;
         font.setPointSize(11);
         textEditHist->setFont(font);

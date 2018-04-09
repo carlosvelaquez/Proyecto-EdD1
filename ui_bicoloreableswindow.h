@@ -33,6 +33,8 @@ public:
     QPushButton *botonCorrer;
     QLabel *label_7;
     QLabel *resultadoLabel;
+    QPushButton *botonGuardarGrafo;
+    QPushButton *botonCargarGrafo;
     QFrame *frame_4;
     QLabel *label_2;
     QLabel *label_3;
@@ -89,7 +91,7 @@ public:
         label->setFont(font);
         botonNuevoGrafo = new QPushButton(frame);
         botonNuevoGrafo->setObjectName(QStringLiteral("botonNuevoGrafo"));
-        botonNuevoGrafo->setGeometry(QRect(630, 0, 121, 61));
+        botonNuevoGrafo->setGeometry(QRect(640, 0, 111, 61));
         frame_2 = new QFrame(BicoloreablesWindow);
         frame_2->setObjectName(QStringLiteral("frame_2"));
         frame_2->setGeometry(QRect(0, 429, 751, 41));
@@ -134,6 +136,12 @@ public:
         font2.setBold(true);
         font2.setWeight(75);
         resultadoLabel->setFont(font2);
+        botonGuardarGrafo = new QPushButton(frame_2);
+        botonGuardarGrafo->setObjectName(QStringLiteral("botonGuardarGrafo"));
+        botonGuardarGrafo->setGeometry(QRect(340, 0, 111, 41));
+        botonCargarGrafo = new QPushButton(frame_2);
+        botonCargarGrafo->setObjectName(QStringLiteral("botonCargarGrafo"));
+        botonCargarGrafo->setGeometry(QRect(450, 0, 111, 41));
         frame_4 = new QFrame(BicoloreablesWindow);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setGeometry(QRect(530, 70, 201, 351));
@@ -201,6 +209,8 @@ public:
         botonCorrer->setText(QApplication::translate("BicoloreablesWindow", "Correr con Grafo Actual", nullptr));
         label_7->setText(QApplication::translate("BicoloreablesWindow", "Resultado:", nullptr));
         resultadoLabel->setText(QApplication::translate("BicoloreablesWindow", "-", nullptr));
+        botonGuardarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Guardar Grafo", nullptr));
+        botonCargarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Cargar Grafo", nullptr));
         label_2->setText(QApplication::translate("BicoloreablesWindow", "Crear V\303\251rtice", nullptr));
         label_3->setText(QApplication::translate("BicoloreablesWindow", "Nombre del V\303\251rtice", nullptr));
         botonCrearVertice->setText(QApplication::translate("BicoloreablesWindow", "Crear Nuevo V\303\251rtice", nullptr));

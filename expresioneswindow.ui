@@ -25,9 +25,9 @@ background-color: white;
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>70</y>
      <width>621</width>
-     <height>231</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="font">

@@ -77,9 +77,9 @@ background-color: rgb(60, 14, 68);
    <widget class="QPushButton" name="botonNuevoGrafo">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>640</x>
       <y>0</y>
-      <width>121</width>
+      <width>111</width>
       <height>61</height>
      </rect>
     </property>
@@ -176,6 +176,32 @@ background-color: rgb(60, 14, 68);
     </property>
     <property name="text">
      <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonGuardarGrafo">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>0</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Guardar Grafo</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonCargarGrafo">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>0</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cargar Grafo</string>
     </property>
    </widget>
   </widget>
