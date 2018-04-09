@@ -2,8 +2,7 @@
 #define GRAPH_H
 
 #include "vertex.h"
-#include <fstream>
-#include <sstream>
+#include <vector>
 
 using namespace std;
 
@@ -13,12 +12,10 @@ class Graph{
 private:
   List<Vertex<T>*>* vertices;
   bool weighted;
-  bool bicolored = false;
 
 public:
   const string color1 = "#f44336";
   const string color2 = "#3F51B5";
-  string defaultColor = "black";
 
   Graph(){
     vertices = new List<Vertex<T>*>;
@@ -30,69 +27,12 @@ public:
     weighted = nWeighted;
   }
 
-  Graph(ifstream& file){
-    char delim = ',';
-    vertices = new List<Vertex<T>*>;
-
-    string line;
-    getline(file, line);
-    weighted = false;
-
-    if (line == "1") {
-      weighted = true;
-    }
-
-    getline(file, line);
-    defaultColor = line;
-    getline(file, line);
-
-    int size = stoi(line);
-
-    for (int i = 1; i <= size; i++) {
-      getline(file, line);
-      stringstream ss(line);
-      string displayName, posX, posY;
-
-      getline(ss, displayName, delim);
-      getline(ss, posX, delim);
-      getline(ss, posY, delim);
-
-      T data;
-      Vertex<T>* nVertex = new Vertex<T>(data, displayName);
-      nVertex->pos = QPoint(stoi(posX), stoi(posY));
-
-      vertices->insert(nVertex);
-    }
-
-    for (int i = 1; i <= size; i++) {
-      getline(file, line);
-      stringstream ss(line);
-
-      string connected;
-
-      for (int j = 1; j <= size; j++) {
-        getline(ss, connected, delim);
-        if (connected != "N") {
-          addEdge(vertices->get(i), vertices->get(j), stod(connected));
-        }
-      }
-    }
-  }
-
-  void copy(Graph<T> cGraph){
-    vertices = cGraph.getVertices();
-    weighted = cGraph.isWeighted();
-    bicolored = cGraph.isBicolored();
-    defaultColor = cGraph.defaultColor;
-  }
-
   bool addVertex(T nData){
     return vertices->insert(new Vertex<T>(nData));
   }
 
   bool addVertex(Vertex<T>* nVertex){
     if (!vertices->contains(nVertex)) {
-      nVertex->color = defaultColor;
       return vertices->insert(nVertex);
     }
 
@@ -234,8 +174,7 @@ public:
       }
     }
 
-    Graph<T>* mst = new Graph<T>(true);
-    mst->defaultColor = "#3949AB";
+    Graph<T>* mst = new Graph<T>();
     List<Vertex<T>*>* vert = new List<Vertex<T>*>();
 
     for (int i = 1; i <= vertices->size; i++) {
@@ -269,8 +208,6 @@ public:
   }
 
   bool bicolor(){
-    bicolored = true;
-
     if (vertices != 0) {
       if (vertices->size > 0) {
         if (vertices->size == 1) {
@@ -317,84 +254,6 @@ public:
     }
   }
 
-  bool isBicolorable(){
-    bicolor();
-    string color = "";
-    string neighborColor = "";
-
-    for (int i = 1; i <= vertices->size; i++) {
-      List<Vertex<T>*>* neighbors = vertices->get(i)->neighbors();
-      color = vertices->get(i)->color;
-
-      for (int j = 1; j <= neighbors->size; j++) {
-        neighborColor = neighbors->get(j)->color;
-
-        if (neighborColor == color && neighborColor != defaultColor) {
-          return false;
-        }
-      }
-    }
-
-    return true;
-  }
-
-  bool isBicolored(){
-    return bicolored;
-  }
-
-  void color(){
-    for (int i = 1; i <= vertices->size; i++) {
-      vertices->get(i)->color = defaultColor;
-    }
-
-    bicolored = false;
-  }
-
-  int size(){
-    return vertices->size;
-  }
-
-  string toTextFile(){
-    string output = "";
-    if (weighted) {
-      output += "1";
-    }else{
-      output += "0";
-    }
-
-    output += "\n";
-    output += defaultColor;
-    output += "\n";
-    output += to_string(vertices->size);
-    output += "\n";
-
-    for (int i = 1; i <= vertices->size; i++) {
-      output += vertices->get(i)->getDisplayName();
-      output += ",";
-      output += to_string(vertices->get(i)->pos.x());
-      output += ",";
-      output += to_string(vertices->get(i)->pos.y());
-      output += "\n";
-    }
-
-    for (int i = 1; i <= vertices->size; i++) {
-      for (int j = 1; j <= vertices->size; j++) {
-        if (vertices->get(i)->adjacent(vertices->get(j))) {
-          output += to_string(vertices->get(i)->getCosts()->get(vertices->get(i)->getEdges()->indexOf(vertices->get(j))));
-        }else{
-          output += "N";
-        }
-
-        if (j != vertices->size) {
-          output += ",";
-        }
-      }
-      output += "\n";
-    }
-
-    return output;
-  }
-
   int distanceBetween(Vertex<T>* v1, Vertex<T>* v2){
       if(v1->getDisplayName()==v2->getDisplayName()){
         return 0;
@@ -426,7 +285,7 @@ public:
   /*
    *
    */
- void MinimalCost_Dijkstra(Vertex<T>* nVertex){
+ void MinimalCost_Dijkstra(Vertex<T>* nVertex0){
       for(int i=0; i<vertices->size; i++){
           vertices->get(i)->setDistancia(9999999999);
           vertices->get(i)->setPrevio(0);
@@ -448,7 +307,7 @@ public:
       long int num = 9999999999;
       Vertex<T>* TempVertice = 0;
       for(int i=0; i<vertice->getEdges()->size; i++){
-          if(vertice->getDistancia()<num){
+          if(vertice->getEdges()->get(i)->getDistancia()<num){
             num = vertice->getDistancia();
             TempVertice = vertice->getEdges()->get(i);
           }

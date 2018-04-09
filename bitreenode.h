@@ -59,7 +59,6 @@ public:
    }
 
 
-
    bool hasChildren(){
       if (leftChild != 0 || rightChild != 0) {
          return true;

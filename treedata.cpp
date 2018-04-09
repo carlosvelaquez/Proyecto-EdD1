@@ -2,7 +2,8 @@
 
 treedata::treedata()
 {
-
+    frecuency = 0;
+    type = -1;
 }
 
 treedata::treedata(int nFrecuency)
@@ -31,4 +32,8 @@ int treedata::getType(){
 
 QChar* treedata::getChar(){
     return &Char;
+}
+
+void treedata::setType(int nType){
+    type = nType;
 }

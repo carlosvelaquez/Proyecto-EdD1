@@ -64,7 +64,8 @@ HEADERS += \
     linkedstack.h \
     stack.h \
     bitreenode.h \
-    treedata.h
+    treedata.h \
+    laberintodata.h
 
 FORMS += \
         mainwindow.ui \

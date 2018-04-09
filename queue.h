@@ -4,6 +4,7 @@
 #include "node.h"
 #include "list.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -87,11 +88,16 @@ public:
     size = 0;
   }
 
+  void Empty(){
+    head = 0;
+    tail = 0;
+    size = 0;
+  }
+
   bool isEmpty(){
     if (size == 0) {
       return true;
     }
-
     return false;
   }
 
@@ -115,6 +121,16 @@ public:
     return nList;
   }
 
+  vector<T> toVector(){
+    Node<T>* currentNode = head;
+    vector<T> nVector;
+    while(currentNode!=0){
+        nVector.push_back(currentNode->getData());
+        currentNode = currentNode->getNext();
+    }
+    return nVector;
+  }
+
   bool contains(T target){
     Node<T>* currentNode = head;
 
@@ -125,14 +141,6 @@ public:
     }
 
     return false;
-  }
-
-  void sort(){
-      for(int i=1; i<size; i++){
-          for(int j=0; j<size-1; j++){
-
-          }
-      }
   }
 };
 
