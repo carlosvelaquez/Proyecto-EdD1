@@ -11,9 +11,9 @@ private:
     int size;
 public:
 
-    linkedstack(){}
+    linkedstack<T>(){}
 
-    linkedstack(T nData){
+    linkedstack<T>(T nData){
         head = new Node<T>(nData);
         size = 1;
     }
@@ -54,7 +54,7 @@ public:
         Node<T>* tempNode = head;
         while(tempNode!=0){
             if(tempNode->getData() == nData){
-                return true;
+                return tempNode;
             }
         }
         return false;

@@ -7,6 +7,12 @@ private:
     int y;
     bool check;
 public:
+
+    LaberintoData(int nX, int nY){
+        x = nX;
+        y = nY;
+    }
+
     int getX(){
         return x;
     }

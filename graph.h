@@ -286,41 +286,33 @@ public:
    *
    */
  void MinimalCost_Dijkstra(Vertex<T>* nVertex){
-      for(int i=0; i<vertices->size; i++){
-          vertices->get(i)->setDistancia(9999999999);
+      for(int i=1; i<=vertices->size; i++){
+          vertices->get(i)->setDistancia(99999999);
           vertices->get(i)->setPrevio(0);
       }
-      nVertex->setDistancia(0); // Nodo inicial distancia
+      DijkstraSearch(nVertex);
+  }
 
-      while(!isAllCheck()){ // Mientras todos los nodos no esten chequeados
-          Vertex<T>* Nodo = NodoCorto(nVertex);
-          nVertex->setCheck(true);
-          for(int i=0; i<Nodo->getEdges()->size; i++){
-            if(!Nodo->getEdges()->contains(nVertex)){
-
-            }
-          }
+  void DijkstraSearch(Vertex<T>* vertice){
+      for(int i=1; i<=vertice->getEdges()->size; i++){
+        if(!vertice->getEdges()->get(i)->isCheck()){
+           if(vertice->getDistancia()+vertice->getCosts()->get(i) < vertice->getEdges()->get(i)->getDistancia()){
+              vertice->getEdges()->get(i)->setDistancia(vertice->getDistancia()+vertice->getCosts()->get(i));
+              vertice->getEdges()->get(i)->setPrevio(vertice);
+           }
+        }
+      }
+      vertice->setCheck(true);
+      for(int i=1; i<=vertice->getEdges()->size; i++){
+        DijkstraSearch(vertice->getEdges()->get(i));
       }
   }
 
-  Vertex<T>* NodoCorto(Vertex<T>* vertice){
-      long int num = 9999999999;
-      Vertex<T>* TempVertice = 0;
-      for(int i=0; i<vertice->getEdges()->size; i++){
-          if(vertice->getDistancia()<num){
-            num = vertice->getDistancia();
-            TempVertice = vertice->getEdges()->get(i);
-          }
-      }
-      return TempVertice;
-  }
+
   /* ************** Floyd *************** */
 
   /* Muestra el resultado de la matriz de adyacencia.
    */
-  void showPath(){
-
-  }
 
 
   /* Devuelve la matriz de adyacencia
