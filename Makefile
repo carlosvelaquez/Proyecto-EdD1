@@ -304,7 +304,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		linkedstack.h \
 		stack.h \
 		bitreenode.h \
-		treedata.h main.cpp \
+		treedata.h \
+		laberintodata.h main.cpp \
 		mainwindow.cpp \
 		empleado.cpp \
 		desempenowindow.cpp \
@@ -726,7 +727,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h mstwindow.h graphframe.h graph.h vertex.h laberintowindow.h huffmanwindow.h linkedstack.h stack.h bitreenode.h treedata.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h mstwindow.h graphframe.h graph.h vertex.h laberintowindow.h huffmanwindow.h linkedstack.h stack.h bitreenode.h treedata.h laberintodata.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp bicoloreableswindow.cpp mstwindow.cpp laberintowindow.cpp huffmanwindow.cpp treedata.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui bicoloreableswindow.ui mstwindow.ui laberintowindow.ui huffmanwindow.ui $(DISTDIR)/
 
@@ -842,7 +843,10 @@ moc_graphframe.cpp: graph.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include graphframe.h -o moc_graphframe.cpp
 
-moc_laberintowindow.cpp: laberintowindow.h \
+moc_laberintowindow.cpp: linkedstack.h \
+		node.h \
+		laberintodata.h \
+		laberintowindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include laberintowindow.h -o moc_laberintowindow.cpp
@@ -937,6 +941,8 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		queue.h \
 		ui_mainwindow.h \
 		laberintowindow.h \
+		linkedstack.h \
+		laberintodata.h \
 		huffmanwindow.h \
 		bitreenode.h \
 		treedata.h
@@ -991,6 +997,9 @@ mstwindow.o: mstwindow.cpp mstwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mstwindow.o mstwindow.cpp
 
 laberintowindow.o: laberintowindow.cpp laberintowindow.h \
+		linkedstack.h \
+		node.h \
+		laberintodata.h \
 		ui_laberintowindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o laberintowindow.o laberintowindow.cpp
 

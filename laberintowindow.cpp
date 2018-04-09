@@ -1,9 +1,5 @@
 #include "laberintowindow.h"
 #include "ui_laberintowindow.h"
-#include <QFile>
-#include <QString>
-#include <QFileDialog>
-#include <QTextStream>
 
 laberintowindow::laberintowindow(QWidget *parent) :
     QWidget(parent),
@@ -12,6 +8,9 @@ laberintowindow::laberintowindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->pushbutton_load, SIGNAL(clicked()), this, SLOT(takefile()));
     connect(ui->pushbutton_next, SIGNAL(clicked()),this,SLOT(move()));
+    labView = new LabView(this);
+    labView->setGeometry(10, 70, 601, 601);
+    labView->show();
 }
 
 laberintowindow::~laberintowindow()

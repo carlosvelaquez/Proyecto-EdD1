@@ -26,16 +26,9 @@ class Ui_laberintowindow
 public:
     QFrame *frame_2;
     QLabel *label_2;
-    QFrame *frame;
     QFrame *frame_3;
     QPushButton *pushbutton_next;
     QPushButton *pushbutton_load;
-    QPushButton *pushbutton_next_2;
-    QPushButton *pushbutton_next_3;
-    QPushButton *pushbutton_next_4;
-    QPushButton *pushbutton_next_5;
-    QPushButton *pushbutton_next_6;
-    QPushButton *pushbutton_next_7;
 
     void setupUi(QWidget *laberintowindow)
     {
@@ -77,11 +70,6 @@ public:
         font.setBold(true);
         font.setWeight(75);
         label_2->setFont(font);
-        frame = new QFrame(laberintowindow);
-        frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(10, 70, 601, 601));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
         frame_3 = new QFrame(laberintowindow);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(-1, 679, 621, 41));
@@ -111,24 +99,6 @@ public:
         pushbutton_load = new QPushButton(frame_3);
         pushbutton_load->setObjectName(QStringLiteral("pushbutton_load"));
         pushbutton_load->setGeometry(QRect(0, 0, 131, 41));
-        pushbutton_next_2 = new QPushButton(frame_3);
-        pushbutton_next_2->setObjectName(QStringLiteral("pushbutton_next_2"));
-        pushbutton_next_2->setGeometry(QRect(340, 0, 31, 41));
-        pushbutton_next_3 = new QPushButton(frame_3);
-        pushbutton_next_3->setObjectName(QStringLiteral("pushbutton_next_3"));
-        pushbutton_next_3->setGeometry(QRect(380, 0, 31, 41));
-        pushbutton_next_4 = new QPushButton(frame_3);
-        pushbutton_next_4->setObjectName(QStringLiteral("pushbutton_next_4"));
-        pushbutton_next_4->setGeometry(QRect(430, 0, 31, 41));
-        pushbutton_next_5 = new QPushButton(frame_3);
-        pushbutton_next_5->setObjectName(QStringLiteral("pushbutton_next_5"));
-        pushbutton_next_5->setGeometry(QRect(240, 0, 31, 41));
-        pushbutton_next_6 = new QPushButton(frame_3);
-        pushbutton_next_6->setObjectName(QStringLiteral("pushbutton_next_6"));
-        pushbutton_next_6->setGeometry(QRect(200, 0, 31, 41));
-        pushbutton_next_7 = new QPushButton(frame_3);
-        pushbutton_next_7->setObjectName(QStringLiteral("pushbutton_next_7"));
-        pushbutton_next_7->setGeometry(QRect(150, 0, 31, 41));
 
         retranslateUi(laberintowindow);
 
@@ -141,12 +111,6 @@ public:
         label_2->setText(QApplication::translate("laberintowindow", "Laberinto con Backtracking", nullptr));
         pushbutton_next->setText(QApplication::translate("laberintowindow", "Resolver Laberinto", nullptr));
         pushbutton_load->setText(QApplication::translate("laberintowindow", "Cargar Laberinto", nullptr));
-        pushbutton_next_2->setText(QApplication::translate("laberintowindow", ">", nullptr));
-        pushbutton_next_3->setText(QApplication::translate("laberintowindow", ">>", nullptr));
-        pushbutton_next_4->setText(QApplication::translate("laberintowindow", ">|", nullptr));
-        pushbutton_next_5->setText(QApplication::translate("laberintowindow", "<", nullptr));
-        pushbutton_next_6->setText(QApplication::translate("laberintowindow", "<<", nullptr));
-        pushbutton_next_7->setText(QApplication::translate("laberintowindow", "|<", nullptr));
     } // retranslateUi
 
 };

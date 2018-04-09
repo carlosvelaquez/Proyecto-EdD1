@@ -2,8 +2,13 @@
 #define LABERINTOWINDOW_H
 
 #include <QWidget>
+#include <QFile>
+#include <QString>
+#include <QFileDialog>
+#include <QTextStream>
 #include "linkedstack.h"
 #include "laberintodata.h"
+#include "labview.h"
 
 namespace Ui {
 class laberintowindow;
@@ -27,6 +32,7 @@ private slots:
 
 private:
     Ui::laberintowindow *ui;
+    LabView labView;
 };
 
 #endif // LABERINTOWINDOW_H
