@@ -9,6 +9,7 @@ protected:
   Node<T>* next;
 
 public:
+
   Node<T>(T nData){
     data = nData;
     previous = 0;

@@ -49,7 +49,7 @@ void laberintowindow::takefile()
             }
             contF++;
         }
-        simulation(matriz);
+        simulation(matriz,filas,columnas);
   }
 }
 
@@ -78,30 +78,58 @@ bool laberintowindow::move(){
     return true;
 }
 
-void laberintowindow::simulation(char** Laberinto){
+void laberintowindow::simulation(char** matrix, int filas, int columnas){
     int x =0, y=0;
-    //linkedstack<LaberintoData>* Stack = new linkedstack<LaberintoData>*();
+    bool pasa;
+    linkedstack<LaberintoData*>* Stack  = new linkedstack<LaberintoData*>();
+    for(int i=0; i<filas; i++){
+        if(matrix[i][0]=='0'){ // Validando entrada en primera columna
+            x = 0;
+            y = i;
+        }
+    }
     while(true){
-        if(checkPosition(x,y,Laberinto)){ // Arriba
+        pasa = false;
+        matrix[y][x] = '#';
+        if(y>0 && y<filas){ // Arriba
+            if(matrix[y-1][x]=='1'){
+                y = y-1;
+                pasa = true;
+                Stack->pop(new LaberintoData(x,y));
+            }
+        }
+        if(y+1<filas){ // Abajo
+            if(matrix[y+1][x]=='1'){
+                y = y+1;
+                pasa = true;
+                Stack->pop(new LaberintoData(x,y));
+            }
+        }
+        if(x>0 && x<columnas){ // Izquierda
+            if(matrix[y][x-1]=='1'){
+                x = x-1;
+                pasa = true;
+                Stack->pop(new LaberintoData(x,y));
+            }
+        }
+        if(x+1<columnas){ // Derecha
+            if(matrix[y][x+1]=='1'){
+                x = x+1;
+                pasa = true;
+                Stack->pop(new LaberintoData(x,y));
+            }
+        }
+        if(pasa==false){
 
         }
-        if(checkPosition(x,y,Laberinto)){ // Abajo
-
-        }
-        if(checkPosition(x,y,Laberinto)){ // Derecha
-
-        }
-        if(checkPosition(x,y,Laberinto)){ // Izquierda
-
+        if(x==columnas){
+            //Añadir al stack
         }
     }
 }
 
-bool laberintowindow::checkPosition(int x, int y, char** matrix){
-    if(x<0){
-        return false;
-    }
-    if(y<0){
+bool laberintowindow::checkPosition(int y, int x, char** matrix){
+    if(matrix[y][x]=='0'){
         return false;
     }
     return true;
