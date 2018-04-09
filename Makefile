@@ -60,7 +60,8 @@ SOURCES       = main.cpp \
 		mstwindow.cpp \
 		laberintowindow.cpp \
 		huffmanwindow.cpp \
-		treedata.cpp moc_mainwindow.cpp \
+		treedata.cpp \
+		labview.cpp moc_mainwindow.cpp \
 		moc_desempenowindow.cpp \
 		moc_expresioneswindow.cpp \
 		moc_bicoloreableswindow.cpp \
@@ -68,7 +69,8 @@ SOURCES       = main.cpp \
 		moc_mstwindow.cpp \
 		moc_graphframe.cpp \
 		moc_laberintowindow.cpp \
-		moc_huffmanwindow.cpp
+		moc_huffmanwindow.cpp \
+		moc_labview.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		empleado.o \
@@ -80,6 +82,7 @@ OBJECTS       = main.o \
 		laberintowindow.o \
 		huffmanwindow.o \
 		treedata.o \
+		labview.o \
 		moc_mainwindow.o \
 		moc_desempenowindow.o \
 		moc_expresioneswindow.o \
@@ -88,7 +91,8 @@ OBJECTS       = main.o \
 		moc_mstwindow.o \
 		moc_graphframe.o \
 		moc_laberintowindow.o \
-		moc_huffmanwindow.o
+		moc_huffmanwindow.o \
+		moc_labview.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -305,7 +309,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		stack.h \
 		bitreenode.h \
 		treedata.h \
-		laberintodata.h main.cpp \
+		laberintodata.h \
+		labview.h main.cpp \
 		mainwindow.cpp \
 		empleado.cpp \
 		desempenowindow.cpp \
@@ -315,7 +320,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		mstwindow.cpp \
 		laberintowindow.cpp \
 		huffmanwindow.cpp \
-		treedata.cpp
+		treedata.cpp \
+		labview.cpp
 QMAKE_TARGET  = Proyecto
 DESTDIR       = 
 TARGET        = Proyecto
@@ -727,8 +733,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h mstwindow.h graphframe.h graph.h vertex.h laberintowindow.h huffmanwindow.h linkedstack.h stack.h bitreenode.h treedata.h laberintodata.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp bicoloreableswindow.cpp mstwindow.cpp laberintowindow.cpp huffmanwindow.cpp treedata.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h mstwindow.h graphframe.h graph.h vertex.h laberintowindow.h huffmanwindow.h linkedstack.h stack.h bitreenode.h treedata.h laberintodata.h labview.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp bicoloreableswindow.cpp mstwindow.cpp laberintowindow.cpp huffmanwindow.cpp treedata.cpp labview.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui bicoloreableswindow.ui mstwindow.ui laberintowindow.ui huffmanwindow.ui $(DISTDIR)/
 
 
@@ -761,9 +767,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_mstwindow.cpp moc_graphframe.cpp moc_laberintowindow.cpp moc_huffmanwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_mstwindow.cpp moc_graphframe.cpp moc_laberintowindow.cpp moc_huffmanwindow.cpp moc_labview.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_mstwindow.cpp moc_graphframe.cpp moc_laberintowindow.cpp moc_huffmanwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_desempenowindow.cpp moc_expresioneswindow.cpp moc_bicoloreableswindow.cpp moc_dragbutton.cpp moc_mstwindow.cpp moc_graphframe.cpp moc_laberintowindow.cpp moc_huffmanwindow.cpp moc_labview.cpp
 moc_mainwindow.cpp: desempenowindow.h \
 		tree.h \
 		treenode.h \
@@ -846,6 +852,7 @@ moc_graphframe.cpp: graph.h \
 moc_laberintowindow.cpp: linkedstack.h \
 		node.h \
 		laberintodata.h \
+		labview.h \
 		laberintowindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -860,6 +867,11 @@ moc_huffmanwindow.cpp: queue.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include huffmanwindow.h -o moc_huffmanwindow.cpp
+
+moc_labview.cpp: labview.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include labview.h -o moc_labview.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -943,6 +955,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		laberintowindow.h \
 		linkedstack.h \
 		laberintodata.h \
+		labview.h \
 		huffmanwindow.h \
 		bitreenode.h \
 		treedata.h
@@ -1000,6 +1013,7 @@ laberintowindow.o: laberintowindow.cpp laberintowindow.h \
 		linkedstack.h \
 		node.h \
 		laberintodata.h \
+		labview.h \
 		ui_laberintowindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o laberintowindow.o laberintowindow.cpp
 
@@ -1014,6 +1028,9 @@ huffmanwindow.o: huffmanwindow.cpp huffmanwindow.h \
 
 treedata.o: treedata.cpp treedata.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o treedata.o treedata.cpp
+
+labview.o: labview.cpp labview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o labview.o labview.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -1041,6 +1058,9 @@ moc_laberintowindow.o: moc_laberintowindow.cpp
 
 moc_huffmanwindow.o: moc_huffmanwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_huffmanwindow.o moc_huffmanwindow.cpp
+
+moc_labview.o: moc_labview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_labview.o moc_labview.cpp
 
 ####### Install
 

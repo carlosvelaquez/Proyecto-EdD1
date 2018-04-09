@@ -1,23 +1,36 @@
 #include "labview.h"
 
-LabView::LabView(QWidget *parent = Q_NULLPTR) : QFrame(parent){
+LabView::LabView() : QFrame(Q_NULLPTR){
+  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
   labyrinth = new char*[100];
   labyrinth[0] = new char[100];
 
-  width = 100;
-  height = 100;
-  widthUnit = width()/width;
-  heightUnit = height()/height;
+  w = 100;
+  h = 100;
+  widthUnit = width()/w;
+  heightUnit = height()/h;
+}
+
+LabView::LabView(QWidget* parent = Q_NULLPTR) : QFrame(parent){
+  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
+  labyrinth = new char*[100];
+  labyrinth[0] = new char[100];
+
+  w = 100;
+  h = 100;
+  widthUnit = width()/w;
+  heightUnit = height()/h;
 }
 
 LabView::LabView(char** nLab, QWidget *parent = Q_NULLPTR) : QFrame(parent){
+  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
   labyrinth = nLab;
 
-  width = *(&labyrinth + 1) - labyrinth;
-  height = *(&labyrinth[0] + 1) - labyrinth[0];
+  w = *(&labyrinth + 1) - labyrinth;
+  h = *(&labyrinth[0] + 1) - labyrinth[0];
 
-  widthUnit = width()/width;
-  heightUnit = height()/height;
+  widthUnit = width()/w;
+  heightUnit = height()/h;
 }
 
 char** LabView::getLabyrinth(){
@@ -28,18 +41,18 @@ void LabView::setLabyrinth(char** nLab){
   labyrinth = nLab;
 }
 
-QPushButton* LabView::newTile(string color){
-  QPushButton nButton = new QPushButton(this);
+void LabView::newTile(string color){
+  QPushButton* nButton = new QPushButton(this);
   nButton->setText("");
-  nButton->setStylesheet(string("background-color:" + color));
+  nButton->setStyleSheet(string("background-color:" + color).c_str());
   nButton->setGeometry(0, 0, widthUnit, heightUnit);
   nButton->show();
 }
 
-QPushButton* LabView::newTile(int x, int y, string color){
-  QPushButton nButton = new QPushButton(this);
+void LabView::newTile(int x, int y, string color){
+  QPushButton* nButton = new QPushButton(this);
   nButton->setText("");
-  nButton->setStylesheet(string("background-color:" + color));
+  nButton->setStyleSheet(string("background-color:" + color).c_str());
   nButton->setGeometry((x*widthUnit), (y*heightUnit), widthUnit, heightUnit);
   nButton->show();
 }
@@ -51,8 +64,8 @@ void LabView::refresh(){
 
   if (labyrinth != 0) {
     char current;
-    for (int i = 0; i < width; i++) {
-      for (int j = 0; j < height; j++) {
+    for (int i = 0; i < w; i++) {
+      for (int j = 0; j < h; j++) {
         current = labyrinth[i][j];
 
         if (current == '0') {

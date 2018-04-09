@@ -219,6 +219,10 @@ public:
     return nList;
   }
 
+  T operator[](int index){
+      return get(index);
+  }
+
   ~List<T>(){
     if (head != 0) {
       //delete head;

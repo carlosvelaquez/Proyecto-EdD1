@@ -5,7 +5,6 @@
 #include <QWidget>
 #include "queue.h"
 #include "bitreenode.h"
-#include <vector>
 #include "treedata.h"
 #include "list.h"
 using namespace std;

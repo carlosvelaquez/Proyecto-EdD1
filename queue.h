@@ -121,16 +121,6 @@ public:
     return nList;
   }
 
-  vector<T> toVector(){
-    Node<T>* currentNode = head;
-    vector<T> nVector;
-    while(currentNode!=0){
-        nVector.push_back(currentNode->getData());
-        currentNode = currentNode->getNext();
-    }
-    return nVector;
-  }
-
   bool contains(T target){
     Node<T>* currentNode = head;
 

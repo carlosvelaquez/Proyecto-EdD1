@@ -34,7 +34,7 @@ private slots:
 
 private:
     Ui::laberintowindow *ui;
-    LabView labView;
+    LabView* labView;
 };
 
 #endif // LABERINTOWINDOW_H
