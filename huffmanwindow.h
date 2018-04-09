@@ -5,7 +5,10 @@
 #include <QWidget>
 #include "queue.h"
 #include "bitreenode.h"
+#include <vector>
 #include "treedata.h"
+
+using namespace std;
 
 namespace Ui {
 class huffmanwindow;
@@ -18,8 +21,12 @@ class huffmanwindow : public QWidget
 public:
     explicit huffmanwindow(QWidget *parent = 0);
     ~huffmanwindow();
+
     void createTreeWidget();
     void compress(QString*);
+    void sort(Queue<bitreenode<treedata>*>*);
+    void decode(QString,bitreenode<treedata>*);
+
     Queue<bitreenode<treedata>*>* fillList(QString*);
     bitreenode<treedata>* createTree(Queue<bitreenode<treedata>*>*);
 

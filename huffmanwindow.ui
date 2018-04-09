@@ -91,7 +91,7 @@ font: 75 9pt &quot;Waree&quot;;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QTreeWidget" name="treeWidget">
+    <widget class="QListWidget" name="listWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -100,11 +100,6 @@ font: 75 9pt &quot;Waree&quot;;</string>
        <height>271</height>
       </rect>
      </property>
-     <column>
-      <property name="text">
-       <string notr="true">1</string>
-      </property>
-     </column>
     </widget>
    </widget>
   </widget>

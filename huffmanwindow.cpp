@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QFileDialog>
+#include "list.h"
 
 huffmanwindow::huffmanwindow(QWidget *parent) :
     QWidget(parent),
@@ -20,18 +21,24 @@ huffmanwindow::~huffmanwindow()
     delete ui;
 }
 
+
 void huffmanwindow::compress(QString* word){
     if(*word == "")
         return;
 
     ui->lineEdit->setText("");
     Queue<bitreenode<treedata>*>* queue = fillList(word);
-    queue->sort();
+    sort(queue);
     bitreenode<treedata>* root = createTree(queue);
+    decode("",root);
     delete root;
     delete queue;
 }
 
+
+/* Funcion que llena una Estructura de Datos "Queue" de caracteres
+ * y frecuencias que contiene la cadena.
+*/
 Queue<bitreenode<treedata>*>* huffmanwindow::fillList(QString* word){
     int cont = 0;
     QChar Char;
@@ -53,7 +60,9 @@ Queue<bitreenode<treedata>*>* huffmanwindow::fillList(QString* word){
 }
 
 
-// --------------- Slots
+/* Slot que obtiene un archivo de texto lee el archivo de texto y obtiene
+ * las cadenas de caracteres contenidas para su codificación.
+*/
 void huffmanwindow::loadFile(){
     QString fileName =QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("Archivos de texto (*.txt)"));
     QFile* nfile = new QFile(fileName);
@@ -69,20 +78,64 @@ void huffmanwindow::loadFile(){
     compress(&text);
 }
 
+/* Slot que obtiene el texto escrito desde un LineEdit
+*/
 void huffmanwindow::compressWord(){
     QString word = ui->lineEdit->text();
     compress(&word);
 }
 
-// --------------- Otros
+/* Funcion que crea el arbol binario desde una Estructura de Datos Queue ordenada
+ * de forma desendiente.
+*/
 bitreenode<treedata>* huffmanwindow::createTree(Queue<bitreenode<treedata>*>* queue){
     if(queue->size==1){
         return queue->dequeue();
     }else{
         bitreenode<treedata>* nodeIzq = queue->dequeue();
         bitreenode<treedata>* nodeDer = queue->dequeue();
+        nodeIzq->getData()->setType(0);
+        nodeDer->getData()->setType(1);
         treedata temp(nodeIzq->getData()->getFrecuency()+nodeDer->getData()->getFrecuency());
         queue->queue(new bitreenode<treedata>(temp,nodeIzq,nodeDer));
         return createTree(queue);
+    }
+}
+
+/* Funcion que ordena una Estructura de Datos Queue tipada con
+ * nodos de arbol binario.
+*/
+void huffmanwindow::sort(Queue<bitreenode<treedata>*>* nQueue){
+   vector<bitreenode<treedata>*> list = nQueue->toVector();
+   nQueue->clear();
+   bitreenode<treedata>* temp;
+   for(int i=1; i<list.size(); i++){
+       for(int j=0; j<list.size()-1; j++){
+           if(list[j]->getData()->getFrecuency()>list[j+1]->getData()->getFrecuency()){
+                temp = list[j];
+                list[j] = list[j+1];
+                list[j+1] = temp;
+           }
+       }
+   }
+   for(int i=0; i<list.size(); i++){
+    nQueue->queue(list[i]);
+   }
+}
+
+/* Funcion que obtiene el codigo de un arbol binario
+*/
+void huffmanwindow::decode(QString Code, bitreenode<treedata>* currentTreeNode){
+    if(!currentTreeNode->hasChildren()){
+        Code+=QString::number(currentTreeNode->getData()->getType());
+        qDebug()<<"Code: "<<Code;
+        qDebug()<<"Codigo del caracter "<<*currentTreeNode->getData()->getChar()<<": "<<Code;
+    }else{
+        //Hijo izquierda
+        Code+=QString::number(currentTreeNode->getData()->getType());
+        decode(Code,currentTreeNode->getLeftChild());
+        //Hijo derecha
+        Code+=QString::number(currentTreeNode->getData()->getType());
+        decode(Code,currentTreeNode->getRightChild());
     }
 }

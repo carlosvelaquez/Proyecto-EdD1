@@ -16,6 +16,7 @@ public:
     treedata(int);
     treedata(QChar,int);
     treedata(QChar,int,int);
+    void setType(int);
     int getFrecuency();
     int getType();
     QChar* getChar();

@@ -50,6 +50,16 @@ public:
         return size;
     }
 
+    bool contains(T nData){
+        Node<T>* tempNode = head;
+        while(tempNode!=0){
+            if(tempNode->getData() == nData){
+                return true;
+            }
+        }
+        return false;
+    }
+
     Node<T>* operator [](int num){
             Node<T>* tempNode = head;
             for(int i=1; i<num; i++){

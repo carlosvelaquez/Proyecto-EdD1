@@ -2,6 +2,8 @@
 #define LABERINTOWINDOW_H
 
 #include <QWidget>
+#include "linkedstack.h"
+#include "laberintodata.h"
 
 namespace Ui {
 class laberintowindow;
@@ -16,6 +18,8 @@ public:
     ~laberintowindow();
     char** createMatrix(int,int);
     void clearMatrix(char**,int);
+    void simulation(char**);
+    bool checkPosition(int,int,char**);
 
 private slots:
     void takefile();

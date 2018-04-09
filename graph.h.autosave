@@ -285,7 +285,7 @@ public:
   /*
    *
    */
- void MinimalCost_Dijkstra(Vertex<T>* nVertex){
+ void MinimalCost_Dijkstra(Vertex<T>* nVertex0){
       for(int i=0; i<vertices->size; i++){
           vertices->get(i)->setDistancia(9999999999);
           vertices->get(i)->setPrevio(0);
@@ -307,7 +307,7 @@ public:
       long int num = 9999999999;
       Vertex<T>* TempVertice = 0;
       for(int i=0; i<vertice->getEdges()->size; i++){
-          if(vertice->getDistancia()<num){
+          if(vertice->getEdges()->get(i)->getDistancia()<num){
             num = vertice->getDistancia();
             TempVertice = vertice->getEdges()->get(i);
           }
