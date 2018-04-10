@@ -139,6 +139,7 @@ void huffmanwindow::sort(Queue<bitreenode<treedata>*>* nQueue){
 void huffmanwindow::decode(QString Code, bitreenode<treedata>* currentTreeNode){
     if(!currentTreeNode->hasChildren()){
         Code+=QString::number(currentTreeNode->getData()->getType());
+        for(int i=Code.size()-1; i>=0; i++)
         codigos->insert(new treedata(currentTreeNode->getData()->getChar(),Code));
     }else{
         if(currentTreeNode->getData()->getType()!=-1){
@@ -184,12 +185,10 @@ void huffmanwindow::fillTreeWidget(bitreenode<treedata>* Node){
 
 void huffmanwindow::fillQList(bitreenode<treedata>* Node){
     if(Node->hasChildren()){
-        QListWidgetItem* item = new QListWidgetItem();
         QString text = Node->getData()->getChar();
         text+=" - ";
         text+=Node->getData()->getCode();
-        item->setText(text);
-        ui->ListaLetras->setItemWidget(item,this);
+        ui->listaLetras->setText(text);
     }else{
         bitreenode<treedata>* NodoIzq = Node->getLeftChild();
         fillQList(NodoIzq);
