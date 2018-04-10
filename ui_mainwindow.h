@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.9.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -184,23 +184,23 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "TDA Showcase | Men\303\272 Principal", nullptr));
-        actionCerrar->setText(QApplication::translate("MainWindow", "Cerrar", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "TDA Showcase | Men\303\272 Principal", Q_NULLPTR));
+        actionCerrar->setText(QApplication::translate("MainWindow", "Cerrar", Q_NULLPTR));
 #ifndef QT_NO_SHORTCUT
-        actionCerrar->setShortcut(QApplication::translate("MainWindow", "F4", nullptr));
+        actionCerrar->setShortcut(QApplication::translate("MainWindow", "F4", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
-        actionAcerca_de->setText(QApplication::translate("MainWindow", "Acerca de...", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "Laberinto con Backtracking", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Evaluaci\303\263n por Desempe\303\261o", nullptr));
-        pushButton_3->setText(QApplication::translate("MainWindow", "Res. de Expresiones Matem\303\241ticas", nullptr));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Compresi\303\263n de Archivos de Texto", nullptr));
-        pushButton_5->setText(QApplication::translate("MainWindow", "Determinar Grafos Bi-coloreables", nullptr));
-        pushButton_6->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Floyd", nullptr));
-        pushButton_7->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Dijkstra", nullptr));
-        pushButton_8->setText(QApplication::translate("MainWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", nullptr));
-        label->setText(QApplication::translate("MainWindow", "TDA Showcase", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos I | By Carlos V.\302\262", nullptr));
-        pushButton_9->setText(QApplication::translate("MainWindow", "Manual del Usuario", nullptr));
+        actionAcerca_de->setText(QApplication::translate("MainWindow", "Acerca de...", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("MainWindow", "Laberinto con Backtracking", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Evaluaci\303\263n por Desempe\303\261o", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("MainWindow", "Res. de Expresiones Matem\303\241ticas", Q_NULLPTR));
+        pushButton_4->setText(QApplication::translate("MainWindow", "Compresi\303\263n de Archivos de Texto", Q_NULLPTR));
+        pushButton_5->setText(QApplication::translate("MainWindow", "Determinar Grafos Bi-coloreables", Q_NULLPTR));
+        pushButton_6->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Floyd", Q_NULLPTR));
+        pushButton_7->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Dijkstra", Q_NULLPTR));
+        pushButton_8->setText(QApplication::translate("MainWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "TDA Showcase", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos I | By Carlos V.\302\262", Q_NULLPTR));
+        pushButton_9->setText(QApplication::translate("MainWindow", "Manual del Usuario", Q_NULLPTR));
     } // retranslateUi
 
 };

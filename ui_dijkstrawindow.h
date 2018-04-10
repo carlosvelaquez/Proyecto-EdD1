@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dijkstrawindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.9.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -82,11 +82,11 @@ public:
 
     void retranslateUi(QWidget *dijkstrawindow)
     {
-        dijkstrawindow->setWindowTitle(QApplication::translate("dijkstrawindow", "Form", nullptr));
-        pushButton->setText(QApplication::translate("dijkstrawindow", "Buscar", nullptr));
-        label_2->setText(QApplication::translate("dijkstrawindow", "Costo Min. Algoritmo de Dijkstra", nullptr));
-        label->setText(QApplication::translate("dijkstrawindow", "Vertices", nullptr));
-        pushButton_Elegir->setText(QApplication::translate("dijkstrawindow", "Elergir", nullptr));
+        dijkstrawindow->setWindowTitle(QApplication::translate("dijkstrawindow", "Form", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("dijkstrawindow", "Buscar", Q_NULLPTR));
+        label_2->setText(QApplication::translate("dijkstrawindow", "Costo Min. Algoritmo de Dijkstra", Q_NULLPTR));
+        label->setText(QApplication::translate("dijkstrawindow", "Vertices", Q_NULLPTR));
+        pushButton_Elegir->setText(QApplication::translate("dijkstrawindow", "Elergir", Q_NULLPTR));
     } // retranslateUi
 
 };

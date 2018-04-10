@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'huffmanwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.9.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -117,7 +117,7 @@ public:
         pushButton_compress->setGeometry(QRect(610, 2, 141, 61));
         ListaLetras = new QListWidget(huffmanwindow);
         ListaLetras->setObjectName(QStringLiteral("ListaLetras"));
-        ListaLetras->setGeometry(QRect(295, 71, 411, 311));
+        ListaLetras->setGeometry(QRect(295, 71, 441, 311));
 
         retranslateUi(huffmanwindow);
 
@@ -126,11 +126,11 @@ public:
 
     void retranslateUi(QWidget *huffmanwindow)
     {
-        huffmanwindow->setWindowTitle(QApplication::translate("huffmanwindow", "Form", nullptr));
-        label_2->setText(QApplication::translate("huffmanwindow", "Compresi\303\263n de Archivos de Texto", nullptr));
-        pushbutton_load->setText(QApplication::translate("huffmanwindow", "Cargar Archivo", nullptr));
-        QlineEdit->setPlaceholderText(QApplication::translate("huffmanwindow", "Ingrese texto para comprimir.", nullptr));
-        pushButton_compress->setText(QApplication::translate("huffmanwindow", "Comprimir Texto", nullptr));
+        huffmanwindow->setWindowTitle(QApplication::translate("huffmanwindow", "Form", Q_NULLPTR));
+        label_2->setText(QApplication::translate("huffmanwindow", "Compresi\303\263n de Archivos de Texto", Q_NULLPTR));
+        pushbutton_load->setText(QApplication::translate("huffmanwindow", "Cargar Archivo", Q_NULLPTR));
+        QlineEdit->setPlaceholderText(QApplication::translate("huffmanwindow", "Ingrese texto para comprimir.", Q_NULLPTR));
+        pushButton_compress->setText(QApplication::translate("huffmanwindow", "Comprimir Texto", Q_NULLPTR));
     } // retranslateUi
 
 };

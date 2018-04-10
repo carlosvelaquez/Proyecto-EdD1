@@ -83,3 +83,5 @@ FORMS += \
     huffmanwindow.ui \
     floydwindow.ui \
     dijkstrawindow.ui
+
+CONFIG += c++11
