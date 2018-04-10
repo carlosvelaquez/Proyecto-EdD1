@@ -67,7 +67,7 @@ void DesempenoWindow::refresh(){
   }else{
     ui->calComboBox->addItem("Error con lista de empleados");
   }
-  
+
   QStandardItemModel* model = empleados->toItemModel();
 
   if (model != 0) {
@@ -120,4 +120,93 @@ Empleado temp = tNode->getData();
 temp.setCalificacion(ui->calSpinner->value());
 tNode->setData(temp);
 refresh();
+}
+
+void DesempenoWindow::on_botonGuardar_clicked()
+{
+  QString fileName = QFileDialog::getSaveFileName(this, tr("Guardar Registros"), "", tr("Registros de Empleados (*.sotareg)"));
+
+  if (fileName.isEmpty()) {
+    return;
+  }else{
+    ofstream file;
+    file.open(fileName.toUtf8().constData());
+
+    if (!file) {
+      QMessageBox::information(this, tr("Error guardando archivo"), tr("No se pudo guardar el archivo."));
+      return;
+    }else if(empleados->getNodeList()->size <= 0){
+      QMessageBox::information(this, tr("Error guardando archivo"), tr("El árbol actual está vacío."));
+      return;
+    }
+      else{
+      string* output = new string("");
+      TreeNode<Empleado>* root = empleados->getRoot();
+      treeSearch(root, output);
+      file << output->c_str();
+      file.close();
+    }
+  }
+}
+
+void DesempenoWindow::treeSearch(TreeNode<Empleado>* node, string* output){
+  output->append(node->getData().getNombre());
+  output->append(",");
+  output->append(node->getData().getPuesto());
+  output->append(",");
+  output->append(to_string(node->getData().getCalificacion()));
+  output->append("\n");
+
+  List<TreeNode<Empleado>*>* nodeList = node->getChildren();
+  output->append(to_string(nodeList->size));
+  output->append("\n");
+
+  for (int i = 1; i <= nodeList->size; i++) {
+    treeSearch(nodeList->get(i), output);
+  }
+}
+
+void DesempenoWindow::on_botonCargar_clicked()
+{
+  QString fileName = QFileDialog::getOpenFileName(this, tr("Cargar Archivo de Registros"), "", tr("Archivos de Registros (*.sotareg)"));
+
+  if (fileName.isEmpty()) {
+    return;
+  }else{
+    ifstream file;
+    file.open(fileName.toUtf8().constData());
+
+    if (!file) {
+      QMessageBox::information(this, tr("Error cargando registros"), tr("No se pudo cargar el archivo."));
+      return;
+    }else{
+      string in, token;
+      empleados->setRoot(fileSearch(file));
+      file.close();
+      refresh();
+    }
+  }
+}
+
+TreeNode<Empleado>* DesempenoWindow::fileSearch(ifstream& file){
+  string in, token, nombre, puesto, cal;
+
+  file >> in;
+  stringstream ss(in);
+
+  getline(ss, nombre, ',');
+  getline(ss, puesto, ',');
+  getline(ss, cal, ',');
+
+  in = "";
+  file >> in;
+
+  TreeNode<Empleado>* ret = new TreeNode<Empleado>(Empleado(nombre, puesto, stod(cal)));
+  int size = stoi(in);
+
+  for (int i = 0; i < size; i++) {
+    ret->addChild(fileSearch(file));
+  }
+
+  return ret;
 }

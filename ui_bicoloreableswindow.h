@@ -208,7 +208,7 @@ public:
         botonNuevoGrafo->setText(QApplication::translate("BicoloreablesWindow", "Nuevo Grafo", nullptr));
         botonCorrer->setText(QApplication::translate("BicoloreablesWindow", "Correr con Grafo Actual", nullptr));
         label_7->setText(QApplication::translate("BicoloreablesWindow", "Resultado:", nullptr));
-        resultadoLabel->setText(QApplication::translate("BicoloreablesWindow", "-", nullptr));
+        resultadoLabel->setText(QApplication::translate("BicoloreablesWindow", "No analizado a\303\272n", nullptr));
         botonGuardarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Guardar Grafo", nullptr));
         botonCargarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Cargar Grafo", nullptr));
         label_2->setText(QApplication::translate("BicoloreablesWindow", "Crear V\303\251rtice", nullptr));

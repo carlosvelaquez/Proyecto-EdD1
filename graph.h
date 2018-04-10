@@ -253,15 +253,16 @@ public:
       mst->addEdge(v1, v2, cost);
 
       if (mst->hasCycles()) {
-        mst->removeEdge(v1,v2);
+        v1->skim();
+        v2->skim();
       }
 
-      if (mst->getNodeCount() >= getNodeCount()) {
+      if (mst->getNodeCount() >= getNodeCount() && mst->isConnected()) {
         break;
       }
     }
 
-    if (mst->getNodeCount() == 0) {
+    if (mst->getNodeCount() == 0 || mst->getVertices()->size != vertices->size || !mst->isConnected()) {
       return 0;
     }else{
       return mst;
@@ -393,6 +394,31 @@ public:
     }
 
     return output;
+  }
+
+  bool isConnected(){
+    List<Vertex<T>*>* visited = new List<Vertex<T>*>();
+
+    if (vertices->size > 0) {
+      DFS(vertices->get(1), visited);
+
+      if (visited->size == vertices->size) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  void DFS(Vertex<T>* current, List<Vertex<T>*>* visited){
+    if (!visited->contains(current)) {
+      visited->insert(current);
+
+      List<Vertex<T>*>* toVisit = current->neighbors();
+      for (int i = 1; i <= toVisit->size; i++) {
+        DFS(toVisit->get(i), visited);
+      }
+    }
   }
 
   int distanceBetween(Vertex<T>* v1, Vertex<T>* v2){
