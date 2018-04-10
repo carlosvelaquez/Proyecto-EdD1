@@ -94,8 +94,10 @@ void LabView::refresh(){
         newTile(i - 1, j - 1, "#FF5722");
       }else if (current == '1'){
         newTile(i - 1, j - 1, "white");
-      }else{
+      }else if (current == 'x'){
         newTile(i - 1, j - 1, "#7CB342");
+      }else{
+        newTile(i - 1, j - 1, "#f44336");
       }
     }
   }
