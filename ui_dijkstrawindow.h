@@ -101,6 +101,8 @@ public:
         comboBox = new QComboBox(frame_2);
         comboBox->setObjectName(QStringLiteral("comboBox"));
         comboBox->setGeometry(QRect(200, 10, 151, 25));
+        comboBox->setStyleSheet(QLatin1String("background-color: white;\n"
+"color: black;"));
         pushButton_Elegir = new QPushButton(frame_2);
         pushButton_Elegir->setObjectName(QStringLiteral("pushButton_Elegir"));
         pushButton_Elegir->setGeometry(QRect(390, 0, 151, 51));
@@ -126,7 +128,7 @@ public:
 
     void retranslateUi(QWidget *dijkstrawindow)
     {
-        dijkstrawindow->setWindowTitle(QApplication::translate("dijkstrawindow", "Form", nullptr));
+        dijkstrawindow->setWindowTitle(QApplication::translate("dijkstrawindow", "Menor Costo - Dijkstra | Proyecto EdD I", nullptr));
         pushButton->setText(QApplication::translate("dijkstrawindow", "Cargar Grafo", nullptr));
         label_2->setText(QApplication::translate("dijkstrawindow", "Costo M\303\255nimo - Dijkstra", nullptr));
         pushButton_Elegir->setText(QApplication::translate("dijkstrawindow", "Encontrar Rutas", nullptr));

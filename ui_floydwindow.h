@@ -82,7 +82,7 @@ public:
 
     void retranslateUi(QWidget *FloydWindow)
     {
-        FloydWindow->setWindowTitle(QApplication::translate("FloydWindow", "Form", nullptr));
+        FloydWindow->setWindowTitle(QApplication::translate("FloydWindow", "Costo M\303\255nimo - Floyd | Proyecto EdD I", nullptr));
         pushButton->setText(QApplication::translate("FloydWindow", "Cargar Grafo", nullptr));
         label_2->setText(QApplication::translate("FloydWindow", "Costo M\303\255nimo - Floyd", nullptr));
     } // retranslateUi

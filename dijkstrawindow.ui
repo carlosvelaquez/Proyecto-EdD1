@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Menor Costo - Dijkstra | Proyecto EdD I</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -129,6 +129,10 @@ background-color: #880E4F;
       <width>151</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;
+color: black;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Elegir">

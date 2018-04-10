@@ -113,7 +113,7 @@ public:
 
     void retranslateUi(QWidget *laberintowindow)
     {
-        laberintowindow->setWindowTitle(QApplication::translate("laberintowindow", "Form", nullptr));
+        laberintowindow->setWindowTitle(QApplication::translate("laberintowindow", "Laberinto con Backtracking | Proyecto EdD I", nullptr));
         label_2->setText(QApplication::translate("laberintowindow", "Laberinto con Backtracking", nullptr));
         pushbutton_next->setText(QApplication::translate("laberintowindow", "Resolver Laberinto", nullptr));
         pushbutton_load->setText(QApplication::translate("laberintowindow", "Cargar Laberinto", nullptr));

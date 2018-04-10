@@ -55,6 +55,11 @@ void FloydWindow::fillTable(){
     }
 
     QStringList Lista;
+
+    for (int i = 1; i <= graph->getVertices()->size; i++) {
+      Lista.append(QString(graph->getVertices()->get(i)->getDisplayName().c_str()));
+    }
+    
     ui->tableWidget->setHorizontalHeaderLabels(Lista);
     ui->tableWidget->setVerticalHeaderLabels(Lista);
     for(int i=0; i<graph->getVertices()->size; i++){
@@ -64,4 +69,3 @@ void FloydWindow::fillTable(){
         }
     }
 }
-

@@ -126,7 +126,7 @@ public:
 
     void retranslateUi(QWidget *huffmanwindow)
     {
-        huffmanwindow->setWindowTitle(QApplication::translate("huffmanwindow", "Form", nullptr));
+        huffmanwindow->setWindowTitle(QApplication::translate("huffmanwindow", "Compresi\303\263n de Texto | Proyecto EdD I", nullptr));
         label_2->setText(QApplication::translate("huffmanwindow", "Compresi\303\263n de Archivos de Texto", nullptr));
         pushbutton_load->setText(QApplication::translate("huffmanwindow", "Cargar Archivo", nullptr));
         QlineEdit->setPlaceholderText(QApplication::translate("huffmanwindow", "Ingrese texto para comprimir.", nullptr));
