@@ -29,6 +29,7 @@ public:
     QFrame *frame_3;
     QPushButton *pushbutton_next;
     QPushButton *pushbutton_load;
+    QFrame *Frame_Laberinto;
 
     void setupUi(QWidget *laberintowindow)
     {
@@ -99,6 +100,11 @@ public:
         pushbutton_load = new QPushButton(frame_3);
         pushbutton_load->setObjectName(QStringLiteral("pushbutton_load"));
         pushbutton_load->setGeometry(QRect(0, 0, 131, 41));
+        Frame_Laberinto = new QFrame(laberintowindow);
+        Frame_Laberinto->setObjectName(QStringLiteral("Frame_Laberinto"));
+        Frame_Laberinto->setGeometry(QRect(20, 80, 581, 581));
+        Frame_Laberinto->setFrameShape(QFrame::StyledPanel);
+        Frame_Laberinto->setFrameShadow(QFrame::Raised);
 
         retranslateUi(laberintowindow);
 

@@ -27,7 +27,7 @@ void huffmanwindow::compress(QString word){
     if(word == "")
         return;
 
-    ui->lineEdit->setText("");
+    ui->QlineEdit->setText("");
     Queue<bitreenode<treedata>*>* queue = fillList(&word);
     sort(queue);
     bitreenode<treedata>* root = createTree(queue);
@@ -91,7 +91,7 @@ void huffmanwindow::compressWord(){
     textoObtenido = "";
     textoGenerado = "";
     codigos = new List<treedata>();
-    textoObtenido = ui->lineEdit->text();
+    textoObtenido = ui->QlineEdit->text();
     compress(textoObtenido);
 }
 
