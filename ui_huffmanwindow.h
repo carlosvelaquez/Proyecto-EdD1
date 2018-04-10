@@ -34,7 +34,7 @@ public:
     QFrame *Frame_1;
     QLineEdit *QlineEdit;
     QPushButton *pushButton_compress;
-    QTextEdit *textEdit;
+    QTextEdit *listaLetras;
 
     void setupUi(QWidget *huffmanwindow)
     {
@@ -115,9 +115,9 @@ public:
         pushButton_compress = new QPushButton(Frame_1);
         pushButton_compress->setObjectName(QStringLiteral("pushButton_compress"));
         pushButton_compress->setGeometry(QRect(610, 2, 141, 61));
-        textEdit = new QTextEdit(huffmanwindow);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(300, 70, 431, 311));
+        listaLetras = new QTextEdit(huffmanwindow);
+        listaLetras->setObjectName(QStringLiteral("listaLetras"));
+        listaLetras->setGeometry(QRect(300, 70, 431, 311));
 
         retranslateUi(huffmanwindow);
 
