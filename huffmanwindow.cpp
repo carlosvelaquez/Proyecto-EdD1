@@ -36,6 +36,7 @@ void huffmanwindow::compress(QString word){
     /*fillTreeWidget(root);*/
     fillQList(root);
     qDebug()<<textoGenerado;
+    ui->listaLetras->setText(textoGenerado);
     delete root;
     delete queue;
 }
@@ -138,9 +139,10 @@ void huffmanwindow::sort(Queue<bitreenode<treedata>*>* nQueue){
 */
 void huffmanwindow::decode(QString Code, bitreenode<treedata>* currentTreeNode){
     if(!currentTreeNode->hasChildren()){
+        QString nCode;
         Code+=QString::number(currentTreeNode->getData()->getType());
-        for(int i=Code.size()-1; i>=0; i++)
-        codigos->insert(new treedata(currentTreeNode->getData()->getChar(),Code));
+        for(int i=Code.size()-1; i>=0; i--) nCode+=Code[i];
+        codigos->insert(new treedata(currentTreeNode->getData()->getChar(),nCode));
     }else{
         if(currentTreeNode->getData()->getType()!=-1){
             Code+=QString::number(currentTreeNode->getData()->getType());
