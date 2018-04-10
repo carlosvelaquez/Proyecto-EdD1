@@ -57,7 +57,7 @@ background-color: rgb(61, 141, 62);
    <widget class="QPushButton" name="botonGuardar">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>470</x>
       <y>0</y>
       <width>141</width>
       <height>41</height>
@@ -67,10 +67,10 @@ background-color: rgb(61, 141, 62);
      <string>Guardar Registros</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="botonCargar_2">
+   <widget class="QPushButton" name="botonCargar">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>610</x>
       <y>0</y>
       <width>141</width>
       <height>41</height>

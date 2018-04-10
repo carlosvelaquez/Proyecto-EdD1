@@ -175,7 +175,7 @@ background-color: rgb(60, 14, 68);
      </font>
     </property>
     <property name="text">
-     <string>-</string>
+     <string>No analizado aún</string>
     </property>
    </widget>
    <widget class="QPushButton" name="botonGuardarGrafo">

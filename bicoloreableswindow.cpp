@@ -27,6 +27,7 @@ void BicoloreablesWindow::on_botonCrearVertice_clicked(){
 }
 
 void BicoloreablesWindow::refreshLayout(){
+  ui->resultadoLabel->setText("No analizado aún");
   ui->cbVertice1->clear();
   ui->cbVertice2->clear();
 
@@ -57,7 +58,7 @@ void BicoloreablesWindow::on_botonNuevoGrafo_clicked()
     graph = new Graph<string>();
     graph->defaultColor = "#7E57C2";
     graphView->setGraph(graph);
-    ui->resultadoLabel->setText("-");
+    ui->resultadoLabel->setText("No analizado aún");
     refreshLayout();
 }
 
@@ -74,7 +75,7 @@ void BicoloreablesWindow::on_botonConectarVertices_clicked()
   Vertex<string>* vertex2 = v2.value<Vertex<string>*>();
 
   graph->addEdge(vertex1, vertex2);
-  graphView->refresh();
+  refreshLayout();
 }
 
 void BicoloreablesWindow::on_botonCorrer_clicked()
