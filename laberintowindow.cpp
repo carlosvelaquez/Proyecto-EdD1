@@ -50,15 +50,21 @@ void laberintowindow::takefile()
             }
             f++;
         }
-        labView = new LabView(filas,columnas,this);
-        labView->setLabyrinth(laberinto);
+
+        List<List<char>> laberinto;
+
         for(int i=0 ;i<filas; i++){
-            qDebug()<<"____";
+          List<char> columna;
             for(int j=0; j<columnas; j++){
-                qDebug()<<laberinto[i][j];
+                columna.insert(laberinto[i][j]);
             }
+
+            laberinto.insert(columna);
         }
+
+        labView->setLabyrinth(laberinto);
         labView->refresh();
+        
         //simulation(filas,columnas);
   }
 }
@@ -160,4 +166,3 @@ void laberintowindow::on_pushbutton_next_clicked()
 {
 
 }
-

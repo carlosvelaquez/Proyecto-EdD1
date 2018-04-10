@@ -5,6 +5,7 @@
 #include <QFrame>
 #include <QPushButton>
 #include <string>
+#include "list.h"
 
 using namespace std;
 
@@ -14,15 +15,15 @@ class LabView : public QFrame{
 
 protected:
   int w, h, widthUnit, heightUnit;
-  char** labyrinth;
+  List<List<char>> labyrinth;
 
 public:
   LabView();
   LabView(QWidget*);
-  LabView(int, int, QWidget*);
+  LabView(List<List<char>>, QWidget*);
 
-  char** getLabyrinth();
-  void setLabyrinth(char**);
+  List<List<char>> getLabyrinth();
+  void setLabyrinth(List<List<char>>);
 
   void newTile(string);
   void newTile(int, int, string);

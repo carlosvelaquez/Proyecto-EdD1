@@ -3,62 +3,62 @@
 LabView::LabView() : QFrame(Q_NULLPTR){
   this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
 
-  if (labyrinth != 0) {
-    delete labyrinth;
+  labyrinth.clear();
+
+  for (int i = 1; i <= 100; i++) {
+    List<char> lab;
+
+    for (int j = 1; j <= 100; j++) {
+      lab.insert('0');
+    }
+
+    labyrinth.insert(lab);
   }
 
-  labyrinth = new char*[100];
-
-  for (size_t i = 0; i < 100; i++) {
-    labyrinth[i] = new char[100];
-  }
-
-  w = 100;
-  h = 100;
-  widthUnit = width()/w;
-  heightUnit = height()/h;
+  widthUnit = width()/labyrinth.size;
+  heightUnit = height()/labyrinth.get(1).size;
 }
 
 LabView::LabView(QWidget* parent = Q_NULLPTR) : QFrame(parent){
   this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
 
-  labyrinth = new char*[100];
+  labyrinth.clear();
 
-  for (int i = 0; i < 100; i++) {
-    labyrinth[i] = new char[100];
+  for (int i = 1; i <= 100; i++) {
+    List<char> lab;
+
+    for (int j = 1; j <= 100; j++) {
+      lab.insert('0');
+    }
+
+    labyrinth.insert(lab);
   }
 
-  w = 100;
-  h = 100;
-  widthUnit = width()/w;
-  heightUnit = height()/h;
+  widthUnit = width()/labyrinth.size;
+  heightUnit = height()/labyrinth.get(1).size;
 }
 
-LabView::LabView(int x, int y, QWidget *parent = Q_NULLPTR) : QFrame(parent){
+LabView::LabView(List<List<char>> nLab, QWidget *parent = Q_NULLPTR) : QFrame(parent){
   this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
 
-  labyrinth = new char*[x];
+  labyrinth = nLab;
 
-  for (int i = 0; i < x; i++) {
-    labyrinth[i] = new char[y];
-  }
-
-  w = *(&labyrinth + 1) - labyrinth;
-  h = *(&labyrinth[0] + 1) - labyrinth[0];
+  w = labyrinth.size;
+  h = labyrinth.get(1).size;
 
   widthUnit = width()/w;
   heightUnit = height()/h;
 }
 
-char** LabView::getLabyrinth(){
+List<List<char>> LabView::getLabyrinth(){
   return labyrinth;
 }
 
-void LabView::setLabyrinth(char** nLab){
+void LabView::setLabyrinth(List<List<char>> nLab){
   labyrinth = nLab;
 
-  w = *(&labyrinth + 1) - labyrinth;
-  h = *(&labyrinth[0] + 1) - labyrinth[0];
+  w = labyrinth.size;
+  h = labyrinth.get(1).size;
 
   widthUnit = width()/w;
   heightUnit = height()/h;
@@ -85,19 +85,17 @@ void LabView::refresh(){
     delete w;
   }
 
-  if (labyrinth != 0) {
-    char current;
-    for (int i = 0; i < w; i++) {
-      for (int j = 0; j < h; j++) {
-        current = labyrinth[i][j];
+  char current;
+  for (int i = 1; i <= w; i++) {
+    for (int j = 1; j <= h; j++) {
+      current = labyrinth.get(i).get(j);
 
-        if (current == '0') {
-          newTile(i, j, "black");
-        }else if (current == '1'){
-          newTile(i, j, "white");
-        }else{
-          newTile(i, j, "red");
-        }
+      if (current == '0') {
+        newTile(i, j, "black");
+      }else if (current == '1'){
+        newTile(i, j, "white");
+      }else{
+        newTile(i, j, "red");
       }
     }
   }
