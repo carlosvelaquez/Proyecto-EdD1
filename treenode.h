@@ -63,7 +63,7 @@ public:
   }
 
   void addChild(TreeNode<T>* nChild){
-    nChild.setParent(this);
+    nChild->setParent(this);
     children->insert(nChild);
   }
 

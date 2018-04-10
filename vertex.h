@@ -123,6 +123,11 @@ public:
     return false;
   }
 
+  void skim(){
+    edges->remove(edges->size);
+    costs->remove(costs->size);
+  }
+
   void setCheck(bool nCheck){
     check = nCheck;
   }

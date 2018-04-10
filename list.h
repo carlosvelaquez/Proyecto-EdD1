@@ -85,15 +85,23 @@ public:
         if (prev == 0) {
           head = next;
         }
+      }else{
+        if (size == 2) {
+          tail = head;
+        }
       }
 
       currentNode->setPrevious(0);
       currentNode->setNext(0);
 
-      delete currentNode;
       size --;
-      return true;
 
+      if (size == 2) {
+        head->setNext(tail);
+        tail->setPrevious(head);
+      }
+
+      return true;
     }
   }
 

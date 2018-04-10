@@ -30,7 +30,7 @@ class Ui_DesempenoWindow
 public:
     QFrame *frame;
     QPushButton *botonGuardar;
-    QPushButton *botonCargar_2;
+    QPushButton *botonCargar;
     QTreeView *treeView;
     QFrame *frame_2;
     QLabel *label_6;
@@ -87,10 +87,10 @@ public:
         frame->setFrameShadow(QFrame::Plain);
         botonGuardar = new QPushButton(frame);
         botonGuardar->setObjectName(QStringLiteral("botonGuardar"));
-        botonGuardar->setGeometry(QRect(460, 0, 141, 41));
-        botonCargar_2 = new QPushButton(frame);
-        botonCargar_2->setObjectName(QStringLiteral("botonCargar_2"));
-        botonCargar_2->setGeometry(QRect(600, 0, 141, 41));
+        botonGuardar->setGeometry(QRect(470, 0, 141, 41));
+        botonCargar = new QPushButton(frame);
+        botonCargar->setObjectName(QStringLiteral("botonCargar"));
+        botonCargar->setGeometry(QRect(610, 0, 141, 41));
         treeView = new QTreeView(DesempenoWindow);
         treeView->setObjectName(QStringLiteral("treeView"));
         treeView->setGeometry(QRect(10, 70, 441, 411));
@@ -225,7 +225,7 @@ public:
     {
         DesempenoWindow->setWindowTitle(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n por Desempe\303\261o", nullptr));
         botonGuardar->setText(QApplication::translate("DesempenoWindow", "Guardar Registros", nullptr));
-        botonCargar_2->setText(QApplication::translate("DesempenoWindow", "Cargar Registros", nullptr));
+        botonCargar->setText(QApplication::translate("DesempenoWindow", "Cargar Registros", nullptr));
         label_6->setText(QApplication::translate("DesempenoWindow", "A\303\261adir Empleados", nullptr));
         botonBorrar->setText(QApplication::translate("DesempenoWindow", "Borrar Campos", nullptr));
         botonCrear->setText(QApplication::translate("DesempenoWindow", "Crear Empleado", nullptr));

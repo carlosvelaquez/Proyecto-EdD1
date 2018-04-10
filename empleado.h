@@ -14,6 +14,7 @@ protected:
 public:
   Empleado();
   Empleado(string, string);
+  Empleado(string, string, double);
 
   float getCalificacion();
   void setPosicion(double);

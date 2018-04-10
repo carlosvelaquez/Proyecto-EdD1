@@ -12,6 +12,12 @@ Empleado::Empleado(string nNombre, string nPuesto){
   puesto = nPuesto;
 }
 
+Empleado::Empleado(string nNombre, string nPuesto, double nCal){
+  calificacion = nCal;
+  nombre = nNombre;
+  puesto = nPuesto;
+}
+
 float Empleado::getCalificacion(){
   return calificacion;
 }
