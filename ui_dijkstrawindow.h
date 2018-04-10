@@ -38,11 +38,11 @@ public:
     {
         if (dijkstrawindow->objectName().isEmpty())
             dijkstrawindow->setObjectName(QStringLiteral("dijkstrawindow"));
-        dijkstrawindow->resize(681, 379);
+        dijkstrawindow->resize(541, 379);
         dijkstrawindow->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         frame = new QFrame(dijkstrawindow);
         frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(0, 0, 681, 61));
+        frame->setGeometry(QRect(0, 0, 541, 61));
         frame->setStyleSheet(QLatin1String("QFrame{\n"
 "background-color: #E91E63;\n"
 "}\n"
@@ -65,7 +65,7 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         pushButton = new QPushButton(frame);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(550, 0, 131, 61));
+        pushButton->setGeometry(QRect(410, 0, 131, 61));
         label_2 = new QLabel(frame);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(10, 10, 381, 31));
@@ -77,7 +77,7 @@ public:
         label_2->setFont(font);
         frame_2 = new QFrame(dijkstrawindow);
         frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(0, 330, 681, 51));
+        frame_2->setGeometry(QRect(0, 330, 541, 51));
         frame_2->setStyleSheet(QLatin1String("QFrame{\n"
 "background-color: #E91E63;\n"
 "}\n"
@@ -103,7 +103,7 @@ public:
         comboBox->setGeometry(QRect(200, 10, 151, 25));
         pushButton_Elegir = new QPushButton(frame_2);
         pushButton_Elegir->setObjectName(QStringLiteral("pushButton_Elegir"));
-        pushButton_Elegir->setGeometry(QRect(530, 0, 151, 51));
+        pushButton_Elegir->setGeometry(QRect(390, 0, 151, 51));
         resultadoLabel = new QLabel(frame_2);
         resultadoLabel->setObjectName(QStringLiteral("resultadoLabel"));
         resultadoLabel->setGeometry(QRect(10, 10, 171, 21));
@@ -115,7 +115,7 @@ public:
         resultadoLabel->setFont(font1);
         frame_3 = new QFrame(dijkstrawindow);
         frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(9, 69, 661, 251));
+        frame_3->setGeometry(QRect(9, 69, 521, 251));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
 

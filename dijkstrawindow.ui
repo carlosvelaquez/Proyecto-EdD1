@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>681</width>
+    <width>541</width>
     <height>379</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>681</width>
+     <width>541</width>
      <height>61</height>
     </rect>
    </property>
@@ -54,7 +54,7 @@ background-color: #880E4F;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>410</x>
       <y>0</y>
       <width>131</width>
       <height>61</height>
@@ -91,7 +91,7 @@ background-color: #880E4F;
     <rect>
      <x>0</x>
      <y>330</y>
-     <width>681</width>
+     <width>541</width>
      <height>51</height>
     </rect>
    </property>
@@ -134,7 +134,7 @@ background-color: #880E4F;
    <widget class="QPushButton" name="pushButton_Elegir">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>390</x>
       <y>0</y>
       <width>151</width>
       <height>51</height>
@@ -171,7 +171,7 @@ background-color: #880E4F;
     <rect>
      <x>9</x>
      <y>69</y>
-     <width>661</width>
+     <width>521</width>
      <height>251</height>
     </rect>
    </property>
