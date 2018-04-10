@@ -157,7 +157,12 @@ void laberintowindow::simulation(int filas, int columnas){
             termina = false;
         }
     }
-    clearMatrix(laberinto,filas);
+    for(int i=0; i<stack->size(); i++){
+        x = stack->back()->getX();
+        y = stack->back()->getY();
+        stack->pop_back();
+        laberinto[y][x] = 'x';
+    }
     delete Stack;
 }
 
