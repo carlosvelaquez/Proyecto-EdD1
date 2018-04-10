@@ -2,8 +2,16 @@
 
 LabView::LabView() : QFrame(Q_NULLPTR){
   this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
+
+  if (labyrinth != 0) {
+    delete labyrinth;
+  }
+
   labyrinth = new char*[100];
-  labyrinth[0] = new char[100];
+
+  for (size_t i = 0; i < 100; i++) {
+    labyrinth[i] = new char[100];
+  }
 
   w = 100;
   h = 100;
@@ -13,8 +21,16 @@ LabView::LabView() : QFrame(Q_NULLPTR){
 
 LabView::LabView(QWidget* parent = Q_NULLPTR) : QFrame(parent){
   this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
+
+  if (labyrinth != 0) {
+    delete labyrinth;
+  }
+
   labyrinth = new char*[100];
-  labyrinth[0] = new char[100];
+
+  for (int i = 0; i < 100; i++) {
+    labyrinth[i] = new char[100];
+  }
 
   w = 100;
   h = 100;
@@ -22,9 +38,14 @@ LabView::LabView(QWidget* parent = Q_NULLPTR) : QFrame(parent){
   heightUnit = height()/h;
 }
 
-LabView::LabView(char** nLab, QWidget *parent = Q_NULLPTR) : QFrame(parent){
+LabView::LabView(int x, int y, QWidget *parent = Q_NULLPTR) : QFrame(parent){
   this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
-  labyrinth = nLab;
+
+  labyrinth = new char*[x];
+
+  for (int i = 0; i < x; i++) {
+    labyrinth[i] = new char[y];
+  }
 
   w = *(&labyrinth + 1) - labyrinth;
   h = *(&labyrinth[0] + 1) - labyrinth[0];
@@ -37,7 +58,7 @@ char** LabView::getLabyrinth(){
   return labyrinth;
 }
 
-void LabView::setLabyrinth(char** nLab){
+void LabView::setLabyrinth(char* nLab[]){
   labyrinth = nLab;
 }
 

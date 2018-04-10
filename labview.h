@@ -13,13 +13,13 @@ class LabView : public QFrame{
   Q_OBJECT
 
 protected:
-  char** labyrinth;
   int w, h, widthUnit, heightUnit;
+  char** labyrinth;
 
 public:
   LabView();
   LabView(QWidget*);
-  LabView(char**, QWidget*);
+  LabView(int, int, QWidget*);
 
   char** getLabyrinth();
   void setLabyrinth(char**);
