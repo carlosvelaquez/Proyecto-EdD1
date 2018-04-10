@@ -1,6 +1,8 @@
 #ifndef BITREENODE_H
 #define BITREENODE_H
 
+#include "tree.h"
+
 template <class T>
 
 class bitreenode{
@@ -65,6 +67,36 @@ public:
        }
         return false;
    }
+
+   /*Tree<T>* toTree(){
+     TreeNode<T>* root;
+
+     construct(root, this);
+
+     Tree<T>* tree = new Tree<T>();
+     tree->setRoot(root);
+
+     return tree;
+   }
+
+   void construct(TreeNode<T>* current, bitreenode<T>* currentNode){
+     T* dat2;
+     dat2 = currentNode->getData();
+     T dat= *dat2;
+     current->setData(dat);
+
+     if (leftChild != 0) {
+       TreeNode<T>* child;
+       construct(child, leftChild);
+       current->addChild(child);
+     }
+
+     if (rightChild != 0) {
+       TreeNode<T>* child;
+       construct(child, rightChild);
+       current->addChild(child);
+     }
+   }*/
 
    ~bitreenode(){
        if(leftChild != 0 ){

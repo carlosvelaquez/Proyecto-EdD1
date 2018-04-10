@@ -19,7 +19,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
-#include <QtWidgets/QTreeWidget>
+#include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,7 +27,6 @@ QT_BEGIN_NAMESPACE
 class Ui_huffmanwindow
 {
 public:
-    QTreeWidget *QtreeWidgetx;
     QFrame *frame_3;
     QLabel *label_2;
     QPushButton *pushbutton_load;
@@ -35,6 +34,7 @@ public:
     QLineEdit *QlineEdit;
     QPushButton *pushButton_compress;
     QTextEdit *listaLetras;
+    QTreeView *QtreeWidgetx;
 
     void setupUi(QWidget *huffmanwindow)
     {
@@ -44,12 +44,6 @@ public:
         huffmanwindow->setStyleSheet(QLatin1String("QWidget{\n"
 "	background-color:white;\n"
 "}"));
-        QtreeWidgetx = new QTreeWidget(huffmanwindow);
-        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
-        __qtreewidgetitem->setText(0, QStringLiteral("Frecuencias de Simbolos"));
-        QtreeWidgetx->setHeaderItem(__qtreewidgetitem);
-        QtreeWidgetx->setObjectName(QStringLiteral("QtreeWidgetx"));
-        QtreeWidgetx->setGeometry(QRect(10, 70, 281, 311));
         frame_3 = new QFrame(huffmanwindow);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(0, 0, 751, 61));
@@ -118,6 +112,9 @@ public:
         listaLetras = new QTextEdit(huffmanwindow);
         listaLetras->setObjectName(QStringLiteral("listaLetras"));
         listaLetras->setGeometry(QRect(300, 70, 431, 311));
+        QtreeWidgetx = new QTreeView(huffmanwindow);
+        QtreeWidgetx->setObjectName(QStringLiteral("QtreeWidgetx"));
+        QtreeWidgetx->setGeometry(QRect(10, 70, 271, 311));
 
         retranslateUi(huffmanwindow);
 

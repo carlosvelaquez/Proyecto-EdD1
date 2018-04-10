@@ -37,6 +37,7 @@ void huffmanwindow::compress(QString word){
     fillQList(root);
     qDebug()<<textoGenerado;
     ui->listaLetras->setText(textoGenerado);
+    //ui->QtreeWidgetx->setModel(root->toTree()->toItemModel());
     delete root;
     delete queue;
 }
@@ -50,6 +51,7 @@ Queue<bitreenode<treedata>*>* huffmanwindow::fillList(QString* word){
     QChar Char;
     QString temp = *word;
     Queue<bitreenode<treedata>*>* list = new Queue<bitreenode<treedata>*>();
+
     while(temp.size()>0){
         Char = temp[0];
         for(int i=0; i<temp.size(); i++){

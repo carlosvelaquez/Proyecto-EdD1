@@ -3,6 +3,9 @@
 
 #include <QChar>
 #include <QString>
+#include <string>
+
+using namespace std;
 
 class treedata
 {
@@ -28,6 +31,19 @@ public:
     void setCode(QString);
     QChar getChar();
     void setChar(QChar);
+
+    operator string() const{
+        string str = "";
+        QString str2 = "";
+        str2.append(Char);
+
+        str += str2.toUtf8().constData();
+        str += " | ";
+        str += code.toUtf8().constData();
+        str += " | ";
+        str += to_string(frecuency);
+      return str;
+    }
 };
 
 #endif // TREEDATA_H
