@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'floydwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.9.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -60,9 +60,9 @@ public:
 
     void retranslateUi(QWidget *FloydWindow)
     {
-        FloydWindow->setWindowTitle(QApplication::translate("FloydWindow", "Form", nullptr));
-        label->setText(QApplication::translate("FloydWindow", "FLOYD", nullptr));
-        pushButton->setText(QApplication::translate("FloydWindow", "Cargar Grafo", nullptr));
+        FloydWindow->setWindowTitle(QApplication::translate("FloydWindow", "Form", Q_NULLPTR));
+        label->setText(QApplication::translate("FloydWindow", "FLOYD", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("FloydWindow", "Cargar Grafo", Q_NULLPTR));
     } // retranslateUi
 
 };

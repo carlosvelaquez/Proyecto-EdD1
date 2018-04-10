@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'bicoloreableswindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.9.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -203,21 +203,21 @@ public:
 
     void retranslateUi(QWidget *BicoloreablesWindow)
     {
-        BicoloreablesWindow->setWindowTitle(QApplication::translate("BicoloreablesWindow", "Grafos Bicoloreables | Proyecto EdD I", nullptr));
-        label->setText(QApplication::translate("BicoloreablesWindow", "Grafos Bi-coloreables", nullptr));
-        botonNuevoGrafo->setText(QApplication::translate("BicoloreablesWindow", "Nuevo Grafo", nullptr));
-        botonCorrer->setText(QApplication::translate("BicoloreablesWindow", "Correr con Grafo Actual", nullptr));
-        label_7->setText(QApplication::translate("BicoloreablesWindow", "Resultado:", nullptr));
-        resultadoLabel->setText(QApplication::translate("BicoloreablesWindow", "No analizado a\303\272n", nullptr));
-        botonGuardarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Guardar Grafo", nullptr));
-        botonCargarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Cargar Grafo", nullptr));
-        label_2->setText(QApplication::translate("BicoloreablesWindow", "Crear V\303\251rtice", nullptr));
-        label_3->setText(QApplication::translate("BicoloreablesWindow", "Nombre del V\303\251rtice", nullptr));
-        botonCrearVertice->setText(QApplication::translate("BicoloreablesWindow", "Crear Nuevo V\303\251rtice", nullptr));
-        botonConectarVertices->setText(QApplication::translate("BicoloreablesWindow", "Crear Nueva Arista", nullptr));
-        label_4->setText(QApplication::translate("BicoloreablesWindow", "V\303\251rtice 1", nullptr));
-        label_5->setText(QApplication::translate("BicoloreablesWindow", "V\303\251rtice 2", nullptr));
-        label_6->setText(QApplication::translate("BicoloreablesWindow", "Crear Arista", nullptr));
+        BicoloreablesWindow->setWindowTitle(QApplication::translate("BicoloreablesWindow", "Grafos Bicoloreables | Proyecto EdD I", Q_NULLPTR));
+        label->setText(QApplication::translate("BicoloreablesWindow", "Grafos Bi-coloreables", Q_NULLPTR));
+        botonNuevoGrafo->setText(QApplication::translate("BicoloreablesWindow", "Nuevo Grafo", Q_NULLPTR));
+        botonCorrer->setText(QApplication::translate("BicoloreablesWindow", "Correr con Grafo Actual", Q_NULLPTR));
+        label_7->setText(QApplication::translate("BicoloreablesWindow", "Resultado:", Q_NULLPTR));
+        resultadoLabel->setText(QApplication::translate("BicoloreablesWindow", "No analizado a\303\272n", Q_NULLPTR));
+        botonGuardarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Guardar Grafo", Q_NULLPTR));
+        botonCargarGrafo->setText(QApplication::translate("BicoloreablesWindow", "Cargar Grafo", Q_NULLPTR));
+        label_2->setText(QApplication::translate("BicoloreablesWindow", "Crear V\303\251rtice", Q_NULLPTR));
+        label_3->setText(QApplication::translate("BicoloreablesWindow", "Nombre del V\303\251rtice", Q_NULLPTR));
+        botonCrearVertice->setText(QApplication::translate("BicoloreablesWindow", "Crear Nuevo V\303\251rtice", Q_NULLPTR));
+        botonConectarVertices->setText(QApplication::translate("BicoloreablesWindow", "Crear Nueva Arista", Q_NULLPTR));
+        label_4->setText(QApplication::translate("BicoloreablesWindow", "V\303\251rtice 1", Q_NULLPTR));
+        label_5->setText(QApplication::translate("BicoloreablesWindow", "V\303\251rtice 2", Q_NULLPTR));
+        label_6->setText(QApplication::translate("BicoloreablesWindow", "Crear Arista", Q_NULLPTR));
     } // retranslateUi
 
 };

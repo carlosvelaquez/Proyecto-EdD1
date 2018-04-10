@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'expresioneswindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.9.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -129,7 +129,7 @@ public:
 
     void retranslateUi(QWidget *ExpresionesWindow)
     {
-        ExpresionesWindow->setWindowTitle(QApplication::translate("ExpresionesWindow", "Resoluci\303\263n de Expresiones Matem\303\241ticas | Proyecto EdD I", nullptr));
+        ExpresionesWindow->setWindowTitle(QApplication::translate("ExpresionesWindow", "Resoluci\303\263n de Expresiones Matem\303\241ticas | Proyecto EdD I", Q_NULLPTR));
         textEditHist->setHtml(QApplication::translate("ExpresionesWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -145,13 +145,13 @@ public:
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Ejemplo:</span></p>\n"
 "<p align=\"center\" "
                         "style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">242+543-324/44+23</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-style:italic;\">Se sigue el orden est\303\241ndar de operaciones</span></p></body></html>", nullptr));
-        textEditHist->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Historial de Operaciones", nullptr));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-style:italic;\">Se sigue el orden est\303\241ndar de operaciones</span></p></body></html>", Q_NULLPTR));
+        textEditHist->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Historial de Operaciones", Q_NULLPTR));
         lineEditExp->setText(QString());
-        lineEditExp->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Ingrese una Expresi\303\263n Matem\303\241tica para Resolver", nullptr));
-        botonResolver->setText(QApplication::translate("ExpresionesWindow", "Resolver", nullptr));
-        botonLimpiar->setText(QApplication::translate("ExpresionesWindow", "Limpiar Todo", nullptr));
-        label->setText(QApplication::translate("ExpresionesWindow", "Mafway Problem Solver", nullptr));
+        lineEditExp->setPlaceholderText(QApplication::translate("ExpresionesWindow", "Ingrese una Expresi\303\263n Matem\303\241tica para Resolver", Q_NULLPTR));
+        botonResolver->setText(QApplication::translate("ExpresionesWindow", "Resolver", Q_NULLPTR));
+        botonLimpiar->setText(QApplication::translate("ExpresionesWindow", "Limpiar Todo", Q_NULLPTR));
+        label->setText(QApplication::translate("ExpresionesWindow", "Mafway Problem Solver", Q_NULLPTR));
     } // retranslateUi
 
 };

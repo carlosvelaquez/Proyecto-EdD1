@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'desempenowindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.9.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -223,21 +223,21 @@ public:
 
     void retranslateUi(QWidget *DesempenoWindow)
     {
-        DesempenoWindow->setWindowTitle(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n por Desempe\303\261o", nullptr));
-        botonGuardar->setText(QApplication::translate("DesempenoWindow", "Guardar Registros", nullptr));
-        botonCargar->setText(QApplication::translate("DesempenoWindow", "Cargar Registros", nullptr));
-        label_6->setText(QApplication::translate("DesempenoWindow", "A\303\261adir Empleados", nullptr));
-        botonBorrar->setText(QApplication::translate("DesempenoWindow", "Borrar Campos", nullptr));
-        botonCrear->setText(QApplication::translate("DesempenoWindow", "Crear Empleado", nullptr));
-        label_2->setText(QApplication::translate("DesempenoWindow", "Nombre del Empleado", nullptr));
-        label_3->setText(QApplication::translate("DesempenoWindow", "Puesto del Empleado", nullptr));
-        label_4->setText(QApplication::translate("DesempenoWindow", "Supervisor", nullptr));
-        label_7->setText(QApplication::translate("DesempenoWindow", "Calificar Empleados", nullptr));
-        label_5->setText(QApplication::translate("DesempenoWindow", "Empleado", nullptr));
-        label_8->setText(QApplication::translate("DesempenoWindow", "Calificaci\303\263n", nullptr));
-        botonEnviar->setText(QApplication::translate("DesempenoWindow", "Enviar Calificaci\303\263n", nullptr));
-        label->setText(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n por Desempe\303\261o", nullptr));
-        botonRefrescar->setText(QApplication::translate("DesempenoWindow", "Limpiar \303\201rbol", nullptr));
+        DesempenoWindow->setWindowTitle(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n por Desempe\303\261o", Q_NULLPTR));
+        botonGuardar->setText(QApplication::translate("DesempenoWindow", "Guardar Registros", Q_NULLPTR));
+        botonCargar->setText(QApplication::translate("DesempenoWindow", "Cargar Registros", Q_NULLPTR));
+        label_6->setText(QApplication::translate("DesempenoWindow", "A\303\261adir Empleados", Q_NULLPTR));
+        botonBorrar->setText(QApplication::translate("DesempenoWindow", "Borrar Campos", Q_NULLPTR));
+        botonCrear->setText(QApplication::translate("DesempenoWindow", "Crear Empleado", Q_NULLPTR));
+        label_2->setText(QApplication::translate("DesempenoWindow", "Nombre del Empleado", Q_NULLPTR));
+        label_3->setText(QApplication::translate("DesempenoWindow", "Puesto del Empleado", Q_NULLPTR));
+        label_4->setText(QApplication::translate("DesempenoWindow", "Supervisor", Q_NULLPTR));
+        label_7->setText(QApplication::translate("DesempenoWindow", "Calificar Empleados", Q_NULLPTR));
+        label_5->setText(QApplication::translate("DesempenoWindow", "Empleado", Q_NULLPTR));
+        label_8->setText(QApplication::translate("DesempenoWindow", "Calificaci\303\263n", Q_NULLPTR));
+        botonEnviar->setText(QApplication::translate("DesempenoWindow", "Enviar Calificaci\303\263n", Q_NULLPTR));
+        label->setText(QApplication::translate("DesempenoWindow", "Evaluaci\303\263n por Desempe\303\261o", Q_NULLPTR));
+        botonRefrescar->setText(QApplication::translate("DesempenoWindow", "Limpiar \303\201rbol", Q_NULLPTR));
     } // retranslateUi
 
 };
