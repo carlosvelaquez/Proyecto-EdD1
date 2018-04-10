@@ -25,16 +25,23 @@ public:
     ~laberintowindow();
     char** createMatrix(int,int);
     void clearMatrix(char**,int);
-    void simulation(char**,int,int);
+    void simulation(int,int);
 
     void printMatrix(char**,int,int);
+
+    void setScreen(char**,int,int);
+    void refreshLabel(char**,int,int);
+
 private slots:
     void takefile();
     bool move();
 
+    void on_pushbutton_next_clicked();
+
 private:
     Ui::laberintowindow *ui;
     LabView* labView;
+    char** laberinto;
 };
 
 #endif // LABERINTOWINDOW_H

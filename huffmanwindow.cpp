@@ -5,12 +5,14 @@
 #include <QFile>
 #include <QFileDialog>
 #include "list.h"
+#include <QListWidgetItem>
 
 huffmanwindow::huffmanwindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::huffmanwindow)
 {
     ui->setupUi(this);
+    codigos  = new List<treedata>();
     connect(ui->pushButton_compress, SIGNAL(clicked()),this,SLOT(compressWord()));
     connect(ui->pushbutton_load, SIGNAL(clicked()),this,SLOT(loadFile()));
 }
@@ -29,9 +31,10 @@ void huffmanwindow::compress(QString word){
     Queue<bitreenode<treedata>*>* queue = fillList(&word);
     sort(queue);
     bitreenode<treedata>* root = createTree(queue);
-    qDebug()<<"Frecuencia del nodo: "<<root->getData()->getFrecuency();
     decode("",root);
     filltext();
+    fillTreeWidget(root);
+    fillQList(root);
     qDebug()<<textoGenerado;
     delete root;
     delete queue;
@@ -135,7 +138,7 @@ void huffmanwindow::sort(Queue<bitreenode<treedata>*>* nQueue){
 void huffmanwindow::decode(QString Code, bitreenode<treedata>* currentTreeNode){
     if(!currentTreeNode->hasChildren()){
         Code+=QString::number(currentTreeNode->getData()->getType());
-       // codigos->insert(new treedata(currentTreeNode->getData()->getChar(),code));
+        //codigos->insert(new treedata(currentTreeNode->getData()->getChar(),Code));
     }else{
         if(currentTreeNode->getData()->getType()!=-1){
             Code+=QString::number(currentTreeNode->getData()->getType());
@@ -148,6 +151,9 @@ void huffmanwindow::decode(QString Code, bitreenode<treedata>* currentTreeNode){
     }
 }
 
+/*
+ *
+ */
 void huffmanwindow::filltext(){
     for(int i=0; i<textoObtenido.size(); i++){
         for(int j=1; j<=codigos->size; i++){
@@ -158,3 +164,39 @@ void huffmanwindow::filltext(){
     }
 }
 
+//===================================================================== No deja modificar los componentes
+void huffmanwindow::fillTreeWidget(bitreenode<treedata>* Node){
+    if(Node->hasChildren()){
+
+    }else{
+
+        //Left Child
+        bitreenode<treedata>* NodoIzq = Node->getLeftChild();
+        fillTreeWidget(NodoIzq);
+
+        //Right Child
+        bitreenode<treedata>* NodoDer = Node->getRightChild();
+        fillTreeWidget(NodoDer);
+    }
+}
+
+void huffmanwindow::fillQList(bitreenode<treedata>* Node){
+    if(Node->hasChildren()){
+        QListWidgetItem* item = new QListWidgetItem();
+        QString text = Node->getData()->getChar();
+        text+=" - ";
+        text+=Node->getData()->getCode();
+        item->setText(text);
+    }else{
+        bitreenode<treedata>* NodoIzq = Node->getLeftChild();
+        fillQList(NodoIzq);
+        bitreenode<treedata>* NodoDer = Node->getRightChild();
+        fillQList(NodoDer);
+    }
+}
+
+
+void huffmanwindow::on_pushbutton_load_clicked()
+{
+    //Ok
+}

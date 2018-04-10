@@ -7,6 +7,8 @@
 #include "bitreenode.h"
 #include "treedata.h"
 #include "list.h"
+#include <QListWidget>
+
 using namespace std;
 
 namespace Ui {
@@ -29,10 +31,14 @@ public:
     Queue<bitreenode<treedata>*>* fillList(QString*);
     bitreenode<treedata>* createTree(Queue<bitreenode<treedata>*>*);
 
+    void fillTreeWidget(bitreenode<treedata>*);
+    void fillQList(bitreenode<treedata>*);
 private slots:
 
     void loadFile();
     void compressWord();
+
+    void on_pushbutton_load_clicked();
 
 private:
     Ui::huffmanwindow *ui;

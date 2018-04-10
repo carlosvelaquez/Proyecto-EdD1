@@ -36,21 +36,21 @@ void laberintowindow::takefile()
         QTextStream in(nfile);
         in>>filas>>columnas;
         int f=-1,c=0;
-        char** matriz = createMatrix(filas,columnas);
+        laberinto = createMatrix(filas,columnas);
         while (!in.atEnd()) {
             c=0;
             line = in.readLine();
             for(int i=0; i<line.size(); i++){
                 if(line[i]=='0'){
-                    matriz[f][c] = '0';
+                    laberinto[f][c] = '0';
                 }else if(line[i]=='1'){
-                    matriz[f][c] = '1';
+                    laberinto[f][c] = '1';
                 }
                 c++;
             }
             f++;
         }
-        simulation(matriz,filas,columnas);
+        simulation(filas,columnas);
   }
 }
 
@@ -66,12 +66,12 @@ char** laberintowindow::createMatrix(int filas, int columnas){
 
 /* Funcion que limpia una matriz
 */
-void laberintowindow::clearMatrix(char** m, int filas){
-    for(int i=0; i<filas ; i++){
-            delete[] m[i];
-            m[i] = NULL;
-        }
-        delete[]m;
+void laberintowindow::clearMatrix(char** matriz, int f){
+    for(int i=0; i<f; i++){
+        matriz[i] = NULL;
+        delete matriz[i];
+    }
+    delete matriz;
 }
 
 
@@ -79,67 +79,71 @@ bool laberintowindow::move(){
     return true;
 }
 
-void laberintowindow::simulation(char** matrix, int filas, int columnas){
+void laberintowindow::simulation(int filas, int columnas){
     int x =0, y=0;
     bool pasa,termina=true;
+    vector<LaberintoData*>* stack = new vector<LaberintoData*>();
     linkedstack<LaberintoData*>* Stack  = new linkedstack<LaberintoData*>();
     for(int i=0; i<filas; i++){
-        if(matrix[i][0]=='1'){ // Validando entrada en primera columna
+        if(laberinto[i][0]=='1'){ // Validando entrada en primera columna
             x = 0;
             y = i;
         }
     }
-    qDebug()<<"x anterior: "<<x;
-    qDebug()<<"y anterior: "<<y;
-    int cont =0;
-    //while(cont<2){
+    while(termina){
         pasa = false;
-        matrix[y][x] = '#';
+        laberinto[y][x] = '#';
         if(y>0 && y<filas && pasa==false){ // Arriba
-            if(matrix[y-1][x]=='1'){
+            if(laberinto[y-1][x]=='1'){
+                qDebug()<<" arriba ";
                 y = y-1;
                 pasa = true;
-                Stack->pop(new LaberintoData(x,y));
-                printMatrix(matrix,filas,columnas);
+                stack->push_back(new LaberintoData(x,y));
+                //Stack->pop(new LaberintoData(x,y));
             }
         }
         if(y+1<filas && pasa==false){ // Abajo=";
-            if(matrix[y+1][x]=='1'){
+            if(laberinto[y+1][x]=='1'){
+                qDebug()<<" abajo ";
                 y = y+1;
                 pasa = true;
-                Stack->pop(new LaberintoData(x,y));
-                printMatrix(matrix,filas,columnas);
+                stack->push_back(new LaberintoData(x,y));
+                //Stack->pop(new LaberintoData(x,y));
             }
         }
         if(x>0 && x<columnas && pasa==false){ // Izquierda
-            if(matrix[y][x-1]=='1'){
+            if(laberinto[y][x-1]=='1'){
+                qDebug()<<" izquierda ";
                 x = x-1;
                 pasa = true;
-                Stack->pop(new LaberintoData(x,y));
-                printMatrix(matrix,filas,columnas);
+                stack->push_back(new LaberintoData(x,y));
+                //Stack->pop(new LaberintoData(x,y));
             }
         }
         if(x+1<columnas && pasa==false){ // Derecha
-            if(matrix[y][x+1]=='1'){
+            if(laberinto[y][x+1]=='1'){
+                qDebug()<<" derecha ";
                 x = x+1;
                 pasa = true;
-                Stack->pop(new LaberintoData(x,y));
-                printMatrix(matrix,filas,columnas);
+                stack->push_back(new LaberintoData(x,y));
+                //Stack->pop(new LaberintoData(x,y));
             }
         }
-        qDebug()<<"x nuevo: "<<x;
-        qDebug()<<"y nuevo: "<<y;
-        /*if(pasa==false){
-            Stack->top(); // Se elimina el X y Y donde no hay salida
-            x = Stack->get(Stack->Size())->getX(); // Se obtiene la posicion X de la posicion anterior
-            y = Stack->get(Stack->Size())->getY(); // Se obtiene la posicion Y de la posicion anterior
+        qDebug()<<"laberinto["<<y<<"]["<<x<<"]"<<laberinto[y][x];
+        if(pasa==false){
+            qDebug()<<" Se elimina y: "<<y<<" | x: "<<x<<" | laberinto["<<y<<"]["<<x<<"]"<<laberinto[y][x];
+            if(stack->size()>0){
+                stack->pop_back();
+                x = stack->back()->getX();
+                y = stack->back()->getY();
+            }
         }
-        if(x>=columnas||y>=filas){
+        if(x==columnas-1||y==filas-1){
             termina = false;
-        }*/
-        cont++;
-   // }
-        //clearMatrix(matrix,filas);
+        }
+    }
+    clearMatrix(laberinto,filas);
+    delete Stack;
 }
 
 void laberintowindow::printMatrix(char** m, int filas, int columnas){
@@ -157,4 +161,10 @@ void laberintowindow::printMatrix(char** m, int filas, int columnas){
             }
         }
     }
+}
+
+
+void laberintowindow::on_pushbutton_next_clicked()
+{
+
 }

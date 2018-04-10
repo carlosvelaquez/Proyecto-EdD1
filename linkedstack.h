@@ -7,8 +7,8 @@ template <class T>
 
 class linkedstack{
 private:
-    Node<T>* head;
-    int size;
+    Node<T>* head = 0;
+    int size = 0;
 public:
 
     linkedstack<T>(){}
@@ -68,14 +68,11 @@ public:
         return tempNode->getData();
     }
 
-    Node<T>* operator [](int num){
-            Node<T>* tempNode = head;
-            for(int i=1; i<num; i++){
-                 tempNode = tempNode->getNext();
-            }
-            return tempNode;
+    ~linkedstack<T>(){
+        if(head!=0){
+           // delete head;
+        }
     }
-
 };
 
 #endif // LINKEDSTACK_H

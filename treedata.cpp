@@ -12,6 +12,10 @@ treedata::treedata(int nFrecuency)
      type = -1;
 }
 
+treedata::treedata(QString nCode){
+    code = nCode;
+}
+
 treedata::treedata(QChar nChar, int nFrecuency, int nType){
     Char = nChar;
     frecuency = nFrecuency;
@@ -55,3 +59,4 @@ void treedata::setCode(QString nCode){
 QString treedata::getCode(){
     return code;
 }
+

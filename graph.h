@@ -4,6 +4,7 @@
 #include "vertex.h"
 #include <fstream>
 #include <sstream>
+#include <QDebug>
 
 using namespace std;
 
@@ -421,31 +422,7 @@ public:
     }
   }
 
-  int distanceBetween(Vertex<T>* v1, Vertex<T>* v2){
-      if(v1->getDisplayName()==v2->getDisplayName()){
-        return 0;
-      }else{
-          for(int i=0; i<v1->getEdges()->size; i++){
-              if(v1->getEdges()->get(i)->getDisplayName() == v2->getDisplayName()){
-                return v1->getCosts()->get(i);
-              }
-          }
-      }
-      return 9999999;
-  }
 
-  int** CreateDistancesMatrix(){
-      int** matrix = new int*[vertices->size];
-      for(int i=0; i<vertices->size; i++){
-          matrix = new int[vertices->size];
-      }
-      for(int i=0; i<vertices->size; i++){
-          for(int j=0; j<vertices->size; j++){
-              matrix[i][j] = distanceBetween(vertices->get(i),vertices->get(j));
-          }
-      }
-      return matrix;
-  }
 
   /* ************** Dijkstra *************** */
 
@@ -478,10 +455,6 @@ public:
 
   /* ************** Floyd *************** */
 
-  /* Muestra el resultado de la matriz de adyacencia.
-   */
-
-
   /* Devuelve la matriz de adyacencia
    * con los costos minimos calculados
    */
@@ -504,6 +477,38 @@ public:
             }
         }
     }
+  }
+
+  int distanceBetween(Vertex<T>* v1, Vertex<T>* v2){
+
+      if(v1 == v2){
+        return 0;
+      }
+      if(v1->getEdges()->contains(v2)){
+          for(int i=1; i<=v1->getEdges()->size; i++){
+              if(v1->getEdges()->get(i)==v2){
+                return v1->getCosts()->get(i);
+              }
+          }
+      }
+      return 9999999;
+  }
+
+  int** CreateDistancesMatrix(){
+      int** matrix = new int*[vertices->size];
+      for(int i=0; i<vertices->size; i++){
+          matrix[i] = new int[vertices->size];
+      }
+      for(int i=1; i<=vertices->size; i++){
+          for(int j=1; j<=vertices->size; j++){
+              matrix[i-1][j-1] = distanceBetween(vertices->get(i),vertices->get(j));
+          }
+      }
+      return matrix;
+  }
+
+  void imprimir(){
+
   }
 
 };

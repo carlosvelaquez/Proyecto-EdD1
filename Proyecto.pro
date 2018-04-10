@@ -35,7 +35,9 @@ SOURCES += \
     laberintowindow.cpp \
     huffmanwindow.cpp \
     treedata.cpp \
-    labview.cpp
+    labview.cpp \
+    floydwindow.cpp \
+    dijkstrawindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -67,7 +69,9 @@ HEADERS += \
     bitreenode.h \
     treedata.h \
     laberintodata.h \
-    labview.h
+    labview.h \
+    floydwindow.h \
+    dijkstrawindow.h
 
 FORMS += \
         mainwindow.ui \
@@ -76,4 +80,6 @@ FORMS += \
     bicoloreableswindow.ui \
     mstwindow.ui \
     laberintowindow.ui \
-    huffmanwindow.ui
+    huffmanwindow.ui \
+    floydwindow.ui \
+    dijkstrawindow.ui
