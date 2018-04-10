@@ -22,10 +22,6 @@ LabView::LabView() : QFrame(Q_NULLPTR){
 LabView::LabView(QWidget* parent = Q_NULLPTR) : QFrame(parent){
   this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
 
-  if (labyrinth != 0) {
-    delete labyrinth;
-  }
-
   labyrinth = new char*[100];
 
   for (int i = 0; i < 100; i++) {
@@ -58,8 +54,14 @@ char** LabView::getLabyrinth(){
   return labyrinth;
 }
 
-void LabView::setLabyrinth(char* nLab[]){
+void LabView::setLabyrinth(char** nLab){
   labyrinth = nLab;
+
+  w = *(&labyrinth + 1) - labyrinth;
+  h = *(&labyrinth[0] + 1) - labyrinth[0];
+
+  widthUnit = width()/w;
+  heightUnit = height()/h;
 }
 
 void LabView::newTile(string color){

@@ -50,7 +50,16 @@ void laberintowindow::takefile()
             }
             f++;
         }
-        simulation(filas,columnas);
+        labView = new LabView(filas,columnas,this);
+        labView->setLabyrinth(laberinto);
+        for(int i=0 ;i<filas; i++){
+            qDebug()<<"____";
+            for(int j=0; j<columnas; j++){
+                qDebug()<<laberinto[i][j];
+            }
+        }
+        labView->refresh();
+        //simulation(filas,columnas);
   }
 }
 
@@ -146,25 +155,9 @@ void laberintowindow::simulation(int filas, int columnas){
     delete Stack;
 }
 
-void laberintowindow::printMatrix(char** m, int filas, int columnas){
-    for(int i=0; i<filas; i++){
-        qDebug()<<"Salto de linea. ";
-        for(int j=0; j<columnas; j++){
-            if(m[i][j]=='0'){
-                qDebug()<<"0";
-            }
-            if(m[i][j]=='1'){
-                qDebug()<<"1";
-            }
-            if(m[i][j]=='#'){
-                qDebug()<<"#";
-            }
-        }
-    }
-}
-
 
 void laberintowindow::on_pushbutton_next_clicked()
 {
 
 }
+
