@@ -43,7 +43,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(616, 437);
+        MainWindow->resize(616, 438);
         MainWindow->setStyleSheet(QLatin1String("QWidget{\n"
 "	background-color: white;\n"
 "	border: none;\n"
@@ -60,7 +60,7 @@ public:
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"	background-color: rgb(33, 56, 148);\n"
+"	background-color: gray;\n"
 "}"));
         actionCerrar = new QAction(MainWindow);
         actionCerrar->setObjectName(QStringLiteral("actionCerrar"));
@@ -81,7 +81,7 @@ public:
 "}"));
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(320, 110, 271, 51));
+        pushButton_2->setGeometry(QRect(20, 250, 271, 51));
         pushButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
 "background-color: #4CAF50;\n"
 "}\n"
@@ -91,7 +91,7 @@ public:
 "}"));
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(20, 180, 271, 51));
+        pushButton_3->setGeometry(QRect(320, 110, 271, 51));
         pushButton_3->setStyleSheet(QLatin1String("QPushButton{\n"
 "background-color: #e53935;\n"
 "}\n"
@@ -101,17 +101,17 @@ public:
 "}"));
         pushButton_4 = new QPushButton(centralWidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(320, 180, 271, 51));
+        pushButton_4->setGeometry(QRect(20, 180, 271, 51));
         pushButton_4->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: #5D4037;\n"
+"background-color: #AFB42B;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"background-color:#3E2723;\n"
+"background-color:#827717;\n"
 "}"));
         pushButton_5 = new QPushButton(centralWidget);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(320, 320, 271, 51));
+        pushButton_5->setGeometry(QRect(320, 250, 271, 51));
         pushButton_5->setStyleSheet(QLatin1String("QPushButton{\n"
 "background-color: #7B1FA2;\n"
 "}\n"
@@ -121,10 +121,24 @@ public:
 "}"));
         pushButton_6 = new QPushButton(centralWidget);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        pushButton_6->setGeometry(QRect(320, 250, 271, 51));
+        pushButton_6->setGeometry(QRect(320, 320, 271, 51));
+        pushButton_6->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: #512DA8;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color: #4527A0;\n"
+"}"));
         pushButton_7 = new QPushButton(centralWidget);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        pushButton_7->setGeometry(QRect(20, 250, 271, 51));
+        pushButton_7->setGeometry(QRect(320, 180, 271, 51));
+        pushButton_7->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: #C2185B;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color: #880E4F;\n"
+"}"));
         pushButton_8 = new QPushButton(centralWidget);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
         pushButton_8->setGeometry(QRect(20, 320, 271, 51));
@@ -145,9 +159,10 @@ public:
         font.setWeight(75);
         label->setFont(font);
         label->setStyleSheet(QStringLiteral("color: #212121;"));
+        label->setAlignment(Qt::AlignCenter);
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(240, 60, 131, 21));
+        label_2->setGeometry(QRect(10, 50, 591, 31));
         QFont font1;
         font1.setFamily(QStringLiteral("Open Sans"));
         font1.setPointSize(16);
@@ -156,9 +171,10 @@ public:
         label_2->setFont(font1);
         label_2->setStyleSheet(QLatin1String("color: #757575;\n"
 "text-align: center;"));
+        label_2->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
         pushButton_9 = new QPushButton(centralWidget);
         pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
-        pushButton_9->setGeometry(QRect(210, 390, 201, 31));
+        pushButton_9->setGeometry(QRect(200, 390, 201, 31));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -168,7 +184,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Proyecto de EDD1", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "TDA Showcase | Men\303\272 Principal", nullptr));
         actionCerrar->setText(QApplication::translate("MainWindow", "Cerrar", nullptr));
 #ifndef QT_NO_SHORTCUT
         actionCerrar->setShortcut(QApplication::translate("MainWindow", "F4", nullptr));
@@ -182,8 +198,8 @@ public:
         pushButton_6->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Floyd", nullptr));
         pushButton_7->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Dijkstra", nullptr));
         pushButton_8->setText(QApplication::translate("MainWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", nullptr));
-        label->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos I", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "By Carlos V.\302\262", nullptr));
+        label->setText(QApplication::translate("MainWindow", "TDA Showcase", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos 1 | By Carlos V.\302\262", nullptr));
         pushButton_9->setText(QApplication::translate("MainWindow", "Manual del Usuario", nullptr));
     } // retranslateUi
 

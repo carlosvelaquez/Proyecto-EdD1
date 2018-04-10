@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>616</width>
-    <height>437</height>
+    <height>438</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Proyecto de EDD1</string>
+   <string>TDA Showcase | Menú Principal</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget{
@@ -30,7 +30,7 @@ QPushButton{
 }
 
 QPushButton:hover{
-	background-color: rgb(33, 56, 148);
+	background-color: gray;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -62,8 +62,8 @@ background-color:#FF6F00;
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>110</y>
+      <x>20</x>
+      <y>250</y>
       <width>271</width>
       <height>51</height>
      </rect>
@@ -84,8 +84,8 @@ background-color: rgb(64, 148, 67);
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>180</y>
+      <x>320</x>
+      <y>110</y>
       <width>271</width>
       <height>51</height>
      </rect>
@@ -106,7 +106,7 @@ background-color: rgb(198, 53, 43);
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>20</x>
       <y>180</y>
       <width>271</width>
       <height>51</height>
@@ -114,11 +114,11 @@ background-color: rgb(198, 53, 43);
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-background-color: #5D4037;
+background-color: #AFB42B;
 }
 
 QPushButton:hover {
-background-color:#3E2723;
+background-color:#827717;
 }</string>
     </property>
     <property name="text">
@@ -129,7 +129,7 @@ background-color:#3E2723;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>320</y>
+      <y>250</y>
       <width>271</width>
       <height>51</height>
      </rect>
@@ -151,10 +151,19 @@ background-color: #4A148C;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>250</y>
+      <y>320</y>
       <width>271</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: #512DA8;
+}
+
+QPushButton:hover {
+background-color: #4527A0;
+}</string>
     </property>
     <property name="text">
      <string>Menor Costo - Algoritmo de Floyd</string>
@@ -163,11 +172,20 @@ background-color: #4A148C;
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>250</y>
+      <x>320</x>
+      <y>180</y>
       <width>271</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: #C2185B;
+}
+
+QPushButton:hover {
+background-color: #880E4F;
+}</string>
     </property>
     <property name="text">
      <string>Menor Costo - Algoritmo de Dijkstra</string>
@@ -216,16 +234,19 @@ background-color: #1A237E;
      <string notr="true">color: #212121;</string>
     </property>
     <property name="text">
-     <string>Proyecto de Estructuras de Datos I</string>
+     <string>TDA Showcase</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>60</y>
-      <width>131</width>
-      <height>21</height>
+      <x>10</x>
+      <y>50</y>
+      <width>591</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -241,13 +262,16 @@ background-color: #1A237E;
 text-align: center;</string>
     </property>
     <property name="text">
-     <string>By Carlos V.²</string>
+     <string>Proyecto de Estructuras de Datos 1 | By Carlos V.²</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_9">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>200</x>
       <y>390</y>
       <width>201</width>
       <height>31</height>
