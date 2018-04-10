@@ -51,7 +51,7 @@ void laberintowindow::takefile()
             f++;
         }
 
-        List<List<char>> laberinto;
+        List<List<char>> lab;
 
         for(int i=0 ;i<filas; i++){
           List<char> columna;
@@ -59,10 +59,10 @@ void laberintowindow::takefile()
                 columna.insert(laberinto[i][j]);
             }
 
-            laberinto.insert(columna);
+            lab.insert(columna);
         }
 
-        labView->setLabyrinth(laberinto);
+        labView->setLabyrinth(lab);
         labView->refresh();
         
         //simulation(filas,columnas);
