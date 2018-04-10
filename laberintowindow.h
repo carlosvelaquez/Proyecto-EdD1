@@ -42,6 +42,7 @@ private:
     Ui::laberintowindow *ui;
     LabView* labView;
     char** laberinto;
+    int fil, col;
 };
 
 #endif // LABERINTOWINDOW_H

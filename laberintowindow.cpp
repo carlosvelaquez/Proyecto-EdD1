@@ -53,9 +53,9 @@ void laberintowindow::takefile()
 
         List<List<char>> lab;
 
-        for(int i=0 ;i<filas; i++){
+        for(int j =0 ;j <columnas; j ++){
           List<char> columna;
-            for(int j=0; j<columnas; j++){
+            for(int i =0; i <filas; i ++){
                 columna.insert(laberinto[i][j]);
             }
 
@@ -64,8 +64,8 @@ void laberintowindow::takefile()
 
         labView->setLabyrinth(lab);
         labView->refresh();
-        
-        //simulation(filas,columnas);
+        fil = filas;
+        col = columnas;
   }
 }
 
@@ -164,5 +164,26 @@ void laberintowindow::simulation(int filas, int columnas){
 
 void laberintowindow::on_pushbutton_next_clicked()
 {
+  int filas = fil;
+  int columnas = col;
 
+  simulation(filas,columnas);
+
+  List<List<char>> lab;
+
+  for(int j =0 ;j <columnas; j ++){
+    List<char> columna;
+      for(int i =0; i <filas; i ++){
+        if (laberinto[i] != 0){
+          columna.insert(laberinto[i][j]);
+        }else{
+          columna.insert('#');
+        }
+      }
+
+      lab.insert(columna);
+  }
+
+  labView->setLabyrinth(lab);
+  labView->refresh();
 }

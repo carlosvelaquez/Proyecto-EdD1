@@ -1,7 +1,7 @@
 #include "labview.h"
 
 LabView::LabView() : QFrame(Q_NULLPTR){
-  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
+  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 0px; } QFrame{border: 1px solid #C5C5C5;}");
 
   labyrinth.clear();
 
@@ -20,7 +20,7 @@ LabView::LabView() : QFrame(Q_NULLPTR){
 }
 
 LabView::LabView(QWidget* parent = Q_NULLPTR) : QFrame(parent){
-  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
+  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 0px; } QFrame{border: 1px solid #C5C5C5;}");
 
   labyrinth.clear();
 
@@ -39,7 +39,7 @@ LabView::LabView(QWidget* parent = Q_NULLPTR) : QFrame(parent){
 }
 
 LabView::LabView(List<List<char>> nLab, QWidget *parent = Q_NULLPTR) : QFrame(parent){
-  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 25px; } QFrame{border: 1px solid #C5C5C5;}");
+  this->QFrame::setStyleSheet("QPushButton{ color:white; border-radius: 0px; } QFrame{border: 1px solid #C5C5C5;}");
 
   labyrinth = nLab;
 
@@ -91,11 +91,11 @@ void LabView::refresh(){
       current = labyrinth.get(i).get(j);
 
       if (current == '0') {
-        newTile(i, j, "black");
+        newTile(i - 1, j - 1, "#FF5722");
       }else if (current == '1'){
-        newTile(i, j, "white");
+        newTile(i - 1, j - 1, "white");
       }else{
-        newTile(i, j, "red");
+        newTile(i - 1, j - 1, "#7CB342");
       }
     }
   }
