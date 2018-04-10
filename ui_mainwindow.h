@@ -199,7 +199,7 @@ public:
         pushButton_7->setText(QApplication::translate("MainWindow", "Menor Costo - Algoritmo de Dijkstra", nullptr));
         pushButton_8->setText(QApplication::translate("MainWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", nullptr));
         label->setText(QApplication::translate("MainWindow", "TDA Showcase", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos 1 | By Carlos V.\302\262", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Proyecto de Estructuras de Datos I | By Carlos V.\302\262", nullptr));
         pushButton_9->setText(QApplication::translate("MainWindow", "Manual del Usuario", nullptr));
     } // retranslateUi
 

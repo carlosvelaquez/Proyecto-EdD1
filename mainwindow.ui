@@ -262,7 +262,7 @@ background-color: #1A237E;
 text-align: center;</string>
     </property>
     <property name="text">
-     <string>Proyecto de Estructuras de Datos 1 | By Carlos V.²</string>
+     <string>Proyecto de Estructuras de Datos I | By Carlos V.²</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
