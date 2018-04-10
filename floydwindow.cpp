@@ -48,6 +48,7 @@ void FloydWindow::fillTable(){
     ui->tableWidget->setColumnCount(graph->getVertices()->size);
     ui->tableWidget->setRowCount(graph->getVertices()->size);
 
+
     for(int i=0; i<graph->getVertices()->size; i++){
         ui->tableWidget->setColumnWidth(i,ui->tableWidget->geometry().width()/graph->getVertices()->size-5);
         ui->tableWidget->setRowHeight(i,ui->tableWidget->geometry().height()/graph->getVertices()->size-5);

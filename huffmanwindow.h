@@ -44,7 +44,7 @@ private:
     Ui::huffmanwindow *ui;
     QString textoGenerado;
     QString textoObtenido;
-    List<treedata>* codigos;
+    List<treedata*>* codigos;
 };
 
 #endif // HUFFMANWINDOW_H

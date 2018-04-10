@@ -12,7 +12,7 @@ huffmanwindow::huffmanwindow(QWidget *parent) :
     ui(new Ui::huffmanwindow)
 {
     ui->setupUi(this);
-    codigos  = new List<treedata>();
+    codigos  = new List<treedata*>();
     connect(ui->pushButton_compress, SIGNAL(clicked()),this,SLOT(compressWord()));
     connect(ui->pushbutton_load, SIGNAL(clicked()),this,SLOT(loadFile()));
 }
@@ -33,7 +33,7 @@ void huffmanwindow::compress(QString word){
     bitreenode<treedata>* root = createTree(queue);
     decode("",root);
     filltext();
-    fillTreeWidget(root);
+    /*fillTreeWidget(root);*/
     fillQList(root);
     qDebug()<<textoGenerado;
     delete root;
@@ -71,7 +71,7 @@ Queue<bitreenode<treedata>*>* huffmanwindow::fillList(QString* word){
 void huffmanwindow::loadFile(){
     textoObtenido = "";
     textoGenerado = "";
-    codigos = new List<treedata>();
+    codigos = new List<treedata*>();
     QString fileName =QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("Archivos de texto (*.txt)"));
     QFile* nfile = new QFile(fileName);
     if (nfile->open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -83,6 +83,7 @@ void huffmanwindow::loadFile(){
     nfile->close();
     delete nfile;
     compress(textoObtenido);
+
 }
 
 /* Slot que obtiene el texto escrito desde un LineEdit
@@ -90,7 +91,7 @@ void huffmanwindow::loadFile(){
 void huffmanwindow::compressWord(){
     textoObtenido = "";
     textoGenerado = "";
-    codigos = new List<treedata>();
+    codigos = new List<treedata*>();
     textoObtenido = ui->QlineEdit->text();
     compress(textoObtenido);
 }
@@ -138,7 +139,7 @@ void huffmanwindow::sort(Queue<bitreenode<treedata>*>* nQueue){
 void huffmanwindow::decode(QString Code, bitreenode<treedata>* currentTreeNode){
     if(!currentTreeNode->hasChildren()){
         Code+=QString::number(currentTreeNode->getData()->getType());
-        //codigos->insert(new treedata(currentTreeNode->getData()->getChar(),Code));
+        codigos->insert(new treedata(currentTreeNode->getData()->getChar(),Code));
     }else{
         if(currentTreeNode->getData()->getType()!=-1){
             Code+=QString::number(currentTreeNode->getData()->getType());
@@ -156,9 +157,9 @@ void huffmanwindow::decode(QString Code, bitreenode<treedata>* currentTreeNode){
  */
 void huffmanwindow::filltext(){
     for(int i=0; i<textoObtenido.size(); i++){
-        for(int j=1; j<=codigos->size; i++){
-            if(codigos->get(j).getChar() == textoObtenido[i]){
-                textoGenerado+=codigos->get(j).getCode();
+        for(int j=1; j<=codigos->size; j++){
+            if(codigos->get(j)->getChar() == textoObtenido[i]){
+                textoGenerado+=codigos->get(j)->getCode();
             }
         }
     }
@@ -180,6 +181,7 @@ void huffmanwindow::fillTreeWidget(bitreenode<treedata>* Node){
     }
 }
 
+
 void huffmanwindow::fillQList(bitreenode<treedata>* Node){
     if(Node->hasChildren()){
         QListWidgetItem* item = new QListWidgetItem();
@@ -187,6 +189,7 @@ void huffmanwindow::fillQList(bitreenode<treedata>* Node){
         text+=" - ";
         text+=Node->getData()->getCode();
         item->setText(text);
+        ui->ListaLetras->setItemWidget(item,this);
     }else{
         bitreenode<treedata>* NodoIzq = Node->getLeftChild();
         fillQList(NodoIzq);
