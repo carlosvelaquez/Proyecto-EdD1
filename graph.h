@@ -7,6 +7,7 @@
 #include <QDebug>
 
 using namespace std;
+Q_DECLARE_METATYPE(Vertex<string>*)
 
 template <class T>
 class Graph{

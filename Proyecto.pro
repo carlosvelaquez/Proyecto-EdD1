@@ -81,7 +81,7 @@ FORMS += \
     mstwindow.ui \
     laberintowindow.ui \
     huffmanwindow.ui \
-    floydwindow.ui \
-    dijkstrawindow.ui
+    dijkstrawindow.ui \
+    floydwindow.ui
 
 CONFIG += c++11

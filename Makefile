@@ -342,7 +342,7 @@ TARGET        = Proyecto
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h ui_floydwindow.h ui_dijkstrawindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h ui_dijkstrawindow.h ui_floydwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: Proyecto.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -747,7 +747,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.h arbol.h arbol.h treenode.h arbol.h empleado.h treenode.h desempenowindow.h expresioneswindow.h list.h node.h expression.h treenode.h tree.h queue.h bicoloreableswindow.h dragbutton.h graphview.h mstwindow.h graphframe.h graph.h vertex.h laberintowindow.h huffmanwindow.h linkedstack.h stack.h bitreenode.h treedata.h laberintodata.h labview.h floydwindow.h dijkstrawindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp empleado.cpp desempenowindow.cpp expresioneswindow.cpp expression.cpp bicoloreableswindow.cpp mstwindow.cpp laberintowindow.cpp huffmanwindow.cpp treedata.cpp labview.cpp floydwindow.cpp dijkstrawindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui bicoloreableswindow.ui mstwindow.ui laberintowindow.ui huffmanwindow.ui floydwindow.ui dijkstrawindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui desempenowindow.ui expresioneswindow.ui bicoloreableswindow.ui mstwindow.ui laberintowindow.ui huffmanwindow.ui dijkstrawindow.ui floydwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -865,6 +865,7 @@ moc_laberintowindow.cpp: linkedstack.h \
 		node.h \
 		laberintodata.h \
 		labview.h \
+		list.h \
 		laberintowindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -880,7 +881,9 @@ moc_huffmanwindow.cpp: queue.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include huffmanwindow.h -o moc_huffmanwindow.cpp
 
-moc_labview.cpp: labview.h \
+moc_labview.cpp: list.h \
+		node.h \
+		labview.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/imado/Proyecto -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/7.2.1 -I/usr/include/c++/7.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.1/include-fixed -I/usr/include labview.h -o moc_labview.cpp
@@ -907,9 +910,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h ui_floydwindow.h ui_dijkstrawindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h ui_dijkstrawindow.h ui_floydwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h ui_floydwindow.h ui_dijkstrawindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_desempenowindow.h ui_expresioneswindow.h ui_bicoloreableswindow.h ui_mstwindow.h ui_laberintowindow.h ui_huffmanwindow.h ui_dijkstrawindow.h ui_floydwindow.h
 ui_mainwindow.h: mainwindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic mainwindow.ui -o ui_mainwindow.h
@@ -938,13 +941,13 @@ ui_huffmanwindow.h: huffmanwindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic huffmanwindow.ui -o ui_huffmanwindow.h
 
-ui_floydwindow.h: floydwindow.ui \
-		/usr/bin/uic
-	/usr/bin/uic floydwindow.ui -o ui_floydwindow.h
-
 ui_dijkstrawindow.h: dijkstrawindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic dijkstrawindow.ui -o ui_dijkstrawindow.h
+
+ui_floydwindow.h: floydwindow.ui \
+		/usr/bin/uic
+	/usr/bin/uic floydwindow.ui -o ui_floydwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1054,6 +1057,7 @@ laberintowindow.o: laberintowindow.cpp laberintowindow.h \
 		node.h \
 		laberintodata.h \
 		labview.h \
+		list.h \
 		ui_laberintowindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o laberintowindow.o laberintowindow.cpp
 
@@ -1069,7 +1073,9 @@ huffmanwindow.o: huffmanwindow.cpp huffmanwindow.h \
 treedata.o: treedata.cpp treedata.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o treedata.o treedata.cpp
 
-labview.o: labview.cpp labview.h
+labview.o: labview.cpp labview.h \
+		list.h \
+		node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o labview.o labview.cpp
 
 floydwindow.o: floydwindow.cpp floydwindow.h \

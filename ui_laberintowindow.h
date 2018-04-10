@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'laberintowindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.4
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -113,10 +113,10 @@ public:
 
     void retranslateUi(QWidget *laberintowindow)
     {
-        laberintowindow->setWindowTitle(QApplication::translate("laberintowindow", "Form", Q_NULLPTR));
-        label_2->setText(QApplication::translate("laberintowindow", "Laberinto con Backtracking", Q_NULLPTR));
-        pushbutton_next->setText(QApplication::translate("laberintowindow", "Resolver Laberinto", Q_NULLPTR));
-        pushbutton_load->setText(QApplication::translate("laberintowindow", "Cargar Laberinto", Q_NULLPTR));
+        laberintowindow->setWindowTitle(QApplication::translate("laberintowindow", "Form", nullptr));
+        label_2->setText(QApplication::translate("laberintowindow", "Laberinto con Backtracking", nullptr));
+        pushbutton_next->setText(QApplication::translate("laberintowindow", "Resolver Laberinto", nullptr));
+        pushbutton_load->setText(QApplication::translate("laberintowindow", "Cargar Laberinto", nullptr));
     } // retranslateUi
 
 };

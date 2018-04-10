@@ -1,7 +1,10 @@
 #ifndef DIJKSTRAWINDOW_H
 #define DIJKSTRAWINDOW_H
 
+#include <QtGui>
 #include <QWidget>
+#include <QComboBox>
+#include <QVariant>
 #include "graph.h"
 #include "vertex.h"
 

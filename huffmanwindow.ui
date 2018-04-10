@@ -44,7 +44,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QFrame{
-background-color:#795548;
+background-color:#CDDC39;
 }
 
 QLabel{
@@ -52,14 +52,14 @@ color: white;
 }
 
 QPushButton{
-background-color: #5D4037;
+background-color: #AFB42B;
 color: white;
 border: none;
 font: 11pt &quot;Lato&quot;;
 }
 
 QPushButton:hover{
-background-color:#3E2723;
+background-color:#827717;
 }</string>
    </property>
    <property name="frameShape">
@@ -117,7 +117,7 @@ background-color:#3E2723;
    </property>
    <property name="styleSheet">
     <string notr="true">QFrame{
-background-color:#795548;
+background-color:#CDDC39;
 }
 
 QLabel{
@@ -125,14 +125,14 @@ color: white;
 }
 
 QPushButton{
-background-color: #5D4037;
+background-color: #AFB42B;
 color: white;
 border: none;
 font: 11pt &quot;Lato&quot;;
 }
 
 QPushButton:hover{
-background-color:#3E2723;
+background-color:#827717;
 }</string>
    </property>
    <property name="frameShape">

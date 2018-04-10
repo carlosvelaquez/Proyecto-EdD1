@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>681</width>
-    <height>375</height>
+    <height>379</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,11 +22,28 @@
      <x>0</x>
      <y>0</y>
      <width>681</width>
-     <height>71</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #C2185B;</string>
+    <string notr="true">QFrame{
+background-color: #E91E63;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color:#C2185B;
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color: #880E4F;
+}</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -40,42 +57,63 @@
       <x>550</x>
       <y>0</y>
       <width>131</width>
-      <height>71</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>Buscar</string>
+     <string>Cargar Grafo</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>13</x>
-      <y>16</y>
-      <width>491</width>
-      <height>41</height>
+      <x>10</x>
+      <y>10</y>
+      <width>381</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">font: 23pt &quot;Noto Sans&quot;;
-</string>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
-     <string>Costo Min. Algoritmo de Dijkstra</string>
+     <string>Costo Mínimo - Dijkstra</string>
     </property>
    </widget>
   </widget>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>130</y>
-     <width>171</width>
-     <height>121</height>
+     <x>0</x>
+     <y>330</y>
+     <width>681</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #C2185B;</string>
+    <string notr="true">QFrame{
+background-color: #E91E63;
+}
+
+QLabel{
+color: white;
+}
+
+QPushButton{
+background-color:#C2185B;
+color: white;
+border: none;
+font: 11pt &quot;Lato&quot;;
+}
+
+QPushButton:hover{
+background-color: #880E4F;
+}</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -86,37 +124,45 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
+      <x>200</x>
+      <y>10</y>
       <width>151</width>
       <height>25</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QPushButton" name="pushButton_Elegir">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>0</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Encontrar Rutas</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="resultadoLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>54</width>
-      <height>17</height>
+      <width>171</width>
+      <height>21</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Vertices</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_Elegir">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
-     <string>Elergir</string>
+     <string>Seleccionar Vértice</string>
     </property>
    </widget>
   </widget>
@@ -124,9 +170,9 @@
    <property name="geometry">
     <rect>
      <x>9</x>
-     <y>79</y>
-     <width>471</width>
-     <height>281</height>
+     <y>69</y>
+     <width>661</width>
+     <height>251</height>
     </rect>
    </property>
    <property name="frameShape">

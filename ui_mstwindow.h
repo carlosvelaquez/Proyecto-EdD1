@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mstwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.4
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -237,24 +237,24 @@ public:
 
     void retranslateUi(QWidget *MSTWindow)
     {
-        MSTWindow->setWindowTitle(QApplication::translate("MSTWindow", "\303\201rboles de Expansi\303\263n M\303\255nima | Proyecto EdD I", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MSTWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", Q_NULLPTR));
-        botonNuevoGrafo->setText(QApplication::translate("MSTWindow", "Nuevo Grafo", Q_NULLPTR));
-        pbEncontrarMST->setText(QApplication::translate("MSTWindow", "Vista AEM", Q_NULLPTR));
-        pbRevertir->setText(QApplication::translate("MSTWindow", "Vista Original", Q_NULLPTR));
-        label->setText(QApplication::translate("MSTWindow", "Vista Actual:", Q_NULLPTR));
-        lbVista->setText(QApplication::translate("MSTWindow", "Grafo Original", Q_NULLPTR));
-        botonCargarGrafo->setText(QApplication::translate("MSTWindow", "Cargar Grafo", Q_NULLPTR));
-        botonGuardarGrafo->setText(QApplication::translate("MSTWindow", "Guardar Grafo", Q_NULLPTR));
-        label_4->setText(QApplication::translate("MSTWindow", "Crear V\303\251rtice", Q_NULLPTR));
-        label_5->setText(QApplication::translate("MSTWindow", "Nombre del V\303\251rtice", Q_NULLPTR));
-        botonCrearVertice->setText(QApplication::translate("MSTWindow", "Crear Nuevo V\303\251rtice", Q_NULLPTR));
-        botonConectarVertices->setText(QApplication::translate("MSTWindow", "Crear Nueva Arista", Q_NULLPTR));
-        label_6->setText(QApplication::translate("MSTWindow", "V\303\251rtice 1", Q_NULLPTR));
-        label_7->setText(QApplication::translate("MSTWindow", "V\303\251rtice 2", Q_NULLPTR));
-        label_8->setText(QApplication::translate("MSTWindow", "Costo", Q_NULLPTR));
-        label_9->setText(QApplication::translate("MSTWindow", "Crear Arista", Q_NULLPTR));
-        lbError->setText(QApplication::translate("MSTWindow", "No se pudo encontrar un AEM", Q_NULLPTR));
+        MSTWindow->setWindowTitle(QApplication::translate("MSTWindow", "\303\201rboles de Expansi\303\263n M\303\255nima | Proyecto EdD I", nullptr));
+        label_2->setText(QApplication::translate("MSTWindow", "\303\201rboles de Expansi\303\263n M\303\255nima", nullptr));
+        botonNuevoGrafo->setText(QApplication::translate("MSTWindow", "Nuevo Grafo", nullptr));
+        pbEncontrarMST->setText(QApplication::translate("MSTWindow", "Vista AEM", nullptr));
+        pbRevertir->setText(QApplication::translate("MSTWindow", "Vista Original", nullptr));
+        label->setText(QApplication::translate("MSTWindow", "Vista Actual:", nullptr));
+        lbVista->setText(QApplication::translate("MSTWindow", "Grafo Original", nullptr));
+        botonCargarGrafo->setText(QApplication::translate("MSTWindow", "Cargar Grafo", nullptr));
+        botonGuardarGrafo->setText(QApplication::translate("MSTWindow", "Guardar Grafo", nullptr));
+        label_4->setText(QApplication::translate("MSTWindow", "Crear V\303\251rtice", nullptr));
+        label_5->setText(QApplication::translate("MSTWindow", "Nombre del V\303\251rtice", nullptr));
+        botonCrearVertice->setText(QApplication::translate("MSTWindow", "Crear Nuevo V\303\251rtice", nullptr));
+        botonConectarVertices->setText(QApplication::translate("MSTWindow", "Crear Nueva Arista", nullptr));
+        label_6->setText(QApplication::translate("MSTWindow", "V\303\251rtice 1", nullptr));
+        label_7->setText(QApplication::translate("MSTWindow", "V\303\251rtice 2", nullptr));
+        label_8->setText(QApplication::translate("MSTWindow", "Costo", nullptr));
+        label_9->setText(QApplication::translate("MSTWindow", "Crear Arista", nullptr));
+        lbError->setText(QApplication::translate("MSTWindow", "No se pudo encontrar un AEM", nullptr));
     } // retranslateUi
 
 };

@@ -3,7 +3,6 @@
 
 #include "graphframe.h"
 
-Q_DECLARE_METATYPE(Vertex<string>*)
 
 template <class T>
 class GraphView : public GraphFrame{

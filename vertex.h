@@ -24,6 +24,16 @@ protected:
 public:
   QPoint pos;
   string color;
+  Vertex(){
+    pos = QPoint(25,25);
+    T nData;
+    data = nData;
+    edges = new List<Vertex<T>*>();
+    costs = new List<double>();
+    displayName = "Vertex";
+    color = "#7512EA";
+    check = false;
+  }
 
   Vertex(Vertex<T>* v){
     pos = v->pos;

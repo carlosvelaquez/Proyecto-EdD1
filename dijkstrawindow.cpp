@@ -43,6 +43,19 @@ void dijkstrawindow::on_pushButton_clicked()
 }
 
 void dijkstrawindow::fillComboBox(){
+  ui->comboBox->clear();
+
+  if (graph != 0) {
+    List<Vertex<string>*>* vertices = graph->getVertices();
+
+    for (int i = 1; i <= vertices->size; i++) {
+      QVariant cbData;
+      Vertex<string>* current = vertices->get(i);
+
+      cbData.setValue(current);
+      ui->comboBox->addItem(current->getDisplayName().c_str(), cbData);
+    }
+  }
       /* for(int i=1; i<=graph->getVertices()->size; i++){
         QVariant cbData;
         Vertex<string>* current;

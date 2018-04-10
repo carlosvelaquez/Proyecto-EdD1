@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'huffmanwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.4
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -54,7 +54,7 @@ public:
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(0, 0, 751, 61));
         frame_3->setStyleSheet(QLatin1String("QFrame{\n"
-"background-color:#795548;\n"
+"background-color:#CDDC39;\n"
 "}\n"
 "\n"
 "QLabel{\n"
@@ -62,14 +62,14 @@ public:
 "}\n"
 "\n"
 "QPushButton{\n"
-"background-color: #5D4037;\n"
+"background-color: #AFB42B;\n"
 "color: white;\n"
 "border: none;\n"
 "font: 11pt \"Lato\";\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"background-color:#3E2723;\n"
+"background-color:#827717;\n"
 "}"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
@@ -90,7 +90,7 @@ public:
         Frame_1->setObjectName(QStringLiteral("Frame_1"));
         Frame_1->setGeometry(QRect(0, 390, 751, 61));
         Frame_1->setStyleSheet(QLatin1String("QFrame{\n"
-"background-color:#795548;\n"
+"background-color:#CDDC39;\n"
 "}\n"
 "\n"
 "QLabel{\n"
@@ -98,14 +98,14 @@ public:
 "}\n"
 "\n"
 "QPushButton{\n"
-"background-color: #5D4037;\n"
+"background-color: #AFB42B;\n"
 "color: white;\n"
 "border: none;\n"
 "font: 11pt \"Lato\";\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"background-color:#3E2723;\n"
+"background-color:#827717;\n"
 "}"));
         Frame_1->setFrameShape(QFrame::StyledPanel);
         Frame_1->setFrameShadow(QFrame::Raised);
@@ -126,11 +126,11 @@ public:
 
     void retranslateUi(QWidget *huffmanwindow)
     {
-        huffmanwindow->setWindowTitle(QApplication::translate("huffmanwindow", "Form", Q_NULLPTR));
-        label_2->setText(QApplication::translate("huffmanwindow", "Compresi\303\263n de Archivos de Texto", Q_NULLPTR));
-        pushbutton_load->setText(QApplication::translate("huffmanwindow", "Cargar Archivo", Q_NULLPTR));
-        QlineEdit->setPlaceholderText(QApplication::translate("huffmanwindow", "Ingrese texto para comprimir.", Q_NULLPTR));
-        pushButton_compress->setText(QApplication::translate("huffmanwindow", "Comprimir Texto", Q_NULLPTR));
+        huffmanwindow->setWindowTitle(QApplication::translate("huffmanwindow", "Form", nullptr));
+        label_2->setText(QApplication::translate("huffmanwindow", "Compresi\303\263n de Archivos de Texto", nullptr));
+        pushbutton_load->setText(QApplication::translate("huffmanwindow", "Cargar Archivo", nullptr));
+        QlineEdit->setPlaceholderText(QApplication::translate("huffmanwindow", "Ingrese texto para comprimir.", nullptr));
+        pushButton_compress->setText(QApplication::translate("huffmanwindow", "Comprimir Texto", nullptr));
     } // retranslateUi
 
 };

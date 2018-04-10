@@ -11,6 +11,7 @@ laberintowindow::laberintowindow(QWidget *parent) :
     labView = new LabView(this);
     labView->setGeometry(10, 70, 601, 601);
     labView->show();
+    laberinto = 0;
 }
 
 laberintowindow::~laberintowindow()
@@ -157,7 +158,8 @@ void laberintowindow::simulation(int filas, int columnas){
             termina = false;
         }
     }
-    for(int i=0; i<stack->size(); i++){
+
+    for(size_t i=0; i<stack->size(); i++){
         x = stack->back()->getX();
         y = stack->back()->getY();
         stack->pop_back();
@@ -169,6 +171,9 @@ void laberintowindow::simulation(int filas, int columnas){
 
 void laberintowindow::on_pushbutton_next_clicked()
 {
+  if (laberinto == 0)
+        return;
+
   int filas = fil;
   int columnas = col;
 
