@@ -426,28 +426,28 @@ public:
   /*
    *
    */
- void MinimalCost_Dijkstra(Vertex<T>* nVertex){
-      for(int i=1; i<=vertices->size; i++){
-          vertices->get(i)->setDistancia(99999999);
-          vertices->get(i)->setPrevio(0);
-      }
-      DijkstraSearch(nVertex);
-  }
+  void MinimalCost_Dijkstra(Vertex<T>* nVertex){
+       for(int i=1; i<=vertices->size; i++){
+           vertices->get(i)->setDistancia(99999999);
+           vertices->get(i)->setPrevio(0);
+       }
+       DijkstraSearch(nVertex);
+   }
 
-  void DijkstraSearch(Vertex<T>* vertice){
-      for(int i=1; i<=vertice->getEdges()->size; i++){
-        if(!vertice->getEdges()->get(i)->isCheck()){
-           if(vertice->getDistancia()+vertice->getCosts()->get(i) < vertice->getEdges()->get(i)->getDistancia()){
-              vertice->getEdges()->get(i)->setDistancia(vertice->getDistancia()+vertice->getCosts()->get(i));
-              vertice->getEdges()->get(i)->setPrevio(vertice);
-           }
-        }
-      }
-      vertice->setCheck(true);
-      for(int i=1; i<=vertice->getEdges()->size; i++){
-        DijkstraSearch(vertice->getEdges()->get(i));
-      }
-  }
+   void DijkstraSearch(Vertex<T>* vertice){
+       for(int i=1; i<=vertice->getEdges()->size; i++){
+         if(!vertice->getEdges()->get(i)->isCheck()){
+            if(vertice->getDistancia()+vertice->getCosts()->get(i) < vertice->getEdges()->get(i)->getDistancia()){
+               vertice->getEdges()->get(i)->setDistancia(vertice->getDistancia()+vertice->getCosts()->get(i));
+               vertice->getEdges()->get(i)->setPrevio(vertice);
+            }
+         }
+       }
+       vertice->setCheck(true);
+       for(int i=1; i<=vertice->getEdges()->size; i++){
+         DijkstraSearch(vertice->getEdges()->get(i));
+       }
+   }
 
 
   /* ************** Floyd *************** */

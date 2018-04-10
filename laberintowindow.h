@@ -26,8 +26,8 @@ public:
     char** createMatrix(int,int);
     void clearMatrix(char**,int);
     void simulation(char**,int,int);
-    bool checkPosition(int,int,char**);
 
+    void printMatrix(char**,int,int);
 private slots:
     void takefile();
     bool move();

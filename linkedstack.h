@@ -60,6 +60,14 @@ public:
         return false;
     }
 
+    T get(int num){
+        Node<T>* tempNode = head;
+        for(int i=1; i<size; i++){
+            tempNode = tempNode->getNext();
+        }
+        return tempNode->getData();
+    }
+
     Node<T>* operator [](int num){
             Node<T>* tempNode = head;
             for(int i=1; i<num; i++){

@@ -29,6 +29,7 @@ void huffmanwindow::compress(QString word){
     Queue<bitreenode<treedata>*>* queue = fillList(&word);
     sort(queue);
     bitreenode<treedata>* root = createTree(queue);
+    qDebug()<<"Frecuencia del nodo: "<<root->getData()->getFrecuency();
     decode("",root);
     filltext();
     qDebug()<<textoGenerado;
