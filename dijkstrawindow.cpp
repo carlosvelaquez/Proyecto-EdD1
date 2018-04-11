@@ -41,10 +41,10 @@ void dijkstrawindow::on_pushButton_clicked()
       }
     }
     fillComboBox();
-
 }
 
-void dijkstrawindow::fillComboBox(){
+void dijkstrawindow::fillComboBox()
+{
   ui->comboBox->clear();
 
   if (graph != 0) {
@@ -57,6 +57,7 @@ void dijkstrawindow::fillComboBox(){
       cbData.setValue(current);
       ui->comboBox->addItem(current->getDisplayName().c_str(), cbData);
     }
+
   }
 }
 
@@ -73,7 +74,8 @@ void dijkstrawindow::on_pushButton_Elegir_clicked()
     }
 }
 
-void dijkstrawindow::fillText(){
+void dijkstrawindow::fillText()
+{
     /*std::string str = "Hello world";
      *QString qstr = QString::fromStdString(str);
      */
@@ -81,7 +83,9 @@ void dijkstrawindow::fillText(){
     QString text2;
 
 //    text+="Vertice de origen: "+QString::fromStdString(graph->getSptSet()->get(1)->getDisplayName());
+    List<Vertex*>* = graph->getSptSet();
     for(int i=2; i<=graph->getSptSet()->size; i++){
 
     }
+
 }

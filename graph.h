@@ -439,16 +439,15 @@ public:
    *
    */
 
+
   void MinimalCost_Dijkstra(Vertex<T>* OriginVertex){
       for(int i=1; i<=vertices->size; i++){
           vertices->get(i)->setDistancia(999999);
       }
     OriginVertex->setDistancia(0); // Valor minimo de distancia
     NoVertex->insert(OriginVertex);
-    int cont =0;
     while(OriginVertex!=0){
        OriginVertex = CostoMinimo(OriginVertex);
-       cont++;
     }
    }
 
@@ -461,10 +460,6 @@ public:
         Vadyacente = nVertex->getEdges()->get(i);
         cantidadAcumulada = nVertex->getDistancia()+nVertex->getCosts()->get(i);
         if(cantidadAcumulada < Vadyacente->getDistancia()){
-            qDebug()<<"===========================";
-            qDebug()<<"Cantidad del vertice inicial: "<<nVertex->getDistancia();
-            qDebug()<<"Cantidad del nodo adyacente: "<<Vadyacente->getDistancia();
-            qDebug()<<"Cantidad nueca del nodo adyacente: "<<cantidadAcumulada;
             Vadyacente->setDistancia(cantidadAcumulada);
             Vadyacente->setPrevio(nVertex);
         }
@@ -477,9 +472,6 @@ public:
       }
 
       if(menor!=0){
-          qDebug()<<"**************************";
-          qDebug()<<"  - Vertice añadido a la lista: "<<menor->getDistancia();
-          qDebug()<<"**************************";
           NoVertex->insert(menor);
       }
       return menor;
