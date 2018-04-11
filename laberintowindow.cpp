@@ -1,5 +1,6 @@
 #include "laberintowindow.h"
 #include "ui_laberintowindow.h"
+#include <iostream>
 
 laberintowindow::laberintowindow(QWidget *parent) :
 QWidget(parent),
