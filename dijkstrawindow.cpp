@@ -83,9 +83,13 @@ void dijkstrawindow::fillText()
     QString text2;
 
 //    text+="Vertice de origen: "+QString::fromStdString(graph->getSptSet()->get(1)->getDisplayName());
-    List<Vertex*>* = graph->getSptSet();
-    for(int i=2; i<=graph->getSptSet()->size; i++){
-
+    //QString::fromStdString(str);
+    for(int i=1; i<=graph->getSptSet()->size; i++){
+        QString n = "";
+        n = QString::fromStdString(graph->getSptSet()->get(i)->getDisplayName());
+        n+=" Distancia: "+QString::number(graph->getSptSet()->get(i)->getDistancia());
+        n+=" | ";
+        ui->textEdit->setText(n);
     }
 
 }
