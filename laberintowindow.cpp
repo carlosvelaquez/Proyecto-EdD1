@@ -98,83 +98,6 @@ bool laberintowindow::move(){
 }
 
 void laberintowindow::simulation(int filas, int columnas){
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    int x =0, y=0;
-    bool pasa,termina=true;
-    vector<LaberintoData*> stack;
-    linkedstack<LaberintoData*>* Stack  = new linkedstack<LaberintoData*>();
-    for(int i=0; i<filas; i++){
-        if(laberinto[i][0]=='1'){ // Validando entrada en primera columna
-            x = 0;
-            y = i;
-            stack.push_back(new LaberintoData(x,y));
-        }
-    }
-    while(termina){
-        pasa = false;
-        laberinto[y][x] = '#';
-        if(y>0 && y<filas && pasa==false){ // Arriba
-            if(laberinto[y-1][x]=='1'){
-                y = y-1;
-                pasa = true;
-                stack.push_back(new LaberintoData(x,y));
-                //Stack->pop(new LaberintoData(x,y));
-            }
-        }
-        if(y+1<filas && pasa==false){ // Abajo=";
-            if(laberinto[y+1][x]=='1'){
-                y = y+1;
-                pasa = true;
-                stack.push_back(new LaberintoData(x,y));
-                //Stack->pop(new LaberintoData(x,y));
-            }
-        }
-        if(x>0 && x<columnas && pasa==false){ // Izquierda
-            if(laberinto[y][x-1]=='1'){
-                x = x-1;
-                pasa = true;
-                stack.push_back(new LaberintoData(x,y));
-                //Stack->pop(new LaberintoData(x,y));
-            }
-        }
-        if(x+1<columnas && pasa==false){ // Derecha
-            if(laberinto[y][x+1]=='1'){
-                x = x+1;
-                pasa = true;
-                stack.push_back(new LaberintoData(x,y));
-                //Stack->pop(new LaberintoData(x,y));
-            }
-        }
-        if(pasa==false){
-            if(stack.size()>0){
-                stack.pop_back();
-                x = stack.back()->getX();
-                y = stack.back()->getY();
-                std::cout<<stack.size()<<std::endl;
-            }
-        }
-        if(x==columnas-1||y==filas-1){
-            termina = false;
-        }
-    }
-
-    for(int i=0; i<stack.size(); i++){
-        x = stack[i]->getX();
-        y = stack[i]->getY();
-        laberinto[y][x] = 'x';
-    }
-    for(int i=0; i<filas; i++){
-        for(int j=0; j<columnas; j++){
-             std::cout << laberinto[i][j]<<" ";
-        }
-        std::cout << std::endl;
-    }
-
-    delete Stack;
-=======
->>>>>>> ff4d2d603f5252e7d2ec4b033bede961be9efa9f
   int x =0, y=0;
   bool pasa,termina=true;
   vector<LaberintoData*>* stack = new vector<LaberintoData*>();
@@ -245,10 +168,6 @@ for(size_t i=0; i<stack->size(); i++){
   laberinto[y][x] = 'x';
 }
 delete Stack;
-<<<<<<< HEAD
-=======
->>>>>>> c7ebd3788abaae32b9705f488afb90bf94944e58
->>>>>>> ff4d2d603f5252e7d2ec4b033bede961be9efa9f
 }
 
 

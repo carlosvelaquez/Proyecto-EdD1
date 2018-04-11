@@ -875,6 +875,8 @@ moc_huffmanwindow.cpp: queue.h \
 		node.h \
 		list.h \
 		bitreenode.h \
+		tree.h \
+		treenode.h \
 		treedata.h \
 		huffmanwindow.h \
 		moc_predefs.h \
@@ -1066,6 +1068,8 @@ huffmanwindow.o: huffmanwindow.cpp huffmanwindow.h \
 		node.h \
 		list.h \
 		bitreenode.h \
+		tree.h \
+		treenode.h \
 		treedata.h \
 		ui_huffmanwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o huffmanwindow.o huffmanwindow.cpp
