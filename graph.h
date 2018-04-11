@@ -16,6 +16,7 @@ private:
   List<Vertex<T>*>* vertices;
   bool weighted;
   bool bicolored = false;
+  List<Vertex<T>*>* NoVertex;
 
 public:
   const string color1 = "#f44336";
@@ -29,13 +30,14 @@ public:
 
   Graph(bool nWeighted){
     vertices = new List<Vertex<T>*>;
+    NoVertex = new List<Vertex<T>*>;
     weighted = nWeighted;
   }
 
   Graph(ifstream& file){
     char delim = ',';
     vertices = new List<Vertex<T>*>;
-
+    NoVertex = new List<Vertex<T>*>;
     string line;
     getline(file, line);
     weighted = false;
@@ -139,6 +141,10 @@ public:
 
   List<Vertex<T>*>* getVertices(){
     return vertices;
+  }
+
+  List<Vertex<T>*>* getSptSet(){
+    return NoVertex;
   }
 
   int getNodeCount(){
@@ -424,34 +430,60 @@ public:
   }
 
 
-
+  void clearNonVertex(){
+      NoVertex = 0;
+  }
   /* ************** Dijkstra *************** */
 
   /*
    *
    */
-  void MinimalCost_Dijkstra(Vertex<T>* nVertex){
-       for(int i=1; i<=vertices->size; i++){
-           vertices->get(i)->setDistancia(99999999);
-           vertices->get(i)->setPrevio(0);
-       }
-       DijkstraSearch(nVertex);
+
+  void MinimalCost_Dijkstra(Vertex<T>* OriginVertex){
+      for(int i=1; i<=vertices->size; i++){
+          vertices->get(i)->setDistancia(999999);
+      }
+    OriginVertex->setDistancia(0); // Valor minimo de distancia
+    NoVertex->insert(OriginVertex);
+    int cont =0;
+    while(OriginVertex!=0){
+       OriginVertex = CostoMinimo(OriginVertex);
+       cont++;
+    }
    }
 
-   void DijkstraSearch(Vertex<T>* vertice){
-       for(int i=1; i<=vertice->getEdges()->size; i++){
-         if(!vertice->getEdges()->get(i)->isCheck()){
-            if(vertice->getDistancia()+vertice->getCosts()->get(i) < vertice->getEdges()->get(i)->getDistancia()){
-               vertice->getEdges()->get(i)->setDistancia(vertice->getDistancia()+vertice->getCosts()->get(i));
-               vertice->getEdges()->get(i)->setPrevio(vertice);
-            }
-         }
-       }
-       vertice->setCheck(true);
-       for(int i=1; i<=vertice->getEdges()->size; i++){
-         DijkstraSearch(vertice->getEdges()->get(i));
-       }
-   }
+  Vertex<T>* CostoMinimo(Vertex<T>* nVertex){
+      Vertex<T>* Vadyacente;
+      Vertex<T>* menor = 0;
+      int num=999999;
+      int cantidadAcumulada=0;
+      for(int i=1; i<=nVertex->getEdges()->size; i++){
+        Vadyacente = nVertex->getEdges()->get(i);
+        cantidadAcumulada = nVertex->getDistancia()+nVertex->getCosts()->get(i);
+        if(cantidadAcumulada < Vadyacente->getDistancia()){
+            qDebug()<<"===========================";
+            qDebug()<<"Cantidad del vertice inicial: "<<nVertex->getDistancia();
+            qDebug()<<"Cantidad del nodo adyacente: "<<Vadyacente->getDistancia();
+            qDebug()<<"Cantidad nueca del nodo adyacente: "<<cantidadAcumulada;
+            Vadyacente->setDistancia(cantidadAcumulada);
+            Vadyacente->setPrevio(nVertex);
+        }
+      }
+      for(int i=1; i<=vertices->size; i++){
+          if(vertices->get(i)->getDistancia()<num && NoVertex->contains(vertices->get(i))==false){
+            num = vertices->get(i)->getDistancia();
+            menor = vertices->get(i);
+          }
+      }
+
+      if(menor!=0){
+          qDebug()<<"**************************";
+          qDebug()<<"  - Vertice añadido a la lista: "<<menor->getDistancia();
+          qDebug()<<"**************************";
+          NoVertex->insert(menor);
+      }
+      return menor;
+  }
 
 
   /* ************** Floyd *************** */

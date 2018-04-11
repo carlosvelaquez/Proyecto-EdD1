@@ -25,6 +25,8 @@ private slots:
 
     void on_pushButton_Elegir_clicked();
     void fillComboBox();
+    void fillText();
+
 private:
     Ui::dijkstrawindow *ui;
     Graph<string>* graph = 0;

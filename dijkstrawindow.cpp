@@ -5,6 +5,7 @@
 #include "graph.h"
 #include <QFileDialog>
 #include <QVariant>
+#include <iostream>
 
 dijkstrawindow::dijkstrawindow(QWidget *parent) :
     QWidget(parent),
@@ -40,6 +41,7 @@ void dijkstrawindow::on_pushButton_clicked()
       }
     }
     fillComboBox();
+
 }
 
 void dijkstrawindow::fillComboBox(){
@@ -56,23 +58,29 @@ void dijkstrawindow::fillComboBox(){
       ui->comboBox->addItem(current->getDisplayName().c_str(), cbData);
     }
   }
-      /* for(int i=1; i<=graph->getVertices()->size; i++){
-        QVariant cbData;
-        Vertex<string>* current;
-        current = graph->getVertices()->get(i);
-        cbData.setValue(current);
-        ui->comboBox->addItem(current->getDisplayName().c_str(), cbData);
-    }*/
 }
 
 void dijkstrawindow::on_pushButton_Elegir_clicked()
 {
-    /*QVariant v1 = ui->comboBox->itemData(ui->comboBox->currentText());
-    origen = v1.value<Vertex<string>*>();
+    QVariant variant = ui->comboBox->itemData(ui->comboBox->currentIndex());
+    Vertex<string> vertex = variant.value<Vertex<string>*>();
+    for(int i=1; i<=graph->getVertices()->size; i++){
+        if(graph->getVertices()->get(i)->getDisplayName()==vertex.getDisplayName()){
+            graph->MinimalCost_Dijkstra(graph->getVertices()->get(i));
+            fillText();
+            return;
+        }
+    }
+}
 
-    if(origen==0){
-     QMessageBox::information(this,tr("Error"),tr("No se puede realizar la operacion"));
-    }else{
-        graph->MinimalCost_Dijkstra(origen);
-    }*/
+void dijkstrawindow::fillText(){
+    /*std::string str = "Hello world";
+     *QString qstr = QString::fromStdString(str);
+     */
+    QString text1;
+    QString text2;
+    text+="Vertice de origen: "+QString::fromStdString(graph->getSptSet()->get(1)->getDisplayName());
+    for(int i=2; i<=graph->getSptSet()->size; i++){
+
+    }
 }

@@ -170,20 +170,14 @@ color: black;</string>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_3">
+  <widget class="QTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>23</x>
      <y>69</y>
-     <width>521</width>
+     <width>491</width>
      <height>251</height>
     </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
    </property>
   </widget>
  </widget>
