@@ -1,5 +1,6 @@
 #include "laberintowindow.h"
 #include "ui_laberintowindow.h"
+#include <iostream>
 
 laberintowindow::laberintowindow(QWidget *parent) :
     QWidget(parent),
@@ -98,12 +99,13 @@ bool laberintowindow::move(){
 void laberintowindow::simulation(int filas, int columnas){
     int x =0, y=0;
     bool pasa,termina=true;
-    vector<LaberintoData*>* stack = new vector<LaberintoData*>();
+    vector<LaberintoData*> stack;
     linkedstack<LaberintoData*>* Stack  = new linkedstack<LaberintoData*>();
     for(int i=0; i<filas; i++){
         if(laberinto[i][0]=='1'){ // Validando entrada en primera columna
             x = 0;
             y = i;
+            stack.push_back(new LaberintoData(x,y));
         }
     }
     while(termina){
@@ -111,47 +113,42 @@ void laberintowindow::simulation(int filas, int columnas){
         laberinto[y][x] = '#';
         if(y>0 && y<filas && pasa==false){ // Arriba
             if(laberinto[y-1][x]=='1'){
-                qDebug()<<" arriba ";
                 y = y-1;
                 pasa = true;
-                stack->push_back(new LaberintoData(x,y));
+                stack.push_back(new LaberintoData(x,y));
                 //Stack->pop(new LaberintoData(x,y));
             }
         }
         if(y+1<filas && pasa==false){ // Abajo=";
             if(laberinto[y+1][x]=='1'){
-                qDebug()<<" abajo ";
                 y = y+1;
                 pasa = true;
-                stack->push_back(new LaberintoData(x,y));
+                stack.push_back(new LaberintoData(x,y));
                 //Stack->pop(new LaberintoData(x,y));
             }
         }
         if(x>0 && x<columnas && pasa==false){ // Izquierda
             if(laberinto[y][x-1]=='1'){
-                qDebug()<<" izquierda ";
                 x = x-1;
                 pasa = true;
-                stack->push_back(new LaberintoData(x,y));
+                stack.push_back(new LaberintoData(x,y));
                 //Stack->pop(new LaberintoData(x,y));
             }
         }
         if(x+1<columnas && pasa==false){ // Derecha
             if(laberinto[y][x+1]=='1'){
-                qDebug()<<" derecha ";
                 x = x+1;
                 pasa = true;
-                stack->push_back(new LaberintoData(x,y));
+                stack.push_back(new LaberintoData(x,y));
                 //Stack->pop(new LaberintoData(x,y));
             }
         }
-        qDebug()<<"laberinto["<<y<<"]["<<x<<"]"<<laberinto[y][x];
         if(pasa==false){
-            qDebug()<<" Se elimina y: "<<y<<" | x: "<<x<<" | laberinto["<<y<<"]["<<x<<"]"<<laberinto[y][x];
-            if(stack->size()>0){
-                stack->pop_back();
-                x = stack->back()->getX();
-                y = stack->back()->getY();
+            if(stack.size()>0){
+                stack.pop_back();
+                x = stack.back()->getX();
+                y = stack.back()->getY();
+                std::cout<<stack.size()<<std::endl;
             }
         }
         if(x==columnas-1||y==filas-1){
@@ -159,12 +156,18 @@ void laberintowindow::simulation(int filas, int columnas){
         }
     }
 
-    for(size_t i=0; i<stack->size(); i++){
-        x = stack->back()->getX();
-        y = stack->back()->getY();
-        stack->pop_back();
+    for(int i=0; i<stack.size(); i++){
+        x = stack[i]->getX();
+        y = stack[i]->getY();
         laberinto[y][x] = 'x';
     }
+    for(int i=0; i<filas; i++){
+        for(int j=0; j<columnas; j++){
+             std::cout << laberinto[i][j]<<" ";
+        }
+        std::cout << std::endl;
+    }
+
     delete Stack;
 }
 
