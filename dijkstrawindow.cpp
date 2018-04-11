@@ -76,16 +76,22 @@ void dijkstrawindow::on_pushButton_Elegir_clicked()
 
 void dijkstrawindow::fillText()
 {
-    /*std::string str = "Hello world";
-     *QString qstr = QString::fromStdString(str);
-     */
-    QString text1;
-    QString text2;
+    QVariant variant = ui->comboBox->itemData(ui->comboBox->currentIndex());
+    Vertex<string> vertex = variant.value<Vertex<string>*>();
+    QString tex = "Distancias de costo mínimo desde ";
+    tex += vertex.getDisplayName().c_str();
+    tex += " hasta todos los nodos:";
 
-//    text+="Vertice de origen: "+QString::fromStdString(graph->getSptSet()->get(1)->getDisplayName());
-    List<Vertex*>* = graph->getSptSet();
-    for(int i=2; i<=graph->getSptSet()->size; i++){
+    tex += "\n\n";
 
+    for(int i=1; i<=graph->getSptSet()->size; i++){
+        QString n = vertex.getDisplayName().c_str();
+        n += " -> ";
+        n += QString::fromStdString(graph->getSptSet()->get(i)->getDisplayName());
+        n += ": " + QString::number(graph->getSptSet()->get(i)->getDistancia());
+        tex += n;
+        tex += "\n";
     }
 
+    ui->textEdit->setText(tex);
 }
