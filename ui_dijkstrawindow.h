@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -32,7 +33,7 @@ public:
     QComboBox *comboBox;
     QPushButton *pushButton_Elegir;
     QLabel *resultadoLabel;
-    QFrame *frame_3;
+    QTextEdit *textEdit;
 
     void setupUi(QWidget *dijkstrawindow)
     {
@@ -115,11 +116,9 @@ public:
         font1.setBold(true);
         font1.setWeight(75);
         resultadoLabel->setFont(font1);
-        frame_3 = new QFrame(dijkstrawindow);
-        frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(9, 69, 521, 251));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
+        textEdit = new QTextEdit(dijkstrawindow);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setGeometry(QRect(13, 69, 511, 251));
 
         retranslateUi(dijkstrawindow);
 
