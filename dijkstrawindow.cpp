@@ -79,7 +79,11 @@ void dijkstrawindow::fillText(){
      */
     QString text1;
     QString text2;
+<<<<<<< HEAD
     //text+="Vertice de origen: "+QString::fromStdString(graph->getSptSet()->get(1)->getDisplayName());
+=======
+//    text+="Vertice de origen: "+QString::fromStdString(graph->getSptSet()->get(1)->getDisplayName());
+>>>>>>> c7ebd3788abaae32b9705f488afb90bf94944e58
     for(int i=2; i<=graph->getSptSet()->size; i++){
 
     }

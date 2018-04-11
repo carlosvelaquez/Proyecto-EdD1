@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.5.0, 2018-04-10T21:38:31. -->
+=======
+<!-- Written by QtCreator 4.5.1, 2018-04-10T21:13:21. -->
+>>>>>>> c7ebd3788abaae32b9705f488afb90bf94944e58
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -309,6 +313,7 @@
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">Proyecto.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
+    <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseTerminal">true</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default">/home/carlos/Escritorio/Proyecto/PROYECTO DEFINITIVO/build-Proyecto-Desktop_Qt_5_9_4_GCC_64bit-Debug</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
